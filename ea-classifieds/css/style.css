@@ -1,0 +1,56 @@
+/*
+Theme Name: ea-classified
+Template: superlist
+Description: Child theme for Ellsworth American classifieds
+Author: Reach Maine
+Version: 1.0.0
+*/
+/* ----------- Colors ---------------------------------- */
+/* ----------- end Colors ----------- */
+/* ----------- Typography ------------------------------- */
+i.fa-pull-left {
+  float: left;
+  padding-right: 5px; }
+
+i.fa-pull-right {
+  float: right;
+  padding-left: 5px; }
+
+/* ----------- end typography ----------- */
+.center {
+  text-align: center; }
+
+.aligncenter {
+  margin: auto;
+  text-align: center;
+  margin-bottom: 22px;
+  display: block !important; }
+
+.alignleft {
+  float: left;
+  margin: 0px 30px 22px 0px; }
+
+.alignright {
+  float: right;
+  margin: 0px 0px 22px 30px; }
+
+.left {
+  float: left; }
+
+.right {
+  float: right; }
+
+small {
+  font-size: 12px;
+  line-height: 14px; }
+
+b {
+  font-weight: bold; }
+
+.normal {
+  font-weight: normal; }
+
+.hidden {
+  display: none; }
+
+/* **** media **** */
