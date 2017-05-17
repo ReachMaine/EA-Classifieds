@@ -53,4 +53,7 @@ b {
 .hidden {
   display: none; }
 
+.listing-row .listing-row-image {
+  background-size: contain; }
+
 /* **** media **** */

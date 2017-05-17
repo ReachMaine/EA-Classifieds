@@ -28,6 +28,11 @@ b                   { font-weight: bold; }
 .gallery-caption    { }
 .bypostauthor       { }
 
+.listing-row {
+  .listing-row-image {
+      background-size: contain;
+  }
+}
 
 
 
