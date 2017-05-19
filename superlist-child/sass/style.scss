@@ -1,0 +1,37 @@
+/*
+Theme Name: Superlist Child
+Template: superlist
+Description: Child theme for Ellsworth American classifieds
+Author: Reach Maine
+Tags: two-columns, right-sidebar, featured-images, translation-ready
+Version: 1.0.0
+*/
+@import "partials/colors";
+@import "partials/typography";
+// from parent theme.
+.center             { text-align: center; }
+.aligncenter        { margin: auto; text-align: center; margin-bottom: 22px; display: block !important;}
+.alignleft          { float: left; margin: 0px 30px 22px 0px;  }
+.alignright         { float: right; margin: 0px 0px 22px 30px; }
+
+.left               { float:left;  }
+.right              { float:right; }
+
+small               { font-size: 12px; line-height: 14px; }
+strong              { }
+b                   { font-weight: bold; }
+
+.normal             { font-weight: normal; }
+.hidden             { display: none; }
+.wp-caption         { }
+.wp-caption-text    { }
+.sticky             { }
+.gallery-caption    { }
+.bypostauthor       { }
+
+@import "partials/listings";
+
+
+
+
+@import "partials/media"; // keep at end of this file.d
