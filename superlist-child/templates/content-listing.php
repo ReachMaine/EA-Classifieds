@@ -1,8 +1,7 @@
 <?php /* mods zig - put title here since removed the big header. */
  /* zig here */
-global $post; ?>
-
-<? if ( has_post_thumbnail() ) { ?>
+global $post;
+ if ( has_post_thumbnail() ) { ?>
     <div class="row">
         <div class="col-md-3">
           <?php the_post_thumbnail('medium', ['class' => 'img-responsive responsive--full aligncenter', 'title' => 'Featured image']); ?>
