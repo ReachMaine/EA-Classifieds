@@ -5,15 +5,7 @@
     <?php $thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id(), 'medium' ); ?>
     <?php $image = $thumbnail[0]; ?>
 <?php else: ?>
-    <?php $posttype = get_post_type(get_the_ID());
-    $def_image = "default-listing.png";
-    switch ($posttype) {
-      case "helpwanted":
-          $def_image = "default-image-jobs.jpg";
-        break;
-    } // end switch
-    ?>
-    <?php $image = esc_attr(get_stylesheet_directory_uri() ) . '/images/'.$def_image; ?>
+    <?php $image = esc_attr( plugins_url( 'inventor' ) ) . '/assets/img/default-item.png'; ?>
 <?php endif; ?>
 
 <?php $image = apply_filters( 'inventor_listing_featured_image', $image, get_the_ID() ); ?>
