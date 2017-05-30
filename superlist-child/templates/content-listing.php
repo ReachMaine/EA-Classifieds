@@ -28,8 +28,8 @@ global $post;
 
 
 <?php do_action( 'inventor_before_listing_detail', get_the_ID() ); ?>
-
-<div class="listing-detail">
+<?php $posttype = get_post_type( get_the_ID()); ?>
+<div class="listing-detail <?php $posttype ?>">
     <?php Inventor_Post_Types::render_listing_detail_sections(); ?>
 </div><!-- /.listing-detail -->
 

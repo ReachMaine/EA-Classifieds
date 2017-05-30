@@ -4,16 +4,53 @@
 .detail-banner.detail-banner-simple {
   height: 200px;
 }
+.listing-detail  {
+  margin-top: 0px;
+  .listing-detail-section {
+    margin-bottom: 0px;
+    .page-header {
+      display: none;
+    }
+  }
+}
 
 
-// listing archive
+// listing archive (as row)
 .listing-row {
   .listing-row-image {
+      height: initial;
       background-size: contain;
-      width: 25%;
+      width: 20%;
+      background-position: 0 0;
   }
   .listing-row-properties {
     display: none;
+  }
+  .listing-row-body {
+    padding: 15px;
+  }
+}
+// listing archive as grid
+
+.listing-box-archive {
+  .listing-column {
+    .listing-column-image {
+      background-size: contain;
+    }
+    .listing-column-bottom-title { // nothing there, close up height, padding, etc
+      min-height: initial;
+      padding: 0px;
+      display: none;
+    }
+  }
+}
+// recent listings widget
+.listings-row {
+  .listing-container .listing-small {
+    .listing-small-content {
+       padding-left: 10px;
+       padding-right: 10px;
+    }
   }
 
 }

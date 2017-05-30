@@ -61,10 +61,32 @@ b {
 .detail-banner.detail-banner-simple {
   height: 200px; }
 
+.listing-detail {
+  margin-top: 0px; }
+  .listing-detail .listing-detail-section {
+    margin-bottom: 0px; }
+    .listing-detail .listing-detail-section .page-header {
+      display: none; }
+
 .listing-row .listing-row-image {
+  height: initial;
   background-size: contain;
-  width: 25%; }
+  width: 20%;
+  background-position: 0 0; }
 .listing-row .listing-row-properties {
   display: none; }
+.listing-row .listing-row-body {
+  padding: 15px; }
+
+.listing-box-archive .listing-column .listing-column-image {
+  background-size: contain; }
+.listing-box-archive .listing-column .listing-column-bottom-title {
+  min-height: initial;
+  padding: 0px;
+  display: none; }
+
+.listings-row .listing-container .listing-small .listing-small-content {
+  padding-left: 10px;
+  padding-right: 10px; }
 
 /* **** media **** */
