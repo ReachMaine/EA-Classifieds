@@ -64,5 +64,7 @@ b {
 .listing-row .listing-row-image {
   background-size: contain;
   width: 25%; }
+.listing-row .listing-row-properties {
+  display: none; }
 
 /* **** media **** */
