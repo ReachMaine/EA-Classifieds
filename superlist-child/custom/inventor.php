@@ -35,7 +35,7 @@ function ea_class_defimg($str_imgurl, $int_listingID) {
       case "classifieds":
         $str_imgurl = esc_attr(get_stylesheet_directory_uri() ) . '/images/'.'default-listing.png';
         break;
-      case " rentals":
+      case "rentals":
         $str_imgurl = esc_attr(get_stylesheet_directory_uri() ) . '/images/'.'ea_square_rentals.jpg';
         break;
       case "realestate":

@@ -69,12 +69,10 @@ b {
       display: none; }
 
 .listing-row .listing-row-image {
-  height: initial;
+  height: 150px;
   background-size: contain;
   width: 20%;
   background-position: 0 0; }
-.listing-row .listing-row-properties {
-  display: none; }
 .listing-row .listing-row-body {
   padding: 15px; }
 

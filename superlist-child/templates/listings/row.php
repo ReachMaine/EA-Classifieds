@@ -44,21 +44,22 @@
         </div><!-- /.listing-row-content -->
     </div><!-- /.listing-row-body -->
 
-    <div class="listing-row-properties">
-        <dl>
-            <?php $price = Inventor_Price::get_price( get_the_ID() ); ?>
-            <?php if ( ! empty( $price ) ) : ?>
-                <dt><?php echo esc_attr__( 'Price', 'inventor' ); ?></dt>
-                <dd><?php echo wp_kses( $price, wp_kses_allowed_html( 'post' ) ); ?></dd>
-            <?php endif; ?>
+    <?php $price = Inventor_Price::get_price( get_the_ID() );
+     $location = Inventor_Query::get_listing_location_name( get_the_ID(), '/', false );
+     if ($price || $location) { ?>
+        <div class="listing-row-properties">
+            <dl>
+                <?php if ( ! empty( $price ) ) : ?>
+                    <dt><?php echo esc_attr__( 'Price', 'inventor' ); ?></dt>
+                    <dd><?php echo wp_kses( $price, wp_kses_allowed_html( 'post' ) ); ?></dd>
+                <?php endif; ?>
+                <?php if ( ! empty( $location ) ) : ?>
+                    <dt><?php echo esc_attr__( 'Location', 'inventor' ); ?></dt>
+                    <dd><?php echo wp_kses( $location, wp_kses_allowed_html( 'post' ) ); ?></dd>
+                <?php endif; ?>
 
-            <?php $location = Inventor_Query::get_listing_location_name( get_the_ID(), '/', false ); ?>
-            <?php if ( ! empty( $location ) ) : ?>
-                <dt><?php echo esc_attr__( 'Location', 'inventor' ); ?></dt>
-                <dd><?php echo wp_kses( $location, wp_kses_allowed_html( 'post' ) ); ?></dd>
-            <?php endif; ?>
-
-            <?php do_action( 'inventor_listing_content', get_the_ID(), 'row' ); ?>
-        </dl>
-    </div><!-- /.listing-row-properties -->
+                <?php do_action( 'inventor_listing_content', get_the_ID(), 'row' ); ?>
+            </dl>
+        </div><!-- /.listing-row-properties -->
+      <?php } ?>
 </div><!-- /.listing-row -->

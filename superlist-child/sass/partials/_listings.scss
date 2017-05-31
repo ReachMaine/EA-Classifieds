@@ -18,18 +18,16 @@
 // listing archive (as row)
 .listing-row {
   .listing-row-image {
-      height: initial;
+      height: 150px;
       background-size: contain;
       width: 20%;
       background-position: 0 0;
-  }
-  .listing-row-properties {
-    display: none;
   }
   .listing-row-body {
     padding: 15px;
   }
 }
+
 // listing archive as grid
 
 .listing-box-archive {
