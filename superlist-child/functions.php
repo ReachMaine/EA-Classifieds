@@ -29,3 +29,18 @@
 
       return $title;
  });
+
+
+
+   if ( function_exists('register_sidebar') ){
+
+       /* add top banner ad widget */
+      register_sidebar(array(
+       'name' => 'Top Banner Ad',
+       'id' => 'topbanner',
+       'description' => 'Widget for a targetted banner ad.',
+       'before_widget' => '<div id="%1$s" class=" %2$s ad-container">',
+       'after_widget'  => '</div>'
+
+       ));
+    }

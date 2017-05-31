@@ -28,8 +28,15 @@ b                   { font-weight: bold; }
 .sticky             { }
 .gallery-caption    { }
 .bypostauthor       { }
-
+// header styling
+#topbanner {
+  text-align: center;
+  .ad-container {
+    padding: 10px;
+  }
+}
 @import "partials/listings";
+
 
 
 

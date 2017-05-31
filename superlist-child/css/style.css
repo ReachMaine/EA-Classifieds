@@ -58,6 +58,11 @@ b {
 .hidden {
   display: none; }
 
+#topbanner {
+  text-align: center; }
+  #topbanner .ad-container {
+    padding: 10px; }
+
 .detail-banner.detail-banner-simple {
   height: 200px; }
 

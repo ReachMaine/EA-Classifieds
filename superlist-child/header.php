@@ -7,6 +7,7 @@
  */
 /* mods:
  19may17 zig - remove archor nav for single listing
+ 31May17 zig - add braodstreet javascript
  */
 ?>
 <!DOCTYPE html>
@@ -16,7 +17,7 @@
     <meta name="viewport" content="width=device-width">
     <link rel="profile" href="http://gmpg.org/xfn/11">
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-
+    <script data-cfasync="false" type="text/javascript" src="//cdn.broadstreetads.com/init.js"></script>
     <?php if ( is_singular() ) { wp_enqueue_script( 'comment-reply' ); } ?>
 
     <?php wp_head(); ?>
