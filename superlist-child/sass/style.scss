@@ -35,10 +35,16 @@ b                   { font-weight: bold; }
     padding: 10px;
   }
 }
+.header-logo img{
+  max-height: 120px;
+}
+  .header-wrap-background {
+    height: 150px;
+    background-image: url(./images/map-background-dark.jpg);
+  }
+
+
 @import "partials/listings";
-
-
-
 
 
 @import "partials/media"; // keep at end of this file.d

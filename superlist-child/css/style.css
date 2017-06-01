@@ -63,6 +63,13 @@ b {
   #topbanner .ad-container {
     padding: 10px; }
 
+.header-logo img {
+  max-height: 120px; }
+
+.header-wrap-background {
+  height: 150px;
+  background-image: url(./images/map-background-dark.jpg); }
+
 .detail-banner.detail-banner-simple {
   height: 200px; }
 
@@ -73,10 +80,12 @@ b {
     .listing-detail .listing-detail-section .page-header {
       display: none; }
 
+@media only screen and (min-width: 1200px) {
+  .listing-row-image {
+    width: 15%; } }
 .listing-row .listing-row-image {
   height: 150px;
-  background-size: contain;
-  width: 20%; }
+  background-size: contain; }
 .listing-row .listing-row-image.img-default {
   background-color: black; }
 .listing-row .listing-row-body {

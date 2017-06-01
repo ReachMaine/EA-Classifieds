@@ -17,7 +17,9 @@
               <?php get_template_part( 'templates/header-parts/header-navigation-menu' ); ?>
           </div><!-- /.container -->
       </div><!-- /.header-navigation-wrapper -->
+    </div><!-- /.header-wrap-background -->
 
+      <div class="header-wrap-background">
         <div class="container">
 
             <div class="header-inner">
@@ -32,9 +34,6 @@
                 </div><!-- /.header-content -->
             </div><!-- /.header-inner -->
         </div><!-- /.container -->
-
-
-
         <?php get_template_part( 'templates/header-parts/header-post-types' ); ?>
-    </div><!-- /.header-wrapper -->
+      </div><!-- /.header-wrap-background -->
 </header><!-- /.header -->
