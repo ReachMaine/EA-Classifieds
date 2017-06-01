@@ -6,11 +6,22 @@
 }
 .listing-detail  {
   margin-top: 0px;
-  .listing-detail-section {
+  .listing-detail-contact,
+  .listing-detail-section,
+  .listing-detail-attributes {
     margin-bottom: 0px;
+    padding-bottom: 0px;
     .page-header {
       display: none;
+      padding: 0px;
+      margin: 0px;
     }
+  }
+  .listing-detail-thumb {
+    background-color: white;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 1px 2px 0;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 1px 2px 0;
+    padding-bottom: 20px; // last one needs padding
   }
 }
 

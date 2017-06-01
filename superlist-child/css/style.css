@@ -21,6 +21,26 @@ i.fa-pull-right {
   font-style: italic;
   font-weight: bold; }
 
+.footer-top
+.widget_nav_menu.ea-footer-menu h2.widgettitle {
+  color: #000 !important;
+  text-transform: uppercase;
+  text-align: center !important;
+  margin-top: 20px !important;
+  margin-bottom: 10px !important; }
+.footer-top
+.widget_nav_menu.ea-footer-menu .widgettitle:before {
+  content: none !important; }
+.footer-top
+.widget_nav_menu.ea-footer-menu .menu li {
+  text-align: center; }
+  .footer-top
+  .widget_nav_menu.ea-footer-menu .menu li a {
+    border-bottom: 0px !important;
+    line-height: 2em !important;
+    margin-right: 0px;
+    color: #000 !important; }
+
 /* ----------- end typography ----------- */
 .center {
   text-align: center; }
@@ -75,10 +95,22 @@ b {
 
 .listing-detail {
   margin-top: 0px; }
-  .listing-detail .listing-detail-section {
-    margin-bottom: 0px; }
-    .listing-detail .listing-detail-section .page-header {
-      display: none; }
+  .listing-detail .listing-detail-contact,
+  .listing-detail .listing-detail-section,
+  .listing-detail .listing-detail-attributes {
+    margin-bottom: 0px;
+    padding-bottom: 0px; }
+    .listing-detail .listing-detail-contact .page-header,
+    .listing-detail .listing-detail-section .page-header,
+    .listing-detail .listing-detail-attributes .page-header {
+      display: none;
+      padding: 0px;
+      margin: 0px; }
+  .listing-detail .listing-detail-thumb {
+    background-color: white;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 1px 2px 0;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 1px 2px 0;
+    padding-bottom: 20px; }
 
 @media only screen and (min-width: 1200px) {
   .listing-row-image {
@@ -106,5 +138,15 @@ b {
 .listing-types-card-image {
   background-color: black;
   background-size: contain; }
+
+footer.footer {
+  color: #000 !important; }
+  footer.footer .footer-top {
+    background-color: #FFF; }
+  footer.footer .footer-bottom {
+    color: #000;
+    background-color: #FFF; }
+    footer.footer .footer-bottom .widget .textwidget {
+      color: #000 !important; }
 
 /* **** media **** */

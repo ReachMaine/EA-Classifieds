@@ -46,5 +46,19 @@ b                   { font-weight: bold; }
 
 @import "partials/listings";
 
+// footer styling {
+footer.footer {
+  color: $footer-text-color!important;
+  .footer-top {
+    background-color: $footer-background-color;
+  }
+  .footer-bottom{
+    color: $footer-text-color;
+    background-color: $footer-background-color;
+    .widget .textwidget {
+      color: $footer-text-color!important;
+    }
+  }
+}
 
 @import "partials/media"; // keep at end of this file.d

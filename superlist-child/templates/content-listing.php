@@ -1,4 +1,4 @@
-<?php /* mods zig - put title here since removed the big header. */
+()<?php /* mods zig - put title here since removed the big header. */
 /* zig here */
 global $post;
 ?>
@@ -22,6 +22,7 @@ global $post;
 <?php $posttype = get_post_type( get_the_ID()); ?>
 <div class="listing-detail <?php echo $posttype; ?>">
     <?php Inventor_Post_Types::render_listing_detail_sections(); ?>
+    <?php reach_listing_thumb( get_the_ID()); ?>
 </div><!-- /.listing-detail -->
 
 <?php do_action( 'inventor_after_listing_detail', get_the_ID() ); ?>
