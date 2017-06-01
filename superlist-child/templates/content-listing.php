@@ -1,10 +1,25 @@
-()<?php /* mods zig - put title here since removed the big header. */
+<?php /* mods zig - put title here since removed the big header. */
 /* zig here */
 global $post;
+$posttype = get_post_type( get_the_ID());
 ?>
       	<h1 class="detail-title">
       			<?php /* echo apply_filters( 'inventor_listing_title', get_the_title(), get_the_ID() ); */ ?>
-      			<?php echo get_the_title(); ?>
+      			<?php
+
+            $title =  get_the_title();
+            switch($posttype) {
+              case 'helpwanted':
+                  $title = "Job Openings in the Hancock County Area";
+                  break;
+              case 'classifieds':
+                $title = "Classified Ads in Hancock County Area";
+                break;
+              default:
+                  $title =  get_the_title();
+            }
+            echo $title;
+            ?>
       	</h1>
 
       	<?php $slogan = get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'slogan', true ); ?>
@@ -19,7 +34,7 @@ global $post;
 
 
 <?php do_action( 'inventor_before_listing_detail', get_the_ID() ); ?>
-<?php $posttype = get_post_type( get_the_ID()); ?>
+<?php /* $posttype = get_post_type( get_the_ID()); */ ?>
 <div class="listing-detail <?php echo $posttype; ?>">
     <?php Inventor_Post_Types::render_listing_detail_sections(); ?>
     <?php reach_listing_thumb( get_the_ID()); ?>
