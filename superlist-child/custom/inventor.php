@@ -48,3 +48,13 @@ function ea_class_defimg($str_imgurl, $int_listingID) {
   }
  return $str_imgurl;
 }
+
+// put featured image at bottom of listing via add_action
+add_action('inventor_after_listing_detail', 'reach_listing_thumb', 10, 1);
+function reach_listing_thumb( $int_listing_id) {
+
+  if ( has_post_thumbnail($int_listing_id) ) {
+    echo get_the_post_thumbnail($int_listing_id, 'medium', ['class' => 'img-responsive responsive--full aligncenter', 'title' => 'Featured image']);
+  }
+
+}

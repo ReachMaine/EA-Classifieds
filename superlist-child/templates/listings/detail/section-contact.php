@@ -1,3 +1,6 @@
+<?php /*
+  1Jun17 zig - dont display address & move website to second column
+*/ ?>
 <?php if ( apply_filters( 'inventor_metabox_allowed', true, 'contact', get_the_author_meta('ID') ) && isset( $fields ) ): ?>
     <?php $predefined_fields = array(
         INVENTOR_LISTING_PREFIX . 'email',
@@ -12,7 +15,7 @@
     <?php $website = get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'website', true ); ?>
     <?php $phone = get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'phone', true ); ?>
     <?php $person = get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'person', true ); ?>
-    <?php $address = get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'address', true ); ?>
+    <?php $address = ""; // zig x-out get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'address', true ); ?>
 
     <?php if ( ! empty( $email ) || ! empty( $website ) || ! empty( $phone ) || ! empty( $person ) || ! empty( $address ) ) : ?>
         <div class="listing-detail-section" id="listing-detail-section-contact">
@@ -30,16 +33,7 @@
                                     </span>
                                 </li>
                             <?php endif; ?>
-                            <?php if ( ! empty( $website ) ): ?>
-                                <?php if ( strpos( $website, 'http' ) !== 0 ) $website = sprintf( 'http://%s', $website ); ?>
 
-                                <li class="website">
-                                    <strong class="key"><?php echo __( 'Website', 'inventor' ); ?></strong>
-                                    <span class="value">
-                                        <a href="<?php echo esc_attr( $website ); ?>" target="_blank"><?php echo esc_attr( $website ); ?></a>
-                                    </span>
-                                </li>
-                            <?php endif; ?>
                             <?php if ( ! empty( $phone ) ): ?>
                                 <li class="phone">
                                     <strong class="key"><?php echo __( 'Phone', 'inventor' ); ?></strong>
@@ -62,6 +56,16 @@
                     </div><!-- /.col-* -->
                     <div class="col-md-6">
                         <ul>
+                          <?php if ( ! empty( $website ) ): ?>
+                              <?php if ( strpos( $website, 'http' ) !== 0 ) $website = sprintf( 'http://%s', $website ); ?>
+
+                              <li class="website">
+                                  <strong class="key"><?php echo __( 'Website', 'inventor' ); ?></strong>
+                                  <span class="value">
+                                      <a href="<?php echo esc_attr( $website ); ?>" target="_blank"><?php echo esc_attr( $website ); ?></a>
+                                  </span>
+                              </li>
+                          <?php endif; ?>
                             <?php if ( ! empty( $person ) ): ?>
                                 <li class="person">
                                     <strong class="key"><?php echo __( 'Person', 'inventor' ); ?></strong>
