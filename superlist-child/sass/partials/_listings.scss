@@ -21,7 +21,10 @@
       height: 150px;
       background-size: contain;
       width: 20%;
-      background-position: 0 0;
+      //background-position: 0 0;
+  }
+  .listing-row-image.img-default {
+      background-color: black;
   }
   .listing-row-body {
     padding: 15px;
@@ -51,4 +54,10 @@
     }
   }
 
+}
+// listing types widget of listings (used on homepage)
+.listing-categories-card-image,
+.listing-types-card-image {
+  background-color: black;
+  background-size: contain;
 }

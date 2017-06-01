@@ -3,16 +3,18 @@
 
 <?php if ( has_post_thumbnail() ) : ?>
     <?php $thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id(), 'medium' ); ?>
-    <?php $image = $thumbnail[0]; ?>
+    <?php $image = $thumbnail[0];
+    $img_class ="img-thumb"; ?>
 <?php else: ?>
-    <?php $image = esc_attr( plugins_url( 'inventor' ) ) . '/assets/img/default-item.png'; ?>
+    <?php $image = esc_attr( plugins_url( 'inventor' ) ) . '/assets/img/default-item.png';
+    $img_class ="img-default" ;?>
 <?php endif; ?>
 
 <?php $image = apply_filters( 'inventor_listing_featured_image', $image, get_the_ID() ); ?>
 <?php $posttype = get_post_type( get_the_ID()); ?>
 
 <div class="listing-row <?php if ( $featured ) : ?>featured<?php endif; ?> <?php if ( $posttype ) {echo $posttype;} ?>">
-    <div class="listing-row-image" style="background-image: url('<?php echo esc_attr( $image ); ?>');">
+    <div class="listing-row-image <?php echo $img_class; ?>" style="background-image: url('<?php echo esc_attr( $image ); ?>');">
         <a href="<?php the_permalink() ?>" class="listing-row-image-link"></a>
 
         <div class="listing-row-actions">

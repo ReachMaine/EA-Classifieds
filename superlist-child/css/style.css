@@ -76,8 +76,9 @@ b {
 .listing-row .listing-row-image {
   height: 150px;
   background-size: contain;
-  width: 20%;
-  background-position: 0 0; }
+  width: 20%; }
+.listing-row .listing-row-image.img-default {
+  background-color: black; }
 .listing-row .listing-row-body {
   padding: 15px; }
 
@@ -91,5 +92,10 @@ b {
 .listings-row .listing-container .listing-small .listing-small-content {
   padding-left: 10px;
   padding-right: 10px; }
+
+.listing-categories-card-image,
+.listing-types-card-image {
+  background-color: black;
+  background-size: contain; }
 
 /* **** media **** */
