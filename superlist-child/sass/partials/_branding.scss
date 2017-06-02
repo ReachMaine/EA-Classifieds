@@ -1,0 +1,44 @@
+/* styling for branding for EA & Reach */
+a.reach-logo {
+  color: white;
+}
+.reach-logo:before {
+  content: url('images/reach-favicon.png');
+  padding-right: 4px;
+}
+
+// styling for EA top banner ads
+
+.ad-container span { // get border to around the add.
+  height: auto;
+  display: inline-block;
+
+}
+// styling for ea menus in footer.
+.footer-top
+.widget_nav_menu.ea-footer-menu { // class on widget for menus in footer.
+	h2.widgettitle {
+		color: $footer-text-color!important;
+		// Background colors:;
+		text-transform: uppercase;
+		text-align: center!important;
+
+		margin-top: 20px!important;
+		margin-bottom: 10px!important;
+	}
+	.widgettitle:before {
+		content: none!important;
+	}
+	.menu {
+		li {
+				text-align: center;
+				a {
+					border-bottom: 0px!important;
+					line-height: 2em!important;
+					margin-right: 0px;
+					color: $footer-text-color!important;
+				}
+		}
+	}
+
+}

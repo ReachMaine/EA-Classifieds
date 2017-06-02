@@ -21,6 +21,19 @@ i.fa-pull-right {
   font-style: italic;
   font-weight: bold; }
 
+/* ----------- end typography ----------- */
+/* styling for branding for EA & Reach */
+a.reach-logo {
+  color: white; }
+
+.reach-logo:before {
+  content: url("images/reach-favicon.png");
+  padding-right: 4px; }
+
+.ad-container span {
+  height: auto;
+  display: inline-block; }
+
 .footer-top
 .widget_nav_menu.ea-footer-menu h2.widgettitle {
   color: #000 !important;
@@ -41,7 +54,6 @@ i.fa-pull-right {
     margin-right: 0px;
     color: #000 !important; }
 
-/* ----------- end typography ----------- */
 .center {
   text-align: center; }
 
