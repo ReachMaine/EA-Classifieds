@@ -15,6 +15,12 @@
 				            	break;
 				        }
 						break;
+					case 'superlist' :
+						switch ( $translated_text ) {
+								case 'Sorry, but nothing matched your search terms. Please try again with some different keywords.' :
+									$translated_text = __ ('Sorry, no current listings match your filters. Please try again with different filters. ', 'superlist');
+									break;
+						}
 					default:
 						/* switch ( $translated_text ) {
 				            case 'Category' :

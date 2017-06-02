@@ -42,6 +42,9 @@ function ea_class_defimg($str_imgurl, $int_listingID) {
         $str_imgurl = esc_attr(get_stylesheet_directory_uri() ) . '/images/'.'ea_square_realestate.png';
         break;
       case "local":
+        /* $str_imgurl = esc_attr(get_stylesheet_directory_uri() ) . '/images/'.'default-listing.png';
+        break; */
+      default:
         $str_imgurl = esc_attr(get_stylesheet_directory_uri() ) . '/images/'.'default-listing.png';
         break;
     } // end switch

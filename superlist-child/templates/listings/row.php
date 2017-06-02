@@ -1,3 +1,6 @@
+<?php /*
+2Jun17 zig - change location to town.
+*/ ?>
 <?php $featured = get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'featured', true ); ?>
 <?php $reduced = get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'reduced', true ); ?>
 
@@ -56,7 +59,7 @@
                     <dd><?php echo wp_kses( $price, wp_kses_allowed_html( 'post' ) ); ?></dd>
                 <?php endif; ?>
                 <?php if ( ! empty( $location ) ) : ?>
-                    <dt><?php echo esc_attr__( 'Location', 'inventor' ); ?></dt>
+                    <dt><?php echo esc_attr__( 'Town'/* 'Location' */, 'inventor' ); ?></dt>
                     <dd><?php echo wp_kses( $location, wp_kses_allowed_html( 'post' ) ); ?></dd>
                 <?php endif; ?>
 
