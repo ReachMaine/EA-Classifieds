@@ -32,7 +32,10 @@
     width: 15%; //
   }
 }
-
+.reach-cpt-img {
+  max-width: 150px;
+  padding-right: 15px;
+}
 .listing-row {
   .listing-row-image {
       height: 150px;
@@ -43,10 +46,17 @@
   .listing-row-image.img-default {
       background-color: black;
   }
-  .listing-row-body {
+  .listing-row-body,
+  .listing-row-propertiess {
     padding: 15px;
     //width: 80%;
   }
+}
+.listing-row:hover .listing-row-image:before {
+  opacity: 0;
+}
+.listing-row:hover .listing-row-image {
+  //background-color: $hover-hilite-color;
 }
 
 // listing archive as grid

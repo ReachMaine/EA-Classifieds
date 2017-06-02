@@ -28,26 +28,7 @@ function ea_class_defimg($str_imgurl, $int_listingID) {
   $pos = strpos($str_imgurl,'/wp-content/plugins/inventor/assets/img/default-item.png' );
   if ($pos !== false) {
     $posttype = get_post_type($int_listingID);
-    switch ($posttype) {
-      case "helpwanted":
-           $str_imgurl = esc_attr(get_stylesheet_directory_uri() ) . '/images/'.'default-image-jobs.jpg';
-        break;
-      case "classifieds":
-        $str_imgurl = esc_attr(get_stylesheet_directory_uri() ) . '/images/'.'default-listing.png';
-        break;
-      case "rentals":
-        $str_imgurl = esc_attr(get_stylesheet_directory_uri() ) . '/images/'.'ea_square_rentals.jpg';
-        break;
-      case "realestate":
-        $str_imgurl = esc_attr(get_stylesheet_directory_uri() ) . '/images/'.'ea_square_realestate.png';
-        break;
-      case "local":
-        /* $str_imgurl = esc_attr(get_stylesheet_directory_uri() ) . '/images/'.'default-listing.png';
-        break; */
-      default:
-        $str_imgurl = esc_attr(get_stylesheet_directory_uri() ) . '/images/'.'default-listing.png';
-        break;
-    } // end switch
+    $str_imgurl = reach_get_post_type_image($post_type);
   }
  return $str_imgurl;
 }
@@ -73,4 +54,29 @@ function disable_gmap_views( $enabled, $metabox_id, $field_id, $post_type ) {
     }
 
     return $enabled;
+}
+
+function reach_get_post_type_image($str_post_type) {
+  $str_imgurl = "";
+  switch ($str_post_type) {
+      case "helpwanted":
+           $str_imgurl = esc_attr(get_stylesheet_directory_uri() ) . '/images/'.'default-image-jobs.jpg';
+        break;
+      case "classifieds":
+        $str_imgurl = esc_attr(get_stylesheet_directory_uri() ) . '/images/'.'default-listing.png';
+        break;
+      case "rentals":
+        $str_imgurl = esc_attr(get_stylesheet_directory_uri() ) . '/images/'.'ea_square_rentals.jpg';
+        break;
+      case "realestate":
+        $str_imgurl = esc_attr(get_stylesheet_directory_uri() ) . '/images/'.'ea_square_realestate.png';
+        break;
+      case "local":
+        /* $str_imgurl = esc_attr(get_stylesheet_directory_uri() ) . '/images/'.'default-listing.png';
+        break; */
+      default:
+        $str_imgurl = esc_attr(get_stylesheet_directory_uri() ) . '/images/'.'default-listing.png';
+        break;
+    } // end switch
+    return $str_imgurl;
 }

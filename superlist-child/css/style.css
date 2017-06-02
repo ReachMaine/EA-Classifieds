@@ -102,6 +102,11 @@ b {
   height: 150px;
   background-image: url(./images/map-background-dark.jpg); }
 
+.navbar-toggle {
+  background-color: #0a83b6; }
+  .navbar-toggle .icon-bar {
+    background-color: white; }
+
 .detail-banner.detail-banner-simple {
   height: 200px; }
 
@@ -127,13 +132,21 @@ b {
 @media only screen and (min-width: 1200px) {
   .listing-row-image {
     width: 15%; } }
+.reach-cpt-img {
+  max-width: 150px;
+  padding-right: 15px; }
+
 .listing-row .listing-row-image {
   height: 150px;
   background-size: contain; }
 .listing-row .listing-row-image.img-default {
   background-color: black; }
-.listing-row .listing-row-body {
+.listing-row .listing-row-body,
+.listing-row .listing-row-propertiess {
   padding: 15px; }
+
+.listing-row:hover .listing-row-image:before {
+  opacity: 0; }
 
 .listing-box-archive .listing-column .listing-column-image {
   background-size: contain; }

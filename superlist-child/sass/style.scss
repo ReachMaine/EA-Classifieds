@@ -44,8 +44,12 @@ b                   { font-weight: bold; }
     height: 150px;
     background-image: url(./images/map-background-dark.jpg);
   }
-
-
+.navbar-toggle {
+  background-color: $button-color;
+  .icon-bar {
+    background-color: white;
+  }
+}
 @import "partials/listings";
 
 // footer styling {
