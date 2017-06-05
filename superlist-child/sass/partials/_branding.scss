@@ -18,9 +18,13 @@ a.reach-logo {
 .footer-top
 .widget_nav_menu.ea-footer-menu { // class on widget for menus in footer.
 	h2.widgettitle {
+    font-family: Buenard;
+    font-size: 18px;
+    line-height: 20px;
 		color: $footer-text-color!important;
 		// Background colors:;
 		text-transform: uppercase;
+    font-weight: bold;
 		text-align: center!important;
 
 		margin-top: 20px!important;

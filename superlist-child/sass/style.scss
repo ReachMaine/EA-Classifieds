@@ -50,19 +50,41 @@ b                   { font-weight: bold; }
     background-color: white;
   }
 }
+// main menu
+#menu-ea-main-menu { // ul
+
+}
 @import "partials/listings";
+
 
 // footer styling {
 footer.footer {
   color: $footer-text-color!important;
   .footer-top {
+    border-top: 4px solid black;
     background-color: $footer-background-color;
   }
-  .footer-bottom{
-    color: $footer-text-color;
-    background-color: $footer-background-color;
+  .footer-bottom {
+    //color: $footer-text-color;
+    // background-color: $footer-background-color;
+    padding-top: 15px;
+    padding-bottom: 15px;
     .widget .textwidget {
-      color: $footer-text-color!important;
+      color: #999;
+    }
+    .widget .textwidget a,
+    a {
+      color: #5e5e5e;
+      border-bottom: 0px;
+    }
+    .widget .textwidget a:hover,
+    a:hover {
+      color: #fff;
+    }
+    .footer-bottom-second {
+      margin-top: 0px;
+      padding-top: 0px;
+      position: inherit;
     }
   }
 }

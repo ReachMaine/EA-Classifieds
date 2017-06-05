@@ -21,6 +21,13 @@ i.fa-pull-right {
   font-style: italic;
   font-weight: bold; }
 
+#menu-ea-main-menu li a {
+  font-family: Buenard;
+  font-size: 18px;
+  line-height: 20px;
+  text-transform: uppercase;
+  font-weight: bold; }
+
 /* ----------- end typography ----------- */
 /* styling for branding for EA & Reach */
 a.reach-logo {
@@ -36,8 +43,12 @@ a.reach-logo {
 
 .footer-top
 .widget_nav_menu.ea-footer-menu h2.widgettitle {
+  font-family: Buenard;
+  font-size: 18px;
+  line-height: 20px;
   color: #000 !important;
   text-transform: uppercase;
+  font-weight: bold;
   text-align: center !important;
   margin-top: 20px !important;
   margin-bottom: 10px !important; }
@@ -131,19 +142,24 @@ b {
 
 @media only screen and (min-width: 1200px) {
   .listing-row-image {
-    width: 15%; } }
+    width: 20%; } }
 .reach-cpt-img {
   max-width: 150px;
   padding-right: 15px; }
 
-.listing-row .listing-row-image {
-  height: 150px;
-  background-size: contain; }
-.listing-row .listing-row-image.img-default {
-  background-color: black; }
-.listing-row .listing-row-body,
-.listing-row .listing-row-propertiess {
-  padding: 15px; }
+.listings-row {
+  background-color: #f1f1f1;
+  padding-top: 10px; }
+  .listings-row .listing-row {
+    padding-bottom: 10px; }
+    .listings-row .listing-row .listing-row-image {
+      height: 150px;
+      background-size: contain; }
+    .listings-row .listing-row .listing-row-image.img-default {
+      background-color: black; }
+    .listings-row .listing-row .listing-row-body,
+    .listings-row .listing-row .listing-row-properties {
+      padding: 15px 15px 0px 15px; }
 
 .listing-row:hover .listing-row-image:before {
   opacity: 0; }
@@ -167,12 +183,24 @@ b {
 footer.footer {
   color: #000 !important; }
   footer.footer .footer-top {
+    border-top: 4px solid black;
     background-color: #FFF; }
   footer.footer .footer-bottom {
-    color: #000;
-    background-color: #FFF; }
+    padding-top: 15px;
+    padding-bottom: 15px; }
     footer.footer .footer-bottom .widget .textwidget {
-      color: #000 !important; }
+      color: #999; }
+    footer.footer .footer-bottom .widget .textwidget a,
+    footer.footer .footer-bottom a {
+      color: #5e5e5e;
+      border-bottom: 0px; }
+    footer.footer .footer-bottom .widget .textwidget a:hover,
+    footer.footer .footer-bottom a:hover {
+      color: #fff; }
+    footer.footer .footer-bottom .footer-bottom-second {
+      margin-top: 0px;
+      padding-top: 0px;
+      position: inherit; }
 
 /* **** media **** */
 @media only screen and (min-width: 768px) {
@@ -181,3 +209,9 @@ footer.footer {
   .header-complex .header-content {
     display: none;
     padding-right: 0px; } }
+@media only screen and (max-width: 1199px) and (min-width: 786px) {
+  .listing-row .listing-row-properties {
+    width: 40%;
+    float: left; }
+  .listing-row .listing-row-image {
+    width: 40%; } }

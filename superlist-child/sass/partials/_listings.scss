@@ -27,29 +27,37 @@
 
 
 // listing archive (as row)
+
 @media only screen and (min-width: 1200px) {
   .listing-row-image { // needs to be out here s.t. superlist can overwrite @ media
-    width: 15%; //
+    width: 20%; //
   }
 }
 .reach-cpt-img {
   max-width: 150px;
   padding-right: 15px;
 }
-.listing-row {
-  .listing-row-image {
-      height: 150px;
-      background-size: contain;
-      //width: 20%;
-      //background-position: 0 0;
-  }
-  .listing-row-image.img-default {
-      background-color: black;
-  }
-  .listing-row-body,
-  .listing-row-propertiess {
-    padding: 15px;
-    //width: 80%;
+.listings-row {
+    background-color: #f1f1f1;
+    padding-top: 10px;
+
+  .listing-row {
+    padding-bottom: 10px;
+    .listing-row-image {
+        height: 150px;
+        background-size: contain;
+        //width: 20%;
+        //background-position: 0 0;
+    }
+    .listing-row-image.img-default {
+        background-color: black;
+    }
+    .listing-row-body,
+    .listing-row-properties {
+      padding: 15px 15px 0px 15px;
+
+      //width: 80%;
+    }
   }
 }
 .listing-row:hover .listing-row-image:before {
@@ -72,6 +80,7 @@
       display: none;
     }
   }
+
 }
 // recent listings widget
 .listings-row {
