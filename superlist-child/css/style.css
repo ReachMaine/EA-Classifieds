@@ -175,3 +175,9 @@ footer.footer {
       color: #000 !important; }
 
 /* **** media **** */
+@media only screen and (min-width: 768px) {
+  .header-complex .header-logo {
+    padding-right: 0px; }
+  .header-complex .header-content {
+    display: none;
+    padding-right: 0px; } }
