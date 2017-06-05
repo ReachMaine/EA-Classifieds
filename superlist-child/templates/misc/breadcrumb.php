@@ -14,7 +14,7 @@
         <?php if ( is_archive() && is_tax() ) : ?>
             <?php if ( is_tax() ) : ?>
 			    <?php if ( is_tax( Inventor_Taxonomies::get_listing_taxonomies() ) ) : ?>
-				    <li><a href="<?php echo get_post_type_archive_link( 'listing' ); ?>"><?php echo __( 'Listings', 'inventor' ); ?></a></li>
+				    <?php /* zig xout <li><a href="<?php echo get_post_type_archive_link( 'listing' ); ?>"><?php echo __( 'Listings', 'inventor' ); ?></a></li> */ ?>
 			    <?php endif; ?>
 
                 <?php
@@ -48,7 +48,7 @@
         <?php elseif ( is_archive() ) : ?>
 		    <?php if ( class_exists( 'Inventor_Post_Types' ) ) : ?>
 			    <?php if ( is_post_type_archive( Inventor_Post_Types::get_listing_post_types( true ) ) ) : ?>
-				    <li><a href="<?php echo get_post_type_archive_link( 'listing' ); ?>"><?php echo __( 'Listings', 'inventor' ); ?></a></li>
+				    <?php /* zig xout <li><a href="<?php echo get_post_type_archive_link( 'listing' ); ?>"><?php echo __( 'Listings', 'inventor' ); ?></a></li> */ ?>
 
 				    <?php if ( ! is_post_type_archive( 'listing' ) ) : ?>
 				        <li><?php post_type_archive_title(); ?></li>
@@ -63,13 +63,13 @@
 
         <?php if ( is_category() || is_single() ) : ?>
             <?php if ( is_singular( Inventor_Post_Types::get_listing_post_types() ) ) : ?>
-                <li>
+                <?php /* zig xout <li>
                     <?php $obj = get_post_type_object( 'listing' ); ?>
 
                     <a href="<?php echo get_post_type_archive_link( 'listing' ); ?>">
                         <?php echo esc_attr( $obj->labels->name ); ?>
                     </a>
-                </li>
+                </li> */ ?>
 
                 <li>
                     <?php $obj = get_post_type_object( get_post_type() ); ?>
