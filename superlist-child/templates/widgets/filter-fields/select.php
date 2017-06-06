@@ -6,7 +6,10 @@
     <?php $options = get_post_meta( $field->ID, INVENTOR_FIELDS_FIELD_PREFIX  . 'options', true ); ?>
     <?php $options = explode( ',', $options ); ?>
     <?php $options = array_map( 'trim', $options );  // remove empty spaces ?>
-
+    <?php $select_postscript = "";
+    if (get_post_meta( $field->ID, INVENTOR_FIELDS_FIELD_PREFIX  . 'filter_lookup', true ) == '>=') {
+      $select_postscript .= "+";
+    } ?>
     <select class="form-control"
             name="<?php echo esc_attr( $field_id ); ?>"
             data-size="10"
@@ -26,7 +29,7 @@
         <?php $choices = ''; ?>
         <?php foreach ( $options as $option ): ?>
             <?php if ( $option != '' ): ?>
-                <?php $choices .= sprintf( "\t" . '<option value="%s" %s>%s</option>', $option, selected( $selected, $option, false ), $option ) . "\n"; ?>
+                <?php $choices .= sprintf( "\t" . '<option value="%s" %s>%s%s</option>', $option, selected( $selected, $option, false ), $option,$select_postscript ) . "\n"; ?>
             <?php endif; ?>
         <?php endforeach; ?>
 
