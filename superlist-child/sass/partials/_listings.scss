@@ -58,7 +58,16 @@
 
       //width: 80%;
     }
-  }
+
+  } // listing-row
+  .listing-row.rentals, // for types that dont have a title in the row archive, make excerpt a little bigger.
+  .listing-row.classifieds,
+  .listing-row.helpwanted {
+    .listing-row-body .listing-row-content p {
+      font-size: 1.1em;
+      line-height: 1.5em;
+    }
+  } // listing-row of those that dont have titles
 }
 .listing-row:hover .listing-row-image:before {
   opacity: 0;
@@ -68,7 +77,6 @@
 }
 
 // listing archive as grid
-
 .listing-box-archive {
   .listing-column {
     .listing-column-image {

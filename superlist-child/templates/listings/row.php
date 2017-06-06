@@ -1,6 +1,7 @@
 <?php /*
 2Jun17 zig - change location to town.
        - move image to third in the row
+6Jun17 zig - dont show title on classifleds or help wanted.
 */ ?>
 <?php $featured = get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'featured', true ); ?>
 <?php $reduced = get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'reduced', true ); ?>
@@ -11,7 +12,21 @@
 
 
     <div class="listing-row-body">
+      <?php // decide if we should show the title.
+        $show_title = true;
+        if (get_the_excerpt()) {
+            switch($posttype) { // dont show title for help wanted or classifieds.
+            case 'helpwanted':
+            case 'classifieds':
+            case 'rentals':
+              $show_title = false;
+              break;
+            default:
+          } // end switch
+        }
+        if ($show_title) { ?>
         <h2 class="listing-row-title"><a href="<?php the_permalink(); ?>"><?php echo Inventor_Utilities::excerpt( get_the_title(), 50 ); ?></a></h2>
+      <?php } ?>
         <div class="listing-row-content">
             <?php the_excerpt(); ?>
 

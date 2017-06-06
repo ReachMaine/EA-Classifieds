@@ -160,6 +160,11 @@ b {
     .listings-row .listing-row .listing-row-body,
     .listings-row .listing-row .listing-row-properties {
       padding: 15px 15px 0px 15px; }
+  .listings-row .listing-row.rentals .listing-row-body .listing-row-content p,
+  .listings-row .listing-row.classifieds .listing-row-body .listing-row-content p,
+  .listings-row .listing-row.helpwanted .listing-row-body .listing-row-content p {
+    font-size: 1.1em;
+    line-height: 1.5em; }
 
 .listing-row:hover .listing-row-image:before {
   opacity: 0; }
