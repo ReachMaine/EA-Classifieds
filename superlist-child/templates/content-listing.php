@@ -6,17 +6,17 @@ $posttype = get_post_type( get_the_ID());
       	<h1 class="detail-title">
       			<?php /* echo apply_filters( 'inventor_listing_title', get_the_title(), get_the_ID() ); */ ?>
       			<?php
-
             $title =  get_the_title();
-            switch($posttype) {
-              case 'helpwanted':
-                  $title = "Job Openings in the Hancock County Area";
+            $scraped_content = (get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'scraped', true) == 'on' ) ? true : false;
+            if (!$scraped_content) {
+              switch($posttype) {
+                case 'helpwanted':
+                      $title = "Job Openings in the Hancock County Area";
+                    break;
+                case 'classifieds':
+                  $title = "Classified Ads in Hancock County Area";
                   break;
-              case 'classifieds':
-                $title = "Classified Ads in Hancock County Area";
-                break;
-              default:
-                  $title =  get_the_title();
+              }
             }
             echo $title;
             ?>

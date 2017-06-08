@@ -13,25 +13,38 @@
 
     <div class="listing-row-body">
       <?php // decide if we should show the title.
+        $scraped_content = (get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'scraped', true) == 'on' ) ? true : false;
         $show_title = true;
-        if (get_the_excerpt()) {
+        if (!$scraped_content )  {// check for no content??? i.e. display ads?  depends on how we're going to do them (featured image or in content)
             switch($posttype) { // dont show title for help wanted or classifieds.
             case 'classifieds':
             case 'rentals':
+            //case 'helpwanted':
               $show_title = false;
               break;
             default:
           } // end switch
         }
+
         if ($show_title) { ?>
         <h2 class="listing-row-title"><a href="<?php the_permalink(); ?>"><?php echo Inventor_Utilities::excerpt( get_the_title(), 50 ); ?></a></h2>
       <?php } ?>
         <div class="listing-row-content">
-            <?php the_excerpt(); ?>
+            <?php
+              if ($scraped_content) {
+                  the_excerpt();
+                  ?>
+                  <p> <a class="see-more-link" href="#">See website </a></p>
+                  <?php
+                } else {
+                  the_content();
+                  /* no sense having a read more if we've seen the whole content*/
 
-            <p>
-                <a class="read-more-link" href="<?php echo esc_attr( get_permalink( get_the_ID() ) ); ?>"><?php echo esc_attr__( 'Read More', 'inventor' ); ?><i class="fa fa-chevron-right"></i></a>
-            </p>
+                } ?>
+                <p> <?php /* JFN */ ?>
+                    <a class="read-more-link" href="<?php echo esc_attr( get_permalink( get_the_ID() ) ); ?>"><?php echo esc_attr__( 'Read More', 'inventor' ); ?><i class="fa fa-chevron-right"></i></a>
+                </p>
+
         </div><!-- /.listing-row-content -->
     </div><!-- /.listing-row-body -->
 
