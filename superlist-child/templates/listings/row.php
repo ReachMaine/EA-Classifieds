@@ -16,7 +16,6 @@
         $show_title = true;
         if (get_the_excerpt()) {
             switch($posttype) { // dont show title for help wanted or classifieds.
-            case 'helpwanted':
             case 'classifieds':
             case 'rentals':
               $show_title = false;
