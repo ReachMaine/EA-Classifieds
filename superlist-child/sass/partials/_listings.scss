@@ -42,6 +42,9 @@
     padding-top: 10px;
 
   .listing-row {
+    .listing-row-title img { // logo image in title
+      max-width: 100px;
+    }
     padding-bottom: 10px;
     .listing-row-image {
         height: 150px;

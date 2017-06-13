@@ -5,8 +5,8 @@
 */ ?>
 <?php $featured = get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'featured', true ); ?>
 <?php $reduced = get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'reduced', true ); ?>
-
-<?php $posttype = get_post_type( get_the_ID()); ?>
+<?php $website = get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'website', true );
+  $posttype = get_post_type( get_the_ID()); ?>
 
 <div class="listing-row <?php if ( $featured ) : ?>featured<?php endif; ?> <?php if ( $posttype ) {echo $posttype;} ?>">
 
@@ -27,34 +27,40 @@
         }
 
         if ($show_title) { ?>
-        <h2 class="listing-row-title"><a href="<?php the_permalink(); ?>"><?php echo Inventor_Utilities::excerpt( get_the_title(), 50 ); ?></a></h2>
+        <?php /* zig - use filter s.t. we get logo <h2 class="listing-row-title"><a href="<?php the_permalink(); ?>"><?php echo Inventor_Utilities::excerpt( get_the_title(), 50 ); ?></a></h2> */ ?>
+        <h2 class="listing-row-title"><a href="<?php the_permalink(); ?>">
+            <?php echo apply_filters( 'inventor_listing_title', get_the_title(), get_the_ID() ); ?>
+        </a></h2>
       <?php } ?>
         <div class="listing-row-content">
             <?php
               if ($scraped_content) {
                   the_excerpt();
                   ?>
-                  <p> <a class="see-more-link" href="#">See website </a></p>
+                  <p> <a class="see-more-link" href="<?php echo $website; ?>">See website </a></p>
+                  <p> <?php /* JFN */ ?>
+                      <a class="read-more-link" href="<?php echo esc_attr( get_permalink( get_the_ID() ) ); ?>"><?php echo esc_attr__( 'Read More', 'inventor' ); ?><i class="fa fa-chevron-right"></i></a>
+                  </p>
                   <?php
                 } else {
                   the_content();
                   /* no sense having a read more if we've seen the whole content*/
 
                 } ?>
-                <p> <?php /* JFN */ ?>
-                    <a class="read-more-link" href="<?php echo esc_attr( get_permalink( get_the_ID() ) ); ?>"><?php echo esc_attr__( 'Read More', 'inventor' ); ?><i class="fa fa-chevron-right"></i></a>
-                </p>
+
 
         </div><!-- /.listing-row-content -->
     </div><!-- /.listing-row-body -->
 
     <?php $price = Inventor_Price::get_price( get_the_ID() );
-     $location = Inventor_Query::get_listing_location_name( get_the_ID(), '/', false );
-     $beds = get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'beds', true );
-     $baths =  get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'baths', true );
-     $acreage = get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'acreage', true );
-     $sqft = get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'sqft', true );
-     if ( $price || $location || $beds || $baths || $sqft || $acreage ) { ?>
+    $location = Inventor_Query::get_listing_location_name( get_the_ID(), '/', false );
+    $beds = get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'beds', true );
+    $baths =  get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'baths', true );
+    $acreage = get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'acreage', true );
+    $sqft = get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'sqft', true );
+
+    $phone = get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'phone', true );
+     if ( $price || $location || $beds || $baths || $sqft || $acreage || $website || $phone) { ?>
         <div class="listing-row-properties">
             <dl>
                 <?php if ( ! empty( $price ) ) : ?>
@@ -70,6 +76,7 @@
                     <dd><?php echo wp_kses( $beds, wp_kses_allowed_html( 'post' ) ); ?></dd>
                 <?php endif; ?>
                 <?php if ( ! empty( $baths ) ) : ?>
+                  <?php /* echo "Baths: <pre>"; var_dump($baths); echo "</pre>"; */ ?>
                     <dt><?php echo esc_attr__( 'Bathrooms', 'inventor' ); ?></dt>
                     <dd><?php echo wp_kses( $baths, wp_kses_allowed_html( 'post' ) ); ?></dd>
                 <?php endif; ?>
@@ -78,8 +85,21 @@
                     <dd><?php echo wp_kses( $sqft, wp_kses_allowed_html( 'post' ) ); ?></dd>
                 <?php endif; ?>
                 <?php if ( ! empty( $acreage ) ) : ?>
-                    <dt><?php echo esc_attr__( 'Square Footage', 'inventor' ); ?></dt>
+                    <dt><?php echo esc_attr__( 'Acreage', 'inventor' ); ?></dt>
                     <dd><?php echo wp_kses( $acreage, wp_kses_allowed_html( 'post' ) ); ?></dd>
+                <?php endif; ?>
+                <?php if ( ! empty( $phone ) ) : ?>
+                    <dt><?php echo esc_attr__( 'Phone', 'inventor' ); ?></dt>
+                    <dd><?php $phonelink = '<a href="tel:'.$phone.'">'.$phone.'</a>';
+                    echo $phonelink;
+                    /* echo wp_kses( $phone, wp_kses_allowed_html( 'post' ) ); */ ?></dd>
+                <?php endif; ?>
+                <?php if ( ! empty( $website ) ) :
+                    $domain = parse_url($website, PHP_URL_HOST);
+                    $domain_link = '<a href="'.$website.'">'.$domain.'</a>'; ?>
+                    <dt><?php echo esc_attr__( 'Website', 'inventor' ); ?></dt>
+                    <dd><?php /*  echo wp_kses( $domain_link , wp_kses_allowed_html( 'post' ) ); */
+                    echo $domain_link;?></dd>
                 <?php endif; ?>
                 <?php do_action( 'inventor_listing_content', get_the_ID(), 'row' ); ?>
             </dl>
