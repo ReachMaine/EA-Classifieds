@@ -34,10 +34,12 @@
       <?php } ?>
         <div class="listing-row-content">
             <?php
-              if ($scraped_content) {
+              if (($scraped_content) || ($posttype == 'realestate')) {
                   the_excerpt();
                   ?>
-                  <p> <a class="see-more-link" href="<?php echo $website; ?>">See website </a></p>
+                  <?php if ($website) {  ?>
+                    <p> <a class="see-more-link" target="_blank" href="<?php echo $website; ?>">See website </a></p>
+                  <?php } ?>
                   <p> <?php /* JFN */ ?>
                       <a class="read-more-link" href="<?php echo esc_attr( get_permalink( get_the_ID() ) ); ?>"><?php echo esc_attr__( 'Read More', 'inventor' ); ?><i class="fa fa-chevron-right"></i></a>
                   </p>
@@ -60,7 +62,8 @@
     $sqft = get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'sqft', true );
 
     $phone = get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'phone', true );
-     if ( $price || $location || $beds || $baths || $sqft || $acreage || $website || $phone) { ?>
+    $email = get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'email', true );
+     if ( $price || $location || $beds || $baths || $sqft || $acreage || $website || $phone || $email) { ?>
         <div class="listing-row-properties">
             <dl>
                 <?php if ( ! empty( $price ) ) : ?>
@@ -90,13 +93,18 @@
                 <?php endif; ?>
                 <?php if ( ! empty( $phone ) ) : ?>
                     <dt><?php echo esc_attr__( 'Phone', 'inventor' ); ?></dt>
-                    <dd><?php $phonelink = '<a href="tel:'.$phone.'">'.$phone.'</a>';
+                    <dd><?php $phonelink = '<a target="_blank" href="tel:'.$phone.'">'.$phone.'</a>';
                     echo $phonelink;
                     /* echo wp_kses( $phone, wp_kses_allowed_html( 'post' ) ); */ ?></dd>
                 <?php endif; ?>
+                <?php if ( ! empty( $email ) ) : ?>
+                    <dt><?php echo esc_attr__( 'Email', 'inventor' ); ?></dt>
+                    <?php $email_link = '<a target="_blank" href="mailto:'.$email.'">'.$email.'</a>'; ?>
+                    <dd><?php echo $email_link ; ?></dd>
+                <?php endif; ?>
                 <?php if ( ! empty( $website ) ) :
                     $domain = parse_url($website, PHP_URL_HOST);
-                    $domain_link = '<a href="'.$website.'">'.$domain.'</a>'; ?>
+                    $domain_link = '<a target="_blank" href="'.$website.'">'.$domain.'</a>'; ?>
                     <dt><?php echo esc_attr__( 'Website', 'inventor' ); ?></dt>
                     <dd><?php /*  echo wp_kses( $domain_link , wp_kses_allowed_html( 'post' ) ); */
                     echo $domain_link;?></dd>
