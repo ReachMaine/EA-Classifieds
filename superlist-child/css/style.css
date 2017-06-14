@@ -121,6 +121,22 @@ b {
   .navbar-toggle .icon-bar {
     background-color: white; }
 
+.document-title ol.breadcrumb li {
+  margin-bottom: 5px; }
+.document-title h1 {
+  margin: 0 0 8px 0;
+  font-weight: bold;
+  text-align: center; }
+
+.listing-categories-card-container {
+  margin-bottom: 10px; }
+  .listing-categories-card-container .listing-categories-card-title, .listing-categories-card-container .listing-types-card-title {
+    padding-top: 10px; }
+
+.post-type-archive-helpwanted h2.listing-row-title img {
+  float: right;
+  padding: 5px; }
+
 .detail-banner.detail-banner-simple {
   height: 200px; }
 
@@ -143,12 +159,20 @@ b {
     box-shadow: rgba(0, 0, 0, 0.1) 0 1px 2px 0;
     padding-bottom: 20px; }
 
+.listing-container .listing-row {
+  border: 2px solid #ababab;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 2px 2px 3px 1px; }
+
 @media only screen and (min-width: 1200px) {
   .listing-row-image {
     width: 20%; } }
 .reach-cpt-img {
   max-width: 150px;
   padding-right: 15px; }
+
+.listing-container {
+  margin-bottom: 15px; }
 
 .listings-row {
   background-color: #f1f1f1;
@@ -165,6 +189,10 @@ b {
     .listings-row .listing-row .listing-row-body,
     .listings-row .listing-row .listing-row-properties {
       padding: 15px 15px 0px 15px; }
+      .listings-row .listing-row .listing-row-body dd, .listings-row .listing-row .listing-row-body dt,
+      .listings-row .listing-row .listing-row-properties dd,
+      .listings-row .listing-row .listing-row-properties dt {
+        line-height: 28px; }
   .listings-row .listing-row.rentals .listing-row-body .listing-row-content p,
   .listings-row .listing-row.classifieds .listing-row-body .listing-row-content p,
   .listings-row .listing-row.helpwanted .listing-row-body .listing-row-content p {
@@ -190,6 +218,60 @@ b {
   background-color: black;
   background-size: contain; }
 
+.filter-result-numbers {
+  margin: 14px 0 14px 0;
+  font-size: 1em; }
+
+#primary .widget_filter .form-group {
+  margin-bottom: 10px;
+  padding: 0 10px; }
+
+@media only screen and (min-width: 1200px) {
+  form.filter-form {
+    display: flex;
+    justify-content: space-between; }
+
+  .post-type-archive-rentals #primary .widget_filter .form-group-locations {
+    width: 17%; }
+  .post-type-archive-rentals #primary .widget_filter .form-group-listing-categories {
+    width: 17%; }
+  .post-type-archive-rentals #primary .widget_filter .form-group.baths {
+    width: 13%; }
+  .post-type-archive-rentals #primary .widget_filter .form-group.beds {
+    width: 13%; }
+  .post-type-archive-rentals #primary .widget_filter .form-group-button {
+    width: 15%; }
+
+  .post-type-archive-realestate #primary .widget_filter .form-group-keyword {
+    width: 19%; }
+  .post-type-archive-realestate #primary .widget_filter .form-group.mlsid {
+    width: 11%; }
+  .post-type-archive-realestate #primary .widget_filter .form-group-locations {
+    width: 17%; }
+  .post-type-archive-realestate #primary .widget_filter .form-group-listing-categories {
+    width: 15%; }
+  .post-type-archive-realestate #primary .widget_filter .form-group.baths {
+    width: 13%; }
+  .post-type-archive-realestate #primary .widget_filter .form-group.beds {
+    width: 13%; }
+  .post-type-archive-realestate #primary .widget_filter .form-group-button {
+    width: 12%; } }
+@media only screen and (max-width: 767px) {
+  .widget_listing_categories {
+    display: none; }
+
+  .listings-row .listing-row .listing-row-properties {
+    padding-top: 0px; }
+
+  .listings-row .listing-row .listing-row-body {
+    padding-top: 10px; }
+
+  #primary .widget_filter .form-group.baths {
+    width: 49%;
+    display: inline-block; }
+  #primary .widget_filter .form-group.beds {
+    width: 49%;
+    display: inline-block; } }
 footer.footer {
   color: #000 !important; }
   footer.footer .footer-top {

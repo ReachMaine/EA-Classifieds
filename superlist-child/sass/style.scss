@@ -50,11 +50,23 @@ b                   { font-weight: bold; }
     background-color: white;
   }
 }
+
+.document-title {
+  ol.breadcrumb li {
+    margin-bottom: 5px;
+  }
+  h1 {
+    margin: 0 0 8px 0;
+    font-weight: bold;
+    text-align: center;
+  }
+}
 // main menu
 #menu-ea-main-menu { // ul
 
 }
 @import "partials/listings";
+@import "partials/filter";
 
 
 // footer styling {

@@ -1,6 +1,21 @@
+// Listing Categories
+.listing-categories-card-container {
+  margin-bottom: 10px;
+  .listing-categories-card-title, .listing-types-card-title {
+    padding-top: 10px;
+  }
+}
+
+
 // styling for listings
 
 // single listings
+
+.post-type-archive-helpwanted h2.listing-row-title img {
+  float: right;
+  padding: 5px;
+}
+
 .detail-banner.detail-banner-simple {
   height: 200px;
 }
@@ -28,6 +43,12 @@
 
 // listing archive (as row)
 
+.listing-container .listing-row {
+  border: 2px solid #ababab;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 2px 2px 3px 1px;
+}
+
 @media only screen and (min-width: 1200px) {
   .listing-row-image { // needs to be out here s.t. superlist can overwrite @ media
     width: 20%; //
@@ -37,6 +58,11 @@
   max-width: 150px;
   padding-right: 15px;
 }
+
+.listing-container {
+  margin-bottom: 15px;
+}
+
 .listings-row {
     background-color: #f1f1f1;
     padding-top: 10px;
@@ -58,6 +84,9 @@
     .listing-row-body,
     .listing-row-properties {
       padding: 15px 15px 0px 15px;
+      dd, dt {
+        line-height: 28px;
+      }
 
       //width: 80%;
     }

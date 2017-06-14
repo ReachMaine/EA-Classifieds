@@ -1,0 +1,120 @@
+// Styling the filter box on listing archives
+
+.filter-result-numbers {
+  margin: 14px 0 14px 0;
+  font-size: 1em;
+}
+
+#primary .widget_filter {
+  .form-group {
+    margin-bottom: 10px;
+    padding: 0 10px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  form.filter-form {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .post-type-archive-rentals #primary .widget_filter {
+    .form-group-keyword {
+      //custom with of keyword box
+    }
+    .form-group-locations {
+      //custom with of location box
+      width: 17%;
+    }
+    .form-group-listing-categories {
+      //custom with of type box
+      width: 17%;
+    }
+    .form-group.baths {
+      //custom with of baths box
+      width: 13%;
+    }
+    .form-group.beds {
+      //custom with of beds box
+      width: 13%;
+    }
+    .form-group-button {
+      //custom with of button
+      width: 15%;
+    }
+  }
+
+  .post-type-archive-realestate #primary .widget_filter {
+    .form-group-keyword {
+      //custom with of keyword box
+      width: 19%;
+    }
+    .form-group.mlsid {
+      //custom with of keyword box
+      width: 11%
+    }
+    .form-group-locations {
+      //custom with of location box
+      width: 17%;
+    }
+    .form-group-listing-categories {
+      //custom with of type box
+      width: 15%;
+    }
+    .form-group.baths {
+      //custom with of baths box
+      width: 13%;
+    }
+    .form-group.beds {
+      //custom with of beds box
+      width: 13%;
+    }
+    .form-group-button {
+      //custom with of button
+      width: 12%;
+    }
+  }
+
+}
+
+@media only screen and (max-width: 767px) {
+  .widget_listing_categories {
+    display: none;
+  }
+
+  .listings-row .listing-row .listing-row-properties {
+    padding-top: 0px;
+  }
+
+  .listings-row .listing-row .listing-row-body {
+    padding-top: 10px;
+  }
+
+  #primary .widget_filter {
+    .form-group-keyword {
+      //custom with of keyword box
+    }
+    .form-group.mlsid {
+      //custom with of keyword box
+    }
+    .form-group-locations {
+      //custom with of location box
+    }
+    .form-group-listing-categories {
+      //custom with of type box
+    }
+    .form-group.baths {
+      //custom with of baths box
+      width: 49%;
+      display: inline-block;
+    }
+    .form-group.beds {
+      //custom with of beds box
+      width: 49%;
+      display: inline-block;
+    }
+    .form-group-button {
+      //custom with of button
+    }
+  }
+}
