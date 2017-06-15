@@ -18,7 +18,7 @@ $posttype = get_post_type( get_the_ID());
                   break;
               }
             }
-            echo $title;
+            echo apply_filters( 'inventor_listing_title', $title, get_the_ID() );
             ?>
       	</h1>
 
