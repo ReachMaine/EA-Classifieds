@@ -9,11 +9,16 @@
   $posttype = get_post_type( get_the_ID()); ?>
 
 <div class="listing-row <?php if ( $featured ) : ?>featured<?php endif; ?> <?php if ( $posttype ) {echo $posttype;} ?>">
+  <?php $row_body_class = "";
+    $scraped_content = (get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'scraped', true) == 'on' ) ? true : false;
+    if ($scraped_content) {
+      $row_body_class .= " listing-content-scraped";
+    }
+    ?>
 
-
-    <div class="listing-row-body">
+    <div class="listing-row-body <?php echo $row_body_class; ?>">
       <?php // decide if we should show the title.
-        $scraped_content = (get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'scraped', true) == 'on' ) ? true : false;
+        //$scraped_content = (get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'scraped', true) == 'on' ) ? true : false;
         $show_title = true;
         if (!$scraped_content )  {// check for no content??? i.e. display ads?  depends on how we're going to do them (featured image or in content)
             switch($posttype) { // dont show title for help wanted or classifieds.
