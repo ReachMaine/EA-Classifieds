@@ -6,6 +6,7 @@
 <?php $featured = get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'featured', true ); ?>
 <?php $reduced = get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'reduced', true ); ?>
 <?php $website = get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'website', true );
+  $domain = parse_url($website, PHP_URL_HOST);
   $posttype = get_post_type( get_the_ID()); ?>
 
 <div class="listing-row <?php if ( $featured ) : ?>featured<?php endif; ?> <?php if ( $posttype ) {echo $posttype;} ?>">
@@ -42,12 +43,12 @@
               if (($scraped_content) || ($posttype == 'realestate')) {
                   the_excerpt();
                   ?>
-                  <?php if ($website) {  ?>
-                    <p> <a class="see-more-link" target="_blank" href="<?php echo $website; ?>">See website </a></p>
+                  <?php if ($website && $domain) {  ?>
+                    <p> <a class="see-more-link" target="_blank" href="<?php echo $website; ?>">See listing on <?php echo $domain; ?></a></p>
                   <?php } ?>
-                  <p> <?php /* JFN */ ?>
+                <?php/* JFN   <p> 
                       <a class="read-more-link" href="<?php echo esc_attr( get_permalink( get_the_ID() ) ); ?>"><?php echo esc_attr__( 'Read More', 'inventor' ); ?><i class="fa fa-chevron-right"></i></a>
-                  </p>
+                  </p>*/ ?>
                   <?php
                 } else {
                   the_content();
@@ -120,7 +121,7 @@
                     <dd><?php echo   $email_link; ?></dd>
                 <?php endif; ?>
                 <?php if ( ! empty( $website ) ) :
-                    $domain = parse_url($website, PHP_URL_HOST);
+
                      /* echo "website:".$website."  domain: <pre>"; var_dump($domain); echo "</pre>";  */
                     if ($domain) {
                       $icon = '<i class="fa fa-external-link" aria-hidden="true"></i>';
