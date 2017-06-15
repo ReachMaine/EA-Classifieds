@@ -104,6 +104,15 @@ b {
 .hidden {
   display: none; }
 
+body {
+  background-color: #6f6f6f; }
+
+.layout-boxed .page-wrapper {
+  box-shadow: 0 0 8px 5px rgba(0, 0, 0, 0.4); }
+
+.archive #primary {
+  margin: 0 0 30px; }
+
 #topbanner {
   text-align: center; }
   #topbanner .ad-container {
@@ -137,11 +146,17 @@ b {
   float: right;
   padding: 5px; }
 
+img.listing-title-logo {
+  width: 75px; }
+
 .detail-banner.detail-banner-simple {
   height: 200px; }
 
 .listing-detail {
   margin-top: 0px; }
+  .listing-detail img {
+    max-height: 300px;
+    width: inherit; }
   .listing-detail .listing-detail-contact,
   .listing-detail .listing-detail-section,
   .listing-detail .listing-detail-attributes {
@@ -163,6 +178,8 @@ b {
   border: 2px solid #ababab;
   border-radius: 6px;
   box-shadow: rgba(0, 0, 0, 0.1) 2px 2px 3px 1px; }
+.listing-container .listing-row.featured {
+  border-color: #0a83b6; }
 
 @media only screen and (min-width: 1200px) {
   .listing-row-image {
@@ -174,11 +191,20 @@ b {
 .listing-container {
   margin-bottom: 15px; }
 
+a.read-more-link {
+  margin-top: -10px;
+  margin-bottom: -5px; }
+
+.pagination {
+  margin: 25px 0 0 0; }
+
 .listings-row {
   background-color: #f1f1f1;
   padding-top: 10px; }
   .listings-row .listing-row {
     padding-bottom: 10px; }
+    .listings-row .listing-row .listing-row-title {
+      margin: 2px 0 10px 0; }
     .listings-row .listing-row .listing-row-title img {
       max-width: 100px; }
     .listings-row .listing-row .listing-row-image {
@@ -222,9 +248,11 @@ b {
   margin: 14px 0 14px 0;
   font-size: 1em; }
 
-#primary .widget_filter .form-group {
-  margin-bottom: 10px;
-  padding: 0 10px; }
+#primary .widget_filter {
+  margin-bottom: 10px; }
+  #primary .widget_filter .form-group {
+    margin-bottom: 10px;
+    padding: 0 10px; }
 
 @media only screen and (min-width: 1200px) {
   form.filter-form {
@@ -272,6 +300,10 @@ b {
   #primary .widget_filter .form-group.beds {
     width: 49%;
     display: inline-block; } }
+.widget_call_to_action .widget-pt.widget-pb {
+  padding-top: 20px;
+  padding-bottom: 20px; }
+
 footer.footer {
   color: #000 !important; }
   footer.footer .footer-top {
@@ -295,6 +327,9 @@ footer.footer {
       position: inherit; }
 
 /* **** media **** */
+@media only screen and (max-width: 767px) {
+  img.listing-title-logo {
+    float: right; } }
 @media only screen and (min-width: 768px) {
   .header-complex .header-logo {
     padding-right: 0px; }
