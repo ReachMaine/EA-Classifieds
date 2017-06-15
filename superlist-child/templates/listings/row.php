@@ -67,19 +67,26 @@
         <div class="listing-row-properties">
             <dl>
                 <?php if ( ! empty( $price ) ) : ?>
-                    <dt><?php echo esc_attr__( 'Price', 'inventor' ); ?></dt>
+                    <?php /* <dt><?php echo esc_attr__( 'Price', 'inventor' ); ?></dt> */ ?>
                     <dd><?php echo wp_kses( $price, wp_kses_allowed_html( 'post' ) ); ?></dd>
                 <?php endif; ?>
                 <?php if ( ! empty( $location ) ) : ?>
-                    <dt><?php echo esc_attr__( 'Town'/* 'Location' */, 'inventor' ); ?></dt>
-                    <dd><?php echo wp_kses( $location, wp_kses_allowed_html( 'post' ) ); ?></dd>
+
+                    <?php /* <dt><?php echo esc_attr__( 'Town', 'inventor' ); ?></dt> */ ?>
+                    <?php $town_icon = '<i class="inventor-poi inventor-poi-pin"></i>';
+                    echo '<dt class="listing-row-properties-icon">'.$town_icon.'</dt>'; ?>
+                    <dd><?php
+                    echo wp_kses( $location, wp_kses_allowed_html( 'post' ) ); ?></dd>
                 <?php endif; ?>
                 <?php if ( ! empty( $beds ) ) : ?>
-                    <dt><?php echo esc_attr__( 'Bedrooms', 'inventor' ); ?></dt>
-                    <dd><?php echo wp_kses( $beds, wp_kses_allowed_html( 'post' ) ); ?></dd>
+                    <?php /* <dt><?php echo esc_attr__( 'Bedrooms', 'inventor' ); ?></dt> */
+                    $beds_icon = '<i class="inventor-poi inventor-poi-hotel"></i>';
+                    echo '<dt class="listing-row-properties-icon">'.$beds_icon.'</dt>'; ?>
+                    <dd><?php
+                    echo wp_kses( $beds, wp_kses_allowed_html( 'post' ) ) ?></dd>
                 <?php endif; ?>
                 <?php if ( ! empty( $baths ) ) : ?>
-                  <?php /* echo "Baths: <pre>"; var_dump($baths); echo "</pre>"; */ ?>
+                  <?php  /* echo "Baths: <pre>"; var_dump($baths); echo "</pre>"; */ ?>
                     <dt><?php echo esc_attr__( 'Bathrooms', 'inventor' ); ?></dt>
                     <dd><?php echo wp_kses( $baths, wp_kses_allowed_html( 'post' ) ); ?></dd>
                 <?php endif; ?>
@@ -92,23 +99,31 @@
                     <dd><?php echo wp_kses( $acreage, wp_kses_allowed_html( 'post' ) ); ?></dd>
                 <?php endif; ?>
                 <?php if ( ! empty( $phone ) ) : ?>
-                    <dt><?php echo esc_attr__( 'Phone', 'inventor' ); ?></dt>
-                    <dd><?php $phonelink = '<a target="_blank" href="tel:'.$phone.'">'.$phone.'</a>';
-                    echo $phonelink;
+                    <?php /* <dt><?php echo esc_attr__( 'Phone', 'inventor' ); ?></dt> */
+                    $icon = '<i class="inventor-poi inventor-poi-phone"></i>';
+                    echo '<dt class="listing-row-properties-icon">'.$icon.'</dt>'; ?>
+                    <dd><?php
+                    $phonelink = '<a target="_blank" href="tel:'.$phone.'">'.$phone.'</a>';
+                    echo $phonelink.$phone_icon;
                     /* echo wp_kses( $phone, wp_kses_allowed_html( 'post' ) ); */ ?></dd>
                 <?php endif; ?>
                 <?php if ( ! empty( $email ) ) : ?>
-                    <dt><?php echo esc_attr__( 'Email', 'inventor' ); ?></dt>
-                    <?php $email_link = '<a target="_blank" href="mailto:'.$email.'">'.$email.'</a>'; ?>
-                    <dd><?php echo $email_link ; ?></dd>
+                    <?php /* <dt><?php echo esc_attr__( 'Email', 'inventor' ); ?></dt> */
+                    $icon = '<i class="inventor-poi inventor-poi-mail"></i>';
+                    echo '<dt class="listing-row-properties-icon">'.$icon.'</dt>'; ?>
+                    <?php $email_link = '<a target="_blank" href="mailto:'.$email.'">'.$email.'</a>';?>
+                    <dd><?php echo   $email_link; ?></dd>
                 <?php endif; ?>
                 <?php if ( ! empty( $website ) ) :
                     $domain = parse_url($website, PHP_URL_HOST);
-                    $domain_link = '<a target="_blank" href="'.$website.'">'.$domain.'</a>'; ?>
-                    <dt><?php echo esc_attr__( 'Website', 'inventor' ); ?></dt>
-                    <dd><?php /*  echo wp_kses( $domain_link , wp_kses_allowed_html( 'post' ) ); */
-                    echo $domain_link;?></dd>
-                <?php endif; ?>
+                     /* echo "website:".$website."  domain: <pre>"; var_dump($domain); echo "</pre>";  */
+                    if ($domain) {
+                      $icon = '<i class="fa fa-external-link" aria-hidden="true"></i>';
+                      $domain_link = '<a target="_blank" href="'.$website.'">'.$domain.'</a>'; ?>
+                      <dt class="listing-row-properties-icon"><?php echo $icon; /* esc_attr__( 'Website', 'inventor' );*/  ?></dt>
+                      <dd><?php /*  echo wp_kses( $domain_link , wp_kses_allowed_html( 'post' ) ); */
+                      echo $domain_link;?></dd>
+                <?php  } endif; ?>
                 <?php do_action( 'inventor_listing_content', get_the_ID(), 'row' ); ?>
             </dl>
         </div><!-- /.listing-row-properties -->
