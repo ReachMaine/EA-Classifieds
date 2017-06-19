@@ -34,13 +34,16 @@ function ea_class_defimg($str_imgurl, $int_listingID) {
 }
 
 // put featured image at bottom of listing
-//add_action('inventor_after_listing_detail', 'reach_listing_thumb', 10, 1);
+//add_action('inventor_after_listing_detail', 'reach_listing_thumb', 10, 1); - calling directly now.
 function reach_listing_thumb( $int_listing_id) {
 
   if ( has_post_thumbnail($int_listing_id) ) {
     echo '<div class="listing-detail-section" id="listing-detail-section-thumb">';
     echo '<div class="listing-detail-thumb">';
+    $large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id($int_listing_id), 'large' );
+    echo '<a href="'.esc_url($large_image_url[0]).'">' ;
     echo get_the_post_thumbnail($int_listing_id, 'medium', ['class' => 'img-responsive responsive--full aligncenter', 'title' => 'Featured image']);
+    echo '</a>';
     echo '</div></div>';
   }
 

@@ -6,7 +6,11 @@
 <?php $featured = get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'featured', true ); ?>
 <?php $reduced = get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'reduced', true ); ?>
 <?php $website = get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'website', true );
-  $domain = parse_url($website, PHP_URL_HOST);
+  if ($website) {
+      $domain = parse_url($website, PHP_URL_HOST);
+  } else {
+    $domain = "";
+  }
   $posttype = get_post_type( get_the_ID()); ?>
 
 <div class="listing-row <?php if ( $featured ) : ?>featured<?php endif; ?> <?php if ( $posttype ) {echo $posttype;} ?>">
@@ -46,7 +50,7 @@
                   <?php if ($website && $domain) {  ?>
                     <p> <a class="see-more-link" target="_blank" href="<?php echo $website; ?>">See listing on <?php echo $domain; ?></a></p>
                   <?php } ?>
-                <?php/* JFN   <p> 
+                <?php/* JFN   <p>
                       <a class="read-more-link" href="<?php echo esc_attr( get_permalink( get_the_ID() ) ); ?>"><?php echo esc_attr__( 'Read More', 'inventor' ); ?><i class="fa fa-chevron-right"></i></a>
                   </p>*/ ?>
                   <?php
@@ -139,10 +143,15 @@
           $image = $thumbnail[0];
           $img_class ="img-thumb";
 
+
           $image = apply_filters( 'inventor_listing_featured_image', $image, get_the_ID() ); ?>
           <div class="listing-row-image <?php echo $img_class; ?>" style="background-image: url('<?php echo esc_attr( $image ); ?>');">
-              <a href="<?php the_permalink() ?>" class="listing-row-image-link"></a>
-
+              <?php if ($scraped_content ) {
+                echo '<a href="'.get_the_permalink().'" class="listing-row-image-link"></a>';
+              } else  {
+                $thumbnail_large = wp_get_attachment_image_src( get_post_thumbnail_id(), 'large' );
+                echo '<a href="'.esc_url($thumbnail_large[0]).'" class="listing-row-image-link"></a>';
+              }?>
               <?php if ( $featured ) : ?>
                   <div class="listing-row-label-top listing-row-label-top-left"><?php echo esc_attr__( 'Featured', 'inventor' ); ?></div><!-- /.listing-row-label-top-left -->
               <?php endif; ?>
