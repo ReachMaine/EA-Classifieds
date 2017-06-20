@@ -57,12 +57,11 @@
                     <div class="col-md-6">
                         <ul> */ ?>
                           <?php if ( ! empty( $website ) ): ?>
-                              <?php if ( strpos( $website, 'http' ) !== 0 ) $website = sprintf( 'http://%s', $website ); ?>
-
+                              <?php $website_display = parse_url($website, PHP_URL_HOST); ?>
                               <li class="website">
                                   <strong class="key"><?php echo __( 'Website', 'inventor' ); ?></strong>
                                   <span class="value">
-                                      <a href="<?php echo esc_attr( $website ); ?>" target="_blank"><?php echo esc_attr( $website ); ?></a>
+                                      <a href="<?php echo esc_attr( $website ); ?>" target="_blank"><?php echo esc_attr( $website_display ); ?></a>
                                   </span>
                               </li>
                           <?php endif; ?>
