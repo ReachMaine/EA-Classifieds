@@ -36,7 +36,6 @@ function ea_class_defimg($str_imgurl, $int_listingID) {
 // put featured image at bottom of listing
 //add_action('inventor_after_listing_detail', 'reach_listing_thumb', 10, 1); - calling directly now.
 function reach_listing_thumb( $int_listing_id) {
-
   if ( has_post_thumbnail($int_listing_id) ) {
     echo '<div class="listing-detail-section" id="listing-detail-section-thumb">';
     echo '<div class="listing-detail-thumb">';
@@ -82,4 +81,12 @@ function reach_get_post_type_image($str_post_type) {
         break;
     } // end switch
     return $str_imgurl;
+}
+
+// Remove detail/overview from list of section s.t. we can put in separate container
+add_filter( 'inventor_listing_detail_sections', 'reach_list_details', 10, 2);
+function reach_list_details($sections, $post_type) {
+  unset($sections['description']);
+  //echo "<pre>"; var_dump($sections); echo "</pre>";
+  return $sections;
 }

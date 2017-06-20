@@ -34,10 +34,20 @@ $posttype = get_post_type( get_the_ID());
 
 
 <?php do_action( 'inventor_before_listing_detail', get_the_ID() ); ?>
-<?php /* $posttype = get_post_type( get_the_ID()); */ ?>
+<?php /* $posttype = get_post_type( get_the_ID()); */
+if ( has_post_thumbnail(get_the_ID()) ) { $has_thumbclass = "has_thumb"; } else { $has_thumbclass = ""; } ?>
 <div class="listing-detail <?php echo $posttype; ?>">
-    <?php Inventor_Post_Types::render_listing_detail_sections(); ?>
-    <?php reach_listing_thumb( get_the_ID()); ?>
+    <div class="listing-detail-desc-wrap">
+     <?php get_template_part('section-description'); ?>
+   </div>
+    <div class="listing-detail-sections-wrap <?php echo $has_thumbclass; ?>">
+      <?php Inventor_Post_Types::render_listing_detail_sections(); ?>
+    </div> <!-- end listing-detail-sections -->
+    <?php if ( has_post_thumbnail(get_the_ID()) ) {
+      echo '<div class="listing-detail-thumb-wrap">';
+      reach_listing_thumb( get_the_ID());
+      echo '</div>';
+    } ?>
 </div><!-- /.listing-detail -->
 
 <?php do_action( 'inventor_after_listing_detail', get_the_ID() ); ?>
