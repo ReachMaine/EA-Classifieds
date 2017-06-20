@@ -16,7 +16,14 @@
 				padding-right: 0px;
 			}
 		}
-
+		.listing-detail-sections-wrap.has_thumb {
+			width: 60%;
+			display: inline-block;
+		}
+		.listing-detail-thumb-wrap {
+			width: 40%;
+			float: right;
+		}
 }
 @media only screen and (min-width:600) {
 
