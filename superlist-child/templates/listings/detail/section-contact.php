@@ -22,8 +22,8 @@
             <h2 class="page-header"><?php echo $section_title; ?></h2>
 
             <div class="listing-detail-contact">
-                <div class="row">
-                    <div class="col-md-6">
+                <?php /* <div class="row">
+                    <div class="col-md-6"> */ ?>
                         <ul>
                             <?php if ( ! empty( $email ) ): ?>
                                 <li class="email">
@@ -52,10 +52,10 @@
                                     </li>
                                 <?php endif; ?>
                             <?php endforeach; ?>
-                        </ul>
-                    </div><!-- /.col-* -->
+                      <?php /* </ul>
+                      </div><!-- /.col-* -->
                     <div class="col-md-6">
-                        <ul>
+                        <ul> */ ?>
                           <?php if ( ! empty( $website ) ): ?>
                               <?php if ( strpos( $website, 'http' ) !== 0 ) $website = sprintf( 'http://%s', $website ); ?>
 
@@ -79,8 +79,8 @@
                                 </li>
                             <?php endif; ?>
                         </ul>
-                    </div><!-- /.col-* -->
-                </div><!-- /.row -->
+                  <?php /*   </div><!-- /.col-* -->
+                </div><!-- /.row --> */ ?>
             </div><!-- /.listing-detail-contact -->
         </div><!-- /.listing-detail-section -->
     <?php endif; ?>
