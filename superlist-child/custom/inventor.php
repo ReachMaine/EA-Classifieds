@@ -47,6 +47,31 @@ function reach_listing_thumb( $int_listing_id) {
   }
 
 }
+// add real estate agent (author) to bottom of display listing
+//add_action('inventor_after_listing_detail', 'reach_listing_author', 10, 1);
+function reach_listing_author ($int_listing_id) {
+   if (get_post_type($int_listing_id) == 'realestate')  {
+      if (get_post_meta($int_listing_id, INVENTOR_LISTING_PREFIX.'show_author_info', true) == 'on') {
+
+        //echo "Post id: ".$int_listing_id."<br>";
+        $authorID = get_the_author_meta( 'ID' );
+        $user_stuff = get_user_meta($authorID);
+        //echo "user ID:  ".$authorID."<br>";
+        //echo "<pre>"; var_dump($user_stuff); echo "</pre>";
+        /* if ($user_stuff["user_general_image"]) {
+          echo '<img src="'.$user_stuff["user_general_image"][0].'" class="listing-author-image">';
+        }
+        if ($user_stuff["first_name"] || $user_stuff["last_name"]) {
+          echo '<h6 class="listing-author-name">'.$user_stuff["first_name"][0].' '.$user_stuff["last_name"][0].'</h6>' ;
+        } */
+        if ( class_exists( 'Inventor_Template_Loader' ) ) {
+    			echo Inventor_Template_Loader::load( 'widgets/listing-author' );
+    		}
+
+    } // show autho is on
+
+  } // post type real estate
+}
 
 // disable street view
 add_filter( 'inventor_metabox_field_enabled', 'disable_gmap_views', 10, 4 );

@@ -48,6 +48,13 @@ if ( has_post_thumbnail(get_the_ID()) ) { $has_thumbclass = "has_thumb"; } else 
       reach_listing_thumb( get_the_ID());
       echo '</div>';
     } ?>
+    <?php if ( ($post_type == 'realestate') && (get_post_meta(get_the_id(), INVENTOR_LISTING_PREFIX.'show_author_info', true) == 'on') ) {
+        echo '<div class="list-detail-author-wrap">';
+          echo '<div id="listing-detail-section-author" class="listing-detail-section"> ';
+            reach_listing_author( get_the_ID());
+          echo '</div>'; // section
+        echo '</div>'; // wrap
+    } ?>
 </div><!-- /.listing-detail -->
 
 <?php do_action( 'inventor_after_listing_detail', get_the_ID() ); ?>
