@@ -37,36 +37,45 @@ function ea_class_defimg($str_imgurl, $int_listingID) {
 //add_action('inventor_after_listing_detail', 'reach_listing_thumb', 10, 1); - calling directly now.
 function reach_listing_thumb( $int_listing_id) {
   if ( has_post_thumbnail($int_listing_id) ) {
-    echo '<div class="listing-detail-section" id="listing-detail-section-thumb">';
+    //echo '<div class="listing-detail-section" id="listing-detail-section-thumb">';
     echo '<div class="listing-detail-thumb">';
     $large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id($int_listing_id), 'large' );
     echo '<a href="'.esc_url($large_image_url[0]).'">' ;
-    echo get_the_post_thumbnail($int_listing_id, 'medium', ['class' => 'img-responsive responsive--full aligncenter', 'title' => 'Featured image']);
+    echo get_the_post_thumbnail($int_listing_id, 'medium', ['class' => 'alignright', 'title' => 'Featured image']);
     echo '</a>';
-    echo '</div></div>';
+    echo '</div>';
+    //echo '</div>';
   }
 
 }
 // add real estate agent (author) to bottom of display listing
 //add_action('inventor_after_listing_detail', 'reach_listing_author', 10, 1);
 function reach_listing_author ($int_listing_id) {
+
    if (get_post_type($int_listing_id) == 'realestate')  {
       if (get_post_meta($int_listing_id, INVENTOR_LISTING_PREFIX.'show_author_info', true) == 'on') {
-
         //echo "Post id: ".$int_listing_id."<br>";
         $authorID = get_the_author_meta( 'ID' );
         $user_stuff = get_user_meta($authorID);
         //echo "user ID:  ".$authorID."<br>";
         //echo "<pre>"; var_dump($user_stuff); echo "</pre>";
-        /* if ($user_stuff["user_general_image"]) {
-          echo '<img src="'.$user_stuff["user_general_image"][0].'" class="listing-author-image">';
-        }
-        if ($user_stuff["first_name"] || $user_stuff["last_name"]) {
-          echo '<h6 class="listing-author-name">'.$user_stuff["first_name"][0].' '.$user_stuff["last_name"][0].'</h6>' ;
-        } */
-        if ( class_exists( 'Inventor_Template_Loader' ) ) {
+        echo '<div class="col-sm-4 author">';
+          echo '<div class="row">';
+            if ($user_stuff["user_general_image"]) {
+               echo '<div class="col mug">';
+                  echo '<img src="'.$user_stuff["user_general_image"][0].'" class="listing-author-image pull-right" >';
+                echo '</div><!-- end col mug -->';
+            }
+            if ($user_stuff["nickname"] ) {
+              echo '<div class="col listing-author-name">';
+                echo $user_stuff["nickname"][0] ;
+              echo '</div><!-- end col name -->';
+            }
+          echo '</div><!-- end author "row" -->';
+        echo '</div><!-- end col4 author-->';
+        /* if ( class_exists( 'Inventor_Template_Loader' ) ) {
     			echo Inventor_Template_Loader::load( 'widgets/listing-author' );
-    		}
+    		} */
 
     } // show autho is on
 
@@ -108,10 +117,13 @@ function reach_get_post_type_image($str_post_type) {
     return $str_imgurl;
 }
 
-// Remove detail/overview from list of section s.t. we can put in separate container
+// swtich order of details & description.  by removing them & then puthsing them back onto the beginning of the array
 add_filter( 'inventor_listing_detail_sections', 'reach_list_details', 10, 2);
 function reach_list_details($sections, $post_type) {
-  unset($sections['description']);
+  //echo "<pre>"; var_dump($sections); echo "</pre>";
+  unset($sections['overview']);
+  unset($sections['gallery']);
+  $sections = array('gallery' => "Gallery", 'overview'=> "Details", ) + $sections;
   //echo "<pre>"; var_dump($sections); echo "</pre>";
   return $sections;
 }

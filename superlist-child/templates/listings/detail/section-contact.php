@@ -1,7 +1,17 @@
 <?php /*
   1Jun17 zig - dont display address & move website to second column
 */ ?>
+
 <?php if ( apply_filters( 'inventor_metabox_allowed', true, 'contact', get_the_author_meta('ID') ) && isset( $fields ) ): ?>
+  <div class="row row2 justify-content-center"> <?php /* start of next row */ ?>
+  <?php if ( (get_post_meta(get_the_id(), INVENTOR_LISTING_PREFIX.'show_author_info', true) == 'on') ) {
+        echo '<div class="list-detail-author-wrap col-sm-4">';
+          echo '<div id="listing-detail-section-author" class="listing-detail-section"> ';
+            reach_listing_author( get_the_ID());
+          echo '</div>'; // section
+        echo '</div>'; // wrap
+    } ?>
+
     <?php $predefined_fields = array(
         INVENTOR_LISTING_PREFIX . 'email',
         INVENTOR_LISTING_PREFIX . 'website',
@@ -18,12 +28,8 @@
     <?php $address = ""; // zig x-out get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'address', true ); ?>
 
     <?php if ( ! empty( $email ) || ! empty( $website ) || ! empty( $phone ) || ! empty( $person ) || ! empty( $address ) ) : ?>
-        <div class="listing-detail-section" id="listing-detail-section-contact">
-            <h2 class="page-header"><?php echo $section_title; ?></h2>
-
+        <div class="listing-detail-section  col-sm-4" id="listing-detail-section-contact">
             <div class="listing-detail-contact">
-                <?php /* <div class="row">
-                    <div class="col-md-6"> */ ?>
                         <ul>
                             <?php if ( ! empty( $email ) ): ?>
                                 <li class="email">
@@ -52,10 +58,6 @@
                                     </li>
                                 <?php endif; ?>
                             <?php endforeach; ?>
-                      <?php /* </ul>
-                      </div><!-- /.col-* -->
-                    <div class="col-md-6">
-                        <ul> */ ?>
                           <?php if ( ! empty( $website ) ): ?>
                               <?php $website_display = parse_url($website, PHP_URL_HOST); ?>
                               <li class="website">
@@ -78,9 +80,8 @@
                                 </li>
                             <?php endif; ?>
                         </ul>
-                  <?php /*   </div><!-- /.col-* -->
-                </div><!-- /.row --> */ ?>
             </div><!-- /.listing-detail-contact -->
         </div><!-- /.listing-detail-section -->
     <?php endif; ?>
+  </div><!-- /.row -->
 <?php endif; ?>
