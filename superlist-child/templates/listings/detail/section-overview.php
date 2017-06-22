@@ -13,9 +13,14 @@
                                     $att_name = '';
                                     break;
                                 case 'Location / Region':
+                                  $att_name = '<i class="inventor-poi inventor-poi-pin"></i>'; 
+                                  break;
                                 case 'Price':
                                     $att_name = "";
                                     break;
+                                case 'Baths':
+                                  $att_name='<i class="inventor-poi inventor-poi-hotel"></i>';
+                                break;
                                 default:
                                     $att_name = $attribute['name'];
 

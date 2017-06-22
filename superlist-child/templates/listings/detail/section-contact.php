@@ -33,7 +33,7 @@
                         <ul>
                             <?php if ( ! empty( $email ) ): ?>
                                 <li class="email">
-                                    <strong class="key"><?php echo __( 'E-mail', 'inventor' ); ?></strong>
+                                    <strong class="key"><i class="inventor-poi inventor-poi-mail"></i></strong>
                                     <span class="value">
                                         <a href="mailto:<?php echo esc_attr( $email ); ?>"><?php echo esc_attr( $email ); ?></a>
                                     </span>
@@ -42,7 +42,7 @@
 
                             <?php if ( ! empty( $phone ) ): ?>
                                 <li class="phone">
-                                    <strong class="key"><?php echo __( 'Phone', 'inventor' ); ?></strong>
+                                    <strong class="key"><i class="inventor-poi inventor-poi-phone"></i></strong>
                                     <span class="value"><a href="tel:<?php echo wp_kses( str_replace(' ', '', $phone), wp_kses_allowed_html( 'post' ) ); ?>"><?php echo wp_kses( $phone, wp_kses_allowed_html( 'post' ) ); ?></a></span>
                                 </li>
                             <?php endif; ?>
@@ -61,7 +61,7 @@
                           <?php if ( ! empty( $website ) ): ?>
                               <?php $website_display = parse_url($website, PHP_URL_HOST); ?>
                               <li class="website">
-                                  <strong class="key"><?php echo __( 'Website', 'inventor' ); ?></strong>
+                                  <strong class="key"><i class="fa fa-external-link" aria-hidden="true"></i></strong>
                                   <span class="value">
                                       <a href="<?php echo esc_attr( $website ); ?>" target="_blank"><?php echo esc_attr( $website_display ); ?></a>
                                   </span>
