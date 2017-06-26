@@ -4,7 +4,7 @@
 global $post; ?>
 
 <?php if ( ! empty( $post->post_content ) ) : ?>
-	<div class="listing-detail-section col-sm-9" id="listing-detail-section-description">
+	<div class="listing-detail-section col-md-9" id="listing-detail-section-description">
 	    <?php /* <h2 class="page-header"><?php echo $section_title; ?></h2> */ ?>
 		<div class="listing-detail-description-wrapper">
 			<?php if ( has_post_thumbnail(get_the_ID()) ) {

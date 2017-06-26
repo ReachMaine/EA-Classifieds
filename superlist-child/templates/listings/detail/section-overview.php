@@ -1,7 +1,7 @@
 <?php $attributes = Inventor_Post_Types::get_attributes(); ?>
 <div class="row"> <?php /* start row1 here, end in description */ ?>
 <?php if ( ! empty( $attributes ) && is_array( $attributes ) && count( $attributes ) > 0 ) : ?>
-    <div class="listing-detail-section col-sm-3" id="listing-detail-section-attributes">
+    <div class="listing-detail-section col-md-3" id="listing-detail-section-attributes">
         <?php /* <h2 class="page-header"><?php echo $section_title; ?></h2> */ ?>
 
         <div class="listing-detail-attributes">

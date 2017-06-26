@@ -5,7 +5,7 @@
 <?php if ( apply_filters( 'inventor_metabox_allowed', true, 'contact', get_the_author_meta('ID') ) && isset( $fields ) ): ?>
   <div class="row justify-content-center"> <?php /* start of next row2 */ ?>
   <?php if ( (get_post_meta(get_the_id(), INVENTOR_LISTING_PREFIX.'show_author_info', true) == 'on') ) {
-        echo '<div class="list-detail-author-wrap col-sm-4">';
+        echo '<div class="list-detail-author-wrap col-md-4">';
           echo '<div id="listing-detail-section-author" class="listing-detail-section"> ';
             reach_listing_author( get_the_ID());
           echo '</div>'; // section
@@ -28,7 +28,7 @@
     <?php $address = ""; // zig x-out get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'address', true ); ?>
 
     <?php if ( ! empty( $email ) || ! empty( $website ) || ! empty( $phone ) || ! empty( $person ) || ! empty( $address ) ) : ?>
-        <div class="listing-detail-section  col-sm-4" id="listing-detail-section-contact">
+        <div class="listing-detail-section  col-md-4" id="listing-detail-section-contact">
             <div class="listing-detail-contact">
                         <ul>
                             <?php if ( ! empty( $email ) ): ?>
