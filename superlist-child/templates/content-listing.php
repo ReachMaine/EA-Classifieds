@@ -3,6 +3,7 @@
 global $post;
 $posttype = get_post_type( get_the_ID());
 ?>
+<?php  /* zig here */ echo wp_kses( do_shortcode( '[inventor_breadcrumb]' ), wp_kses_allowed_html( 'post' ) ); ?>
       	<h1 class="detail-title">
       			<?php /* echo apply_filters( 'inventor_listing_title', get_the_title(), get_the_ID() ); */ ?>
       			<?php
@@ -29,7 +30,7 @@ $posttype = get_post_type( get_the_ID());
       			</h4>
       	<?php endif; ?>
 
-<?php  /* zig here */ echo wp_kses( do_shortcode( '[inventor_breadcrumb]' ), wp_kses_allowed_html( 'post' ) ); ?>
+
 <?php /* end zig here */ ?>
 
 

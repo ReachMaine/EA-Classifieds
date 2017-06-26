@@ -1,5 +1,5 @@
 <?php $attributes = Inventor_Post_Types::get_attributes(); ?>
-<div class="row row1"> <?php /* start here, end in description */ ?>
+<div class="row"> <?php /* start row1 here, end in description */ ?>
 <?php if ( ! empty( $attributes ) && is_array( $attributes ) && count( $attributes ) > 0 ) : ?>
     <div class="listing-detail-section col-sm-3" id="listing-detail-section-attributes">
         <?php /* <h2 class="page-header"><?php echo $section_title; ?></h2> */ ?>
@@ -13,12 +13,12 @@
                                     $att_name = '';
                                     break;
                                 case 'Location / Region':
-                                  $att_name = '<i class="inventor-poi inventor-poi-pin"></i>'; 
+                                  $att_name = '<i class="inventor-poi inventor-poi-pin"></i>';
                                   break;
                                 case 'Price':
                                     $att_name = "";
                                     break;
-                                case 'Baths':
+                                case 'Beds':
                                   $att_name='<i class="inventor-poi inventor-poi-hotel"></i>';
                                 break;
                                 default:

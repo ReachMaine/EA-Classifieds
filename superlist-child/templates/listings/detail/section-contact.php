@@ -3,7 +3,7 @@
 */ ?>
 
 <?php if ( apply_filters( 'inventor_metabox_allowed', true, 'contact', get_the_author_meta('ID') ) && isset( $fields ) ): ?>
-  <div class="row row2 justify-content-center"> <?php /* start of next row */ ?>
+  <div class="row justify-content-center"> <?php /* start of next row2 */ ?>
   <?php if ( (get_post_meta(get_the_id(), INVENTOR_LISTING_PREFIX.'show_author_info', true) == 'on') ) {
         echo '<div class="list-detail-author-wrap col-sm-4">';
           echo '<div id="listing-detail-section-author" class="listing-detail-section"> ';
