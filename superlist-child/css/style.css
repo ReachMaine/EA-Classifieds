@@ -213,7 +213,7 @@ a.read-more-link {
       background-color: black; }
     .listings-row .listing-row .listing-row-body,
     .listings-row .listing-row .listing-row-properties {
-      padding: 15px 15px 0px 15px; }
+      padding: 10px 15px 0px 15px; }
       .listings-row .listing-row .listing-row-body dd, .listings-row .listing-row .listing-row-body dt,
       .listings-row .listing-row .listing-row-properties dd,
       .listings-row .listing-row .listing-row-properties dt {
@@ -282,7 +282,11 @@ a.read-more-link {
   .post-type-archive-realestate #primary .widget_filter .form-group.beds {
     width: 13%; }
   .post-type-archive-realestate #primary .widget_filter .form-group-button {
-    width: 12%; } }
+    width: 12%; }
+
+  .listings-row .listing-row {
+    padding-top: 10px;
+    padding-right: 10px; } }
 @media only screen and (max-width: 767px) {
   .widget_listing_categories {
     display: none; }
