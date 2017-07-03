@@ -11,21 +11,19 @@
 
 // single listings
 
-.post-type-archive-helpwanted h2.listing-row-title img {
-  float: right;
-  padding: 5px;
-}
-
 img.listing-title-logo {
+  margin-right: 10px;
   width: 75px;
 }
-
+.detail-title {
+  margin-bottom: 15px;
+}
 .detail-banner.detail-banner-simple {
   height: 200px;
 }
 .listing-detail  {
   img {
-    max-height: 300px;
+    max-height: 300px;  // see median
     width: inherit;
   }
   margin-top: 0px;
@@ -47,9 +45,15 @@ img.listing-title-logo {
     //padding-bottom: 20px; // last one needs padding
   }
 }
-
+.listing-detail-attributes ul li span.value {
+  width: 75%;
+}
 
 // listing archive (as row)
+.post-type-archive-helpwanted h2.listing-row-title img {
+  float: right;
+  padding: 5px;
+}
 
 .listing-container {
   .listing-row {
@@ -95,6 +99,7 @@ a.read-more-link {
     }
     .listing-row-title img { // logo image in title
       max-width: 100px;
+      margin-right: 10px;
     }
     padding-bottom: 10px;
     .listing-row-image {

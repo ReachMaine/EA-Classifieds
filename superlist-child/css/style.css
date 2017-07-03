@@ -142,12 +142,12 @@ body {
   .listing-categories-card-container .listing-categories-card-title, .listing-categories-card-container .listing-types-card-title {
     padding-top: 10px; }
 
-.post-type-archive-helpwanted h2.listing-row-title img {
-  float: right;
-  padding: 5px; }
-
 img.listing-title-logo {
+  margin-right: 10px;
   width: 75px; }
+
+.detail-title {
+  margin-bottom: 15px; }
 
 .detail-banner.detail-banner-simple {
   height: 200px; }
@@ -172,6 +172,13 @@ img.listing-title-logo {
     background-color: white;
     -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 1px 2px 0;
     box-shadow: rgba(0, 0, 0, 0.1) 0 1px 2px 0; }
+
+.listing-detail-attributes ul li span.value {
+  width: 75%; }
+
+.post-type-archive-helpwanted h2.listing-row-title img {
+  float: right;
+  padding: 5px; }
 
 .listing-container .listing-row {
   border: 2px solid #ababab;
@@ -205,7 +212,8 @@ a.read-more-link {
     .listings-row .listing-row .listing-row-title {
       margin: 2px 0 10px 0; }
     .listings-row .listing-row .listing-row-title img {
-      max-width: 100px; }
+      max-width: 100px;
+      margin-right: 10px; }
     .listings-row .listing-row .listing-row-image {
       height: 150px;
       background-size: contain; }
@@ -336,6 +344,11 @@ footer.footer {
 
   .header-complex .header-navigation #menu-ea-main-menu {
     margin-top: 150px; } }
+@media only screen and (max-width: 991px) {
+  .listing-detail .listing-detail-thumb img {
+    width: 100%;
+    height: auto;
+    max-height: initial; } }
 @media only screen and (min-width: 768px) {
   .header-complex .header-logo {
     padding-right: 0px; }
@@ -348,7 +361,9 @@ footer.footer {
     display: inline-block; }
 
   .listing-detail-thumb-wrap {
-    width: 40%;
+    width: 40%; }
+
+  .float-lg-right {
     float: right; } }
 @media only screen and (max-width: 1199px) and (min-width: 786px) {
   .listing-row .listing-row-properties {

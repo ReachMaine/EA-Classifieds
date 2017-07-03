@@ -41,7 +41,7 @@ function reach_listing_thumb( $int_listing_id) {
     echo '<div class="listing-detail-thumb">';
     $large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id($int_listing_id), 'large' );
     echo '<a href="'.esc_url($large_image_url[0]).'">' ;
-    echo get_the_post_thumbnail($int_listing_id, 'medium', ['class' => 'alignright', 'title' => 'Featured image']);
+    echo get_the_post_thumbnail($int_listing_id, 'medium', ['class' => 'alignleft', 'title' => 'Featured image']);
     echo '</a>';
     echo '</div>';
     //echo '</div>';

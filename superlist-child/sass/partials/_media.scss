@@ -8,7 +8,14 @@
 		margin-top: 150px; // size of header background
 	}
 }
+@media only screen and (max-width: 991px) { // smaller than md in boot strap.
+	.listing-detail .listing-detail-thumb img { //
+		width: 100%;
+		height: auto;
+		max-height: initial;
+	}
 
+}
 @media only screen and (min-width: 768px) {
 		.header-complex {
 			.header-logo {
@@ -25,6 +32,9 @@
 		}
 		.listing-detail-thumb-wrap {
 			width: 40%;
+			//float: right;
+		}
+		.float-lg-right {
 			float: right;
 		}
 }

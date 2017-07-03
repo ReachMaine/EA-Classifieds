@@ -4,7 +4,7 @@ global $post;
 $posttype = get_post_type( get_the_ID());
 ?>
 <?php  /* zig here */ echo wp_kses( do_shortcode( '[inventor_breadcrumb]' ), wp_kses_allowed_html( 'post' ) ); ?>
-      	<h1 class="detail-title">
+      	<h1 class="detail-title container">
       			<?php /* echo apply_filters( 'inventor_listing_title', get_the_title(), get_the_ID() ); */ ?>
       			<?php
             $title =  get_the_title();
@@ -36,7 +36,7 @@ $posttype = get_post_type( get_the_ID());
 
 <?php do_action( 'inventor_before_listing_detail', get_the_ID() ); ?>
 
-<div class="listing-detail container <?php echo $posttype; ?>">
+<div class="listing-detail <?php echo $posttype; ?>">
       <?php Inventor_Post_Types::render_listing_detail_sections(); ?>
 </div><!-- /.listing-detail -->
 <?php do_action( 'inventor_after_listing_detail', get_the_ID() ); ?>
