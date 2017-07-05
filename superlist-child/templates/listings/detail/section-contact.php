@@ -5,11 +5,12 @@
 <?php if ( apply_filters( 'inventor_metabox_allowed', true, 'contact', get_the_author_meta('ID') ) && isset( $fields ) ): ?>
   <div class="row justify-content-center"> <?php /* start of next row2 */ ?>
   <?php if ( (get_post_meta(get_the_id(), INVENTOR_LISTING_PREFIX.'show_author_info', true) == 'on') ) {
-        echo '<div class="list-detail-author-wrap col-md-4">';
-          echo '<div id="listing-detail-section-author" class="listing-detail-section"> ';
+
+        echo '<div class="listing-detail-section col-md-4" id="listing-detail-section-author"  > ';
+          echo '<div class="listing-detail-author">';
             reach_listing_author( get_the_ID());
-          echo '</div>'; // section
-        echo '</div>'; // wrap
+          echo '</div>'; // wrap
+        echo '</div>'; //section
     } ?>
 
     <?php $predefined_fields = array(
@@ -67,7 +68,7 @@
                                   </span>
                               </li>
                           <?php endif; ?>
-                            <?php if ( ! empty( $person ) ): ?>
+                            <?php if ( ! empty( $person ) && false ): /*zig false out - dont show person */ ?>
                                 <li class="person">
                                     <strong class="key"><?php echo __( 'Person', 'inventor' ); ?></strong>
                                     <span class="value"><?php echo wp_kses( $person, wp_kses_allowed_html( 'post' ) ); ?></span>

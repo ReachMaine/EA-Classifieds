@@ -153,21 +153,43 @@ img.listing-title-logo {
   height: 200px; }
 
 .listing-detail {
+  background-color: white;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 1px 2px 0;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 1px 2px 0;
+  padding: 20px;
   margin-top: 0px; }
   .listing-detail img {
     max-height: 300px;
     width: inherit; }
-  .listing-detail .listing-detail-contact,
-  .listing-detail .listing-detail-section,
-  .listing-detail .listing-detail-attributes {
-    margin-bottom: 0px;
-    padding-bottom: 0px; }
-    .listing-detail .listing-detail-contact .page-header,
-    .listing-detail .listing-detail-section .page-header,
-    .listing-detail .listing-detail-attributes .page-header {
-      display: none;
-      padding: 0px;
-      margin: 0px; }
+  .listing-detail .listing-detail-section {
+    margin-bottom: 10px; }
+    .listing-detail .listing-detail-section .listing-detail-author,
+    .listing-detail .listing-detail-section .listing-detail-contact,
+    .listing-detail .listing-detail-section .listing-detail-section,
+    .listing-detail .listing-detail-section .listing-detail-attributes {
+      box-shadow: none;
+      margin-bottom: 0px;
+      padding-bottom: 0px;
+      padding: 20px 20px; }
+      .listing-detail .listing-detail-section .listing-detail-author .page-header,
+      .listing-detail .listing-detail-section .listing-detail-contact .page-header,
+      .listing-detail .listing-detail-section .listing-detail-section .page-header,
+      .listing-detail .listing-detail-section .listing-detail-attributes .page-header {
+        display: none;
+        padding: 0px;
+        margin: 0px; }
+    .listing-detail .listing-detail-section .see-more-link {
+      float: right; }
+    .listing-detail .listing-detail-section .listing-detail-author .mug {
+      text-align: center; }
+    .listing-detail .listing-detail-section .listing-detail-author .listing-author-name {
+      text-align: center; }
+    .listing-detail .listing-detail-section .listing-detail-contact ul li strong.key {
+      width: 20px; }
+    .listing-detail .listing-detail-section .listing-detail-contact ul li span.value {
+      width: initial;
+      text-align: left;
+      float: none; }
   .listing-detail .listing-detail-thumb {
     background-color: white;
     -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 1px 2px 0;
@@ -314,6 +336,11 @@ a.read-more-link {
 .widget_call_to_action .widget-pt.widget-pb {
   padding-top: 20px;
   padding-bottom: 20px; }
+
+#primary .content,
+.page #primary .post-content,
+.archive #primary {
+  margin-bottom: 30px; }
 
 footer.footer {
   color: #000 !important; }

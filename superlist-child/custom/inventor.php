@@ -59,20 +59,25 @@ function reach_listing_author ($int_listing_id) {
         $user_stuff = get_user_meta($authorID);
         //echo "user ID:  ".$authorID."<br>";
         //echo "<pre>"; var_dump($user_stuff); echo "</pre>";
-        echo '<div class="col-sm-4 author">';
+        echo '<div class="author pull-right">';
           echo '<div class="row">';
             if ($user_stuff["user_general_image"]) {
-               echo '<div class="col mug">';
-                  echo '<img src="'.$user_stuff["user_general_image"][0].'" class="listing-author-image pull-right" >';
-                echo '</div><!-- end col mug -->';
+               echo '<div class="mug">';
+                  echo '<img src="'.$user_stuff["user_general_image"][0].'" class="listing-author-image" >';
+                echo '</div><!-- end mug -->';
             }
             if ($user_stuff["nickname"] ) {
-              echo '<div class="col listing-author-name">';
+              echo '<div class="listing-author-name">';
                 echo $user_stuff["nickname"][0] ;
-              echo '</div><!-- end col name -->';
+              echo '</div><!-- end name -->';
+            }
+            if ($user_stuff["description"]) {
+              echo '<div class="listing-author-bio">';
+                echo $user_stuff["description"][0] ;
+              echo '</div><!-- end desc -->';
             }
           echo '</div><!-- end author "row" -->';
-        echo '</div><!-- end col4 author-->';
+        echo '</div><!-- end author-->';
         /* if ( class_exists( 'Inventor_Template_Loader' ) ) {
     			echo Inventor_Template_Loader::load( 'widgets/listing-author' );
     		} */
