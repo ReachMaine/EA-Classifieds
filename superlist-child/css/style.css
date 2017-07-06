@@ -161,6 +161,8 @@ img.listing-title-logo {
   .listing-detail img {
     max-height: 300px;
     width: inherit; }
+  .listing-detail .row.contact-wrap {
+    border-top: 1px solid #efefef; }
   .listing-detail .listing-detail-section {
     margin-bottom: 10px; }
     .listing-detail .listing-detail-section .listing-detail-author,
@@ -182,6 +184,11 @@ img.listing-title-logo {
       float: right; }
     .listing-detail .listing-detail-section .listing-detail-author .mug {
       text-align: center; }
+      .listing-detail .listing-detail-section .listing-detail-author .mug img {
+        height: initial;
+        border: 0px;
+        border-radius: 15%;
+        margin-bottom: 0px; }
     .listing-detail .listing-detail-section .listing-detail-author .listing-author-name {
       text-align: center; }
     .listing-detail .listing-detail-section .listing-detail-contact ul li strong.key {

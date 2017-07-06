@@ -47,8 +47,10 @@
               if (($scraped_content) || ($posttype == 'realestate')) {
                   the_excerpt();
                   ?>
-                  <?php if ($website && $domain) {  ?>
-                    <p> <a class="see-more-link" target="_blank" href="<?php echo $website; ?>">See listing on <?php echo $domain; ?></a></p>
+                  <?php
+                  $targetpage = get_post_meta(get_the_ID(), INVENTOR_LISTING_PREFIX .'realtorpage', true);
+                  if ($targetpage) { ?>
+                    <p> <a class="see-more-link" target="_blank" href="<?php echo $targetpage; ?>">See full listing on <?php echo $domain; ?></a></p>
                   <?php } ?>
                 <?php/* JFN   <p>
                       <a class="read-more-link" href="<?php echo esc_attr( get_permalink( get_the_ID() ) ); ?>"><?php echo esc_attr__( 'Read More', 'inventor' ); ?><i class="fa fa-chevron-right"></i></a>

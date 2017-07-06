@@ -21,6 +21,7 @@ img.listing-title-logo {
 .detail-banner.detail-banner-simple {
   height: 200px;
 }
+
 .listing-detail  {
   background-color: white;
   -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 1px 2px 0;
@@ -31,6 +32,9 @@ img.listing-title-logo {
     width: inherit;
   }
   margin-top: 0px;
+  .row.contact-wrap {
+    border-top: 1px solid #efefef;
+  }
   .listing-detail-section {
     margin-bottom: 10px;
 
@@ -54,11 +58,17 @@ img.listing-title-logo {
     .listing-detail-author {
       .mug {
         text-align: center;
+        img {
+          height: initial;
+          border: 0px;
+          border-radius: 15%;
+          margin-bottom: 0px;
+        }
       }
       .listing-author-name {
         text-align: center;
       }
-    }
+    } // author
     .listing-detail-contact {
       ul li  {
           strong.key {
@@ -71,7 +81,8 @@ img.listing-title-logo {
           }
 
       }
-    }
+
+    } // contact
   } // listing-detail-section
 
   .listing-detail-thumb {

@@ -3,15 +3,8 @@
 */ ?>
 
 <?php if ( apply_filters( 'inventor_metabox_allowed', true, 'contact', get_the_author_meta('ID') ) && isset( $fields ) ): ?>
-  <div class="row justify-content-center"> <?php /* start of next row2 */ ?>
-  <?php if ( (get_post_meta(get_the_id(), INVENTOR_LISTING_PREFIX.'show_author_info', true) == 'on') ) {
+  <div class="row justify-content-center contact-wrap"> <?php /* start of next row2 */ ?>
 
-        echo '<div class="listing-detail-section col-md-4" id="listing-detail-section-author"  > ';
-          echo '<div class="listing-detail-author">';
-            reach_listing_author( get_the_ID());
-          echo '</div>'; // wrap
-        echo '</div>'; //section
-    } ?>
 
     <?php $predefined_fields = array(
         INVENTOR_LISTING_PREFIX . 'email',
@@ -29,7 +22,7 @@
     <?php $address = ""; // zig x-out get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'address', true ); ?>
 
     <?php if ( ! empty( $email ) || ! empty( $website ) || ! empty( $phone ) || ! empty( $person ) || ! empty( $address ) ) : ?>
-        <div class="listing-detail-section  col-md-4" id="listing-detail-section-contact">
+        <div class="listing-detail-section  col-md-3" id="listing-detail-section-contact">
             <div class="listing-detail-contact">
                         <ul>
                             <?php if ( ! empty( $email ) ): ?>
@@ -84,5 +77,12 @@
             </div><!-- /.listing-detail-contact -->
         </div><!-- /.listing-detail-section -->
     <?php endif; ?>
+    <?php if ( (get_post_meta(get_the_id(), INVENTOR_LISTING_PREFIX.'show_author_info', true) == 'on') ) {
+        echo '<div class="listing-detail-section col-md-9" id="listing-detail-section-author"  > ';
+            echo '<div class="listing-detail-author">';
+              reach_listing_author( get_the_ID());
+            echo '</div>'; // wrap
+          echo '</div>'; //section
+      } ?>
   </div><!-- /.row -->
 <?php endif; ?>
