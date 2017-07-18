@@ -3,7 +3,7 @@
 */
 global $post; ?>
 
-<?php if ( ! empty( $post->post_content ) ) : ?>
+<?php // if ( ! empty( $post->post_content ) ) : ?>
 	<div class="listing-detail-section col-md-9" id="listing-detail-section-description">
 	    <?php /* <h2 class="page-header"><?php echo $section_title; ?></h2> */ ?>
 		<div class="listing-detail-description">
@@ -20,5 +20,5 @@ global $post; ?>
 		</div>
 	</div><!-- /.listing-detail-section -->
 
-<?php endif; ?>
+<?php// endif; ?>
 </div><!-- end row 1 -->
