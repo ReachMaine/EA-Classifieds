@@ -29,7 +29,8 @@
             switch($posttype) { // dont show title for help wanted or classifieds.
             case 'classifieds':
             case 'rentals':
-            //case 'helpwanted':
+            case 'realestate':
+            //case 'helpwanted': // supposedly Jobs will always have a title...
               $show_title = false;
               break;
             default:
@@ -44,7 +45,7 @@
       <?php } ?>
         <div class="listing-row-content">
             <?php
-              if (($scraped_content) || ($posttype == 'realestate')) {
+          if (($scraped_content) /* || ($posttype == 'realestate')*/  ) {
                   the_excerpt();
                   ?>
                   <?php
