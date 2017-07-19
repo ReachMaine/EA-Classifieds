@@ -48,51 +48,6 @@ function reach_listing_thumb( $int_listing_id) {
   }
 
 }
-// add real estate agent (author) to bottom of display listing
-//add_action('inventor_after_listing_detail', 'reach_listing_author', 10, 1);
-function reach_listing_author ($int_listing_id) {
-
-   if (get_post_type($int_listing_id) == 'realestate')  {
-      if (get_post_meta($int_listing_id, INVENTOR_LISTING_PREFIX.'show_author_info', true) == 'on') {
-        //echo "Post id: ".$int_listing_id."<br>";
-        $authorID = get_the_author_meta( 'ID' );
-        $user_stuff = get_user_meta($authorID);
-        //echo "user ID:  ".$authorID."<br>";
-        //echo "<pre>"; var_dump($user_stuff); echo "</pre>";
-        echo '<div class="author">';
-          echo '<div class="row">';
-            echo '<div class="col-md-3">';
-            if ($user_stuff["user_general_image"]  || $user_stuff["nickname"] ) {
-              if ($user_stuff["user_general_image"]) {
-                 echo '<div class="mug">';
-                    echo '<img src="'.$user_stuff["user_general_image"][0].'" class="listing-author-image" >';
-                  echo '</div><!-- end mug -->';
-              }
-              if ($user_stuff["nickname"] ) {
-                echo '<div class="listing-author-name">';
-                  echo $user_stuff["nickname"][0] ;
-                echo '</div><!-- end name -->';
-              }
-
-              echo "</div><!-- end col3 -->";
-              echo '<div class="col-md-8">';
-          }
-          if ($user_stuff["description"]) {
-            echo '<div class="listing-author-bio">';
-              echo $user_stuff["description"][0] ;
-            echo '</div><!-- end desc -->';
-          }
-            echo '</div><!-- end col8 for bio -->';
-          echo '</div><!-- end author "row" -->';
-        echo '</div><!-- end author-->';
-        /* if ( class_exists( 'Inventor_Template_Loader' ) ) {
-    			echo Inventor_Template_Loader::load( 'widgets/listing-author' );
-    		} */
-
-    } // show autho is on
-
-  } // post type real estate
-}
 
 // disable street view
 add_filter( 'inventor_metabox_field_enabled', 'disable_gmap_views', 10, 4 );

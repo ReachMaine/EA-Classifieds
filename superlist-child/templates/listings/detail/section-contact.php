@@ -15,13 +15,32 @@
     ); ?>
     <?php $custom_fields = array_diff( array_keys( $fields ), $predefined_fields ); ?>
 
-    <?php $email = get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'email', true ); ?>
-    <?php $website = get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'website', true ); ?>
-    <?php $phone = get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'phone', true ); ?>
-    <?php $person = get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'person', true ); ?>
-    <?php $address = ""; // zig x-out get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'address', true ); ?>
+    <?php  $address = ""; // zig x-out get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'address', true );
+    if ( (get_post_meta(get_the_id(), INVENTOR_LISTING_PREFIX.'show_author_info', true) == 'on') ) {
 
-    <?php if ( ! empty( $email ) || ! empty( $website ) || ! empty( $phone ) || ! empty( $person ) || ! empty( $address ) ) : ?>
+      $authorID = get_the_author_meta( 'ID' );
+      $user_stuff = get_user_meta($authorID);
+      //echo "<pre>"; var_dump($user_stuff); echo "</pre>";
+      $website = $user_stuff["user_companywebsite"][0];
+      $email = $user_stuff["user_general_email"][0];
+      $address = "";
+      if ( $user_stuff["user_general_phone"] ) {
+        $phone = $user_stuff["user_general_phone"][0];
+      } else if ($user_stuff["user_agentphone"]) {
+        $phone = $user_stuff["user_agentphone"][0];
+      }
+      if ( $user_stuff["user_companyphoto"] ) {
+        $contactlogo = $user_stuff["user_companyphoto"][0];
+      }
+    } else {
+      $email = get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'email', true );
+      $website = get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'website', true );
+      $phone = get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'phone', true );
+      $person = get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'person', true );
+      $contactlogo = "";
+
+   } /* end if for autho_info */ ?>
+    <?php if ( ! empty( $email ) || ! empty( $website ) || ! empty( $phone ) || ! empty( $person ) || ! empty( $address ) ) {  ?>
         <div class="listing-detail-section  col-md-3" id="listing-detail-section-contact">
             <div class="listing-detail-contact">
                         <ul>
@@ -53,7 +72,12 @@
                                 <?php endif; ?>
                             <?php endforeach; ?>
                           <?php if ( ! empty( $website ) ): ?>
-                              <?php $website_display = parse_url($website, PHP_URL_HOST); ?>
+                              <?php if (strpos($website, '://') === false) {
+                                  $website_display = $website;
+                                  $website  = "http://".$website;
+                                } else {
+                                  $website_display = parse_url($website, PHP_URL_HOST);
+                                } ?>
                               <li class="website">
                                   <strong class="key"><i class="fa fa-external-link" aria-hidden="true"></i></strong>
                                   <span class="value">
@@ -61,7 +85,7 @@
                                   </span>
                               </li>
                           <?php endif; ?>
-                            <?php if ( ! empty( $person ) && false ): /*zig false out - dont show person */ ?>
+                            <?php if ( ! empty( $person ) && false ): /*zig false out - dont show person here */ ?>
                                 <li class="person">
                                     <strong class="key"><?php echo __( 'Person', 'inventor' ); ?></strong>
                                     <span class="value"><?php echo wp_kses( $person, wp_kses_allowed_html( 'post' ) ); ?></span>
@@ -69,20 +93,76 @@
                             <?php endif; ?>
                             <?php if ( ! empty( $address ) ): ?>
                                 <li class="address">
-                                    <strong class="key"><?php echo __( 'Address', 'inventor' ); ?></strong>
+                                    <strong class="key"><i class="inventor-poi inventor-poi-pin"></i></strong>
                                     <span class="value"><?php echo wp_kses( nl2br( $address ), wp_kses_allowed_html( 'post' ) ); ?></span>
+                                </li>
+                            <?php endif; ?>
+                            <?php if ( ! empty( $contactlogo  ) ): ?>
+                                <li class="contact-logo">
+                                    <img src='<?php echo $contactlogo; ?>'>
                                 </li>
                             <?php endif; ?>
                         </ul>
             </div><!-- /.listing-detail-contact -->
         </div><!-- /.listing-detail-section -->
-    <?php endif; ?>
+    <?php } /* end if have contact info */ ?>
     <?php if ( (get_post_meta(get_the_id(), INVENTOR_LISTING_PREFIX.'show_author_info', true) == 'on') ) {
         echo '<div class="listing-detail-section col-md-9" id="listing-detail-section-author"  > ';
             echo '<div class="listing-detail-author">';
-              reach_listing_author( get_the_ID());
-            echo '</div>'; // wrap
-          echo '</div>'; //section
-      } ?>
+                //echo "user ID:  ".$authorID."<br>";
+                //echo "<pre>"; var_dump($user_stuff); echo "</pre>";
+                echo '<div class="author">';
+                  echo '<div class="row">';
+                    echo '<div class="col-md-3">';
+                      if ($user_stuff["user_general_image"]) {
+                         echo '<div class="mug">';
+                            echo '<img src="'.$user_stuff["user_general_image"][0].'" class="listing-author-image" >';
+                          echo '</div><!-- end mug -->';
+                      } else if ($user_stuff["user_photo"]) {
+                        echo '<div class="mug">';
+                           echo '<img src="'.$user_stuff["user_photo"][0].'" class="listing-author-image" >';
+                         echo '</div><!-- end mug -->';
+                      }
+                      if ($user_stuff["nickname"] ) {
+                        echo '<div class="listing-author-name">';
+                          echo $user_stuff["nickname"][0] ;
+                        echo '</div><!-- end name -->';
+                      }
+                      if ($user_stuff["user_company"]) {
+                        echo '<div class="listing-company-name">';
+                          echo $user_stuff["user_company"][0] ;
+                        echo '</div><!-- end company -->';
+                      }
+                     if ($user_stuff["user_companyaddress"]) {
+                         echo '<div class="listing-company-address">';
+                        $address = $user_stuff["user_companyaddress"][0];
+                        if ( $user_stuff["user_companytown"] ) {
+                          $address .= "<br>".$user_stuff["user_companytown"][0];
+                        }
+                        if ($user_stuff["user_companystate"]) {
+                          $address .= ", ".$user_stuff["user_companystate"][0];
+                        }
+                          echo $address ;
+                        echo '</div><!-- end company -->';
+                      }
+
+                    echo "</div><!-- end col3 -->";
+                    if ($user_stuff["description"]) {
+                      echo '<div class="col-md-8">';
+                        echo '<div class="listing-author-bio">';
+                          echo $user_stuff["description"][0] ;
+                        echo '</div><!-- end desc -->';
+                        echo '</div><!-- end col8 for bio -->';
+                    }
+                  echo '</div><!-- end author "row" -->';
+                echo '</div><!-- end author-->';
+                /* if ( class_exists( 'Inventor_Template_Loader' ) ) {
+                  echo Inventor_Template_Loader::load( 'widgets/listing-author' );
+                } */
+                echo '</div>'; //
+              echo '</div>'; //section
+            } // show autho is on
+
+ ?>
   </div><!-- /.row -->
 <?php endif; ?>

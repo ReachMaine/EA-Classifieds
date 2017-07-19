@@ -183,7 +183,8 @@ img.listing-title-logo {
     .listing-detail .listing-detail-section .see-more-link {
       float: right; }
     .listing-detail .listing-detail-section .listing-detail-author .mug {
-      text-align: center; }
+      text-align: center;
+      width: 100%; }
       .listing-detail .listing-detail-section .listing-detail-author .mug img {
         height: initial;
         border: 0px;
