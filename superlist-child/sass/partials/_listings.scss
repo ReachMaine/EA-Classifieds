@@ -213,6 +213,10 @@ a.read-more-link {
 // listing types widget of listings (used on homepage)
 .listing-categories-card-image,
 .listing-types-card-image {
-  //background-color: black;
-  //background-size: contain;
+  background-color: #09729e;
+  background-size: contain;
+}
+
+.listing-categories-card-image a, .listing-types-card-image a {
+  background-color: rgba(0, 0, 0, .2);
 }
