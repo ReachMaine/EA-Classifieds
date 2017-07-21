@@ -82,10 +82,16 @@ img.listing-title-logo {
           }
 
       }
-
-    } // contact
+    }
   } // listing-detail-section
-
+  #listing-detail-section-gallery { // gallery
+    margin-top: 0px;
+    .listing-detail-gallery {
+      .item-image {
+        background-size: initial;
+      }
+    }
+  }
   .listing-detail-thumb {
     background-color: white;
     -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 1px 2px 0;

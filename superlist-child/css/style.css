@@ -206,6 +206,10 @@ img.listing-title-logo {
       width: initial;
       text-align: left;
       float: none; }
+  .listing-detail #listing-detail-section-gallery {
+    margin-top: 0px; }
+    .listing-detail #listing-detail-section-gallery .listing-detail-gallery .item-image {
+      background-size: initial; }
   .listing-detail .listing-detail-thumb {
     background-color: white;
     -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 1px 2px 0;
