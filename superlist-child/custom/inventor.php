@@ -90,6 +90,7 @@ function reach_list_details($sections, $post_type) {
   //echo "<pre>"; var_dump($sections); echo "</pre>";
   unset($sections['overview']);
   unset($sections['gallery']);
+  $sections = array('overview'=> "Details" ) + $sections  + array('gallery' => "Gallery") ;
   //echo "<pre>"; var_dump($sections); echo "</pre>";
   return $sections;
 }
