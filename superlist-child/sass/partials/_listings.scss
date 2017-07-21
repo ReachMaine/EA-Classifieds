@@ -4,6 +4,11 @@
   .listing-categories-card-title, .listing-types-card-title {
     padding-top: 10px;
   }
+  .listing-categories-card {
+    border: 2px solid #ababab;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 2px 2px 3px 1px;
+  }
 }
 
 
@@ -144,7 +149,7 @@ a.read-more-link {
 }
 
 .listings-row {
-    background-color: #f1f1f1;
+    //background-color: rgba(255, 255, 255, .4);
     padding-top: 10px;
 
   .listing-row {
@@ -225,4 +230,8 @@ a.read-more-link {
 
 .listing-categories-card-image a, .listing-types-card-image a {
   background-color: rgba(0, 0, 0, .2);
+}
+
+.row > div {
+  //background-color: rgba(255, 255, 255, 0.4);
 }

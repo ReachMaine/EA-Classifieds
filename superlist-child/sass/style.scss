@@ -45,6 +45,11 @@ body {
 }
 
 // header styling
+
+.header-sticky .header {
+  //background: white;
+}
+
 #topbanner {
   text-align: center;
   .ad-container {
@@ -52,11 +57,15 @@ body {
   }
 }
 .header-logo img{
-  max-height: 120px;
+  max-height: 45px;
 }
   .header-wrap-background {
-    height: 150px;
-    background-image: url(./images/map-background-dark.jpg);
+    //height: 150px;
+    //background-image: url(./images/header-background.jpg);
+    //background-position: center;
+    //background-size: cover;
+    box-shadow: 0 2px 6px grey;
+    background-color: white;
   }
 .navbar-toggle {
   background-color: $button-color;
@@ -64,27 +73,27 @@ body {
     background-color: white;
   }
 }
+ol.breadcrumb {
+  display: none;
+}
 
 .document-title {
   ol.breadcrumb li {
     margin-bottom: 5px;
   }
   h1 {
-    margin: 0 0 8px 0;
+    margin: 20px 0 8px 0;
     font-weight: bold;
     text-align: center;
   }
 }
 // main menu
+
+
 .header-navigation {
   width: 100%;
 }
 
-#menu-ea-main-menu { // ul
-  display: flex!important;
-  justify-content: space-around;
-  float: initial;
-}
 @import "partials/listings";
 @import "partials/filter";
 
@@ -97,6 +106,15 @@ body {
 .page #primary .post-content,
 .archive #primary {
   margin-bottom: 30px; // down from default of 60
+}
+
+#listing_types-3 .widget-inner, .main-inner {
+  background-color: inherit !important;
+  background-image: none !important;
+}
+
+.page-wrapper {
+  background: none !important;
 }
 // footer styling {
 footer.footer {

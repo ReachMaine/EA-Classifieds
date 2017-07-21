@@ -119,36 +119,38 @@ body {
     padding: 10px; }
 
 .header-logo img {
-  max-height: 120px; }
+  max-height: 45px; }
 
 .header-wrap-background {
-  height: 150px;
-  background-image: url(./images/map-background-dark.jpg); }
+  box-shadow: 0 2px 6px grey;
+  background-color: white; }
 
 .navbar-toggle {
   background-color: #0a83b6; }
   .navbar-toggle .icon-bar {
     background-color: white; }
 
+ol.breadcrumb {
+  display: none; }
+
 .document-title ol.breadcrumb li {
   margin-bottom: 5px; }
 .document-title h1 {
-  margin: 0 0 8px 0;
+  margin: 20px 0 8px 0;
   font-weight: bold;
   text-align: center; }
 
 .header-navigation {
   width: 100%; }
 
-#menu-ea-main-menu {
-  display: flex !important;
-  justify-content: space-around;
-  float: initial; }
-
 .listing-categories-card-container {
   margin-bottom: 10px; }
   .listing-categories-card-container .listing-categories-card-title, .listing-categories-card-container .listing-types-card-title {
     padding-top: 10px; }
+  .listing-categories-card-container .listing-categories-card {
+    border: 2px solid #ababab;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 2px 2px 3px 1px; }
 
 img.listing-title-logo {
   margin-right: 10px;
@@ -247,7 +249,6 @@ a.read-more-link {
   margin: 25px 0 0 0; }
 
 .listings-row {
-  background-color: #f1f1f1;
   padding-top: 10px; }
   .listings-row .listing-row {
     padding-bottom: 10px; }
@@ -309,7 +310,10 @@ a.read-more-link {
 @media only screen and (min-width: 1200px) {
   form.filter-form {
     display: flex;
-    justify-content: space-between; }
+    justify-content: space-between;
+    border: 2px solid #ababab;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 2px 2px 3px 1px; }
 
   .post-type-archive-rentals #primary .widget_filter .form-group-locations {
     width: 17%; }
@@ -365,6 +369,13 @@ a.read-more-link {
 .archive #primary {
   margin-bottom: 30px; }
 
+#listing_types-3 .widget-inner, .main-inner {
+  background-color: inherit !important;
+  background-image: none !important; }
+
+.page-wrapper {
+  background: none !important; }
+
 footer.footer {
   color: #000 !important; }
   footer.footer .footer-top {
@@ -414,7 +425,12 @@ footer.footer {
     width: 40%; }
 
   .float-lg-right {
-    float: right; } }
+    float: right; }
+
+  #menu-ea-main-menu {
+    display: flex !important;
+    justify-content: space-around;
+    float: initial; } }
 @media only screen and (max-width: 1199px) and (min-width: 786px) {
   .listing-row .listing-row-properties {
     width: 40%;

@@ -17,6 +17,9 @@
   form.filter-form {
     display: flex;
     justify-content: space-between;
+    border: 2px solid #ababab;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 2px 2px 3px 1px;
   }
 
   .post-type-archive-rentals #primary .widget_filter {
