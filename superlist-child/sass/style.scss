@@ -76,8 +76,14 @@ body {
   }
 }
 // main menu
-#menu-ea-main-menu { // ul
+.header-navigation {
+  width: 100%;
+}
 
+#menu-ea-main-menu { // ul
+  display: flex!important;
+  justify-content: space-around;
+  float: initial;
 }
 @import "partials/listings";
 @import "partials/filter";
