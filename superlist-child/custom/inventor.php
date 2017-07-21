@@ -94,3 +94,6 @@ function reach_list_details($sections, $post_type) {
   //echo "<pre>"; var_dump($sections); echo "</pre>";
   return $sections;
 }
+// for some reason can find file js.cookie.js from plugins_url( '/inventor/libraries/js.cookie.js' ), but can find js-cookie.js so moved to custom & re-queued.
+wp_dequeue_script('js-cookie');
+wp_enqueue_script( 'js-cookie', get_stylesheet_directory_uri(). '/custom/js-cookie.js' , array(), false, false );
