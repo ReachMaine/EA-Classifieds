@@ -276,11 +276,6 @@ a.read-more-link {
   padding-left: 10px;
   padding-right: 10px; }
 
-.listing-categories-card-image,
-.listing-types-card-image {
-  background-color: black;
-  background-size: contain; }
-
 .filter-result-numbers {
   margin: 14px 0 14px 0;
   font-size: 1em; }
