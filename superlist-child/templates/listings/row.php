@@ -73,10 +73,10 @@
     $baths =  get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'baths', true );
     $acreage = get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'acreage', true );
     $sqft = get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'sqft', true );
-
+    $mslid = get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'mlsid', true );
     $phone = get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'phone', true );
     $email = get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'email', true );
-     if ( $price || $location || $beds || $baths || $sqft || $acreage || $website || $phone || $email) { ?>
+     if ( $price || $location || $beds || $baths || $sqft || $acreage || $website || $phone || $email || $mslid) { ?>
         <div class="listing-row-properties">
             <dl>
                 <?php if ( ! empty( $price ) ) : ?>
@@ -110,6 +110,10 @@
                 <?php if ( ! empty( $acreage ) ) : ?>
                     <dt><?php echo esc_attr__( 'Acreage', 'inventor' ); ?></dt>
                     <dd><?php echo wp_kses( $acreage, wp_kses_allowed_html( 'post' ) ); ?></dd>
+                <?php endif; ?>
+                <?php if ( ! empty( $mslid ) ) : ?>
+                    <dt><?php echo esc_attr__( 'MSL#', 'inventor' ); ?></dt>
+                    <dd><?php echo wp_kses( $mslid, wp_kses_allowed_html( 'post' ) ); ?></dd>
                 <?php endif; ?>
                 <?php if ( ! empty( $phone ) ) : ?>
                     <?php /* <dt><?php echo esc_attr__( 'Phone', 'inventor' ); ?></dt> */
