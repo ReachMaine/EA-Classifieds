@@ -47,6 +47,15 @@
 
 }
 
+@media only screen and (max-width:600px) {
+	.nav-links {
+		a:not(.prev):not(.next), span.dots {
+			display: none;
+		}
+	}
+}
+
+
 @media only screen and (max-width: 1199px) and (min-width:786px) {
 	// inbetween mobile
 	// listing archive

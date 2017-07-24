@@ -4,11 +4,6 @@
   .listing-categories-card-title, .listing-types-card-title {
     padding-top: 10px;
   }
-  .listing-categories-card {
-    border: 2px solid #ababab;
-    border-radius: 6px;
-    box-shadow: rgba(0, 0, 0, 0.1) 2px 2px 3px 1px;
-  }
 }
 
 
@@ -149,9 +144,9 @@ a.read-more-link {
 }
 
 .listings-row {
-    //background-color: rgba(255, 255, 255, .4);
-    padding-top: 10px;
-
+  padding-top: 10px;
+  margin-left: 0px;
+  margin-right: 0px;
   .listing-row {
     .listing-row-title {
       margin: 2px 0 10px 0;
@@ -230,8 +225,4 @@ a.read-more-link {
 
 .listing-categories-card-image a, .listing-types-card-image a {
   background-color: rgba(0, 0, 0, .2);
-}
-
-.row > div {
-  //background-color: rgba(255, 255, 255, 0.4);
 }

@@ -147,10 +147,6 @@ ol.breadcrumb {
   margin-bottom: 10px; }
   .listing-categories-card-container .listing-categories-card-title, .listing-categories-card-container .listing-types-card-title {
     padding-top: 10px; }
-  .listing-categories-card-container .listing-categories-card {
-    border: 2px solid #ababab;
-    border-radius: 6px;
-    box-shadow: rgba(0, 0, 0, 0.1) 2px 2px 3px 1px; }
 
 img.listing-title-logo {
   margin-right: 10px;
@@ -249,7 +245,9 @@ a.read-more-link {
   margin: 25px 0 0 0; }
 
 .listings-row {
-  padding-top: 10px; }
+  padding-top: 10px;
+  margin-left: 0px;
+  margin-right: 0px; }
   .listings-row .listing-row {
     padding-bottom: 10px; }
     .listings-row .listing-row .listing-row-title {
@@ -296,6 +294,10 @@ a.read-more-link {
 
 .listing-categories-card-image a, .listing-types-card-image a {
   background-color: rgba(0, 0, 0, 0.2); }
+
+.listing-categories-card, .listing-types-card {
+  border: 2px solid #ababab;
+  border-radius: 6px; }
 
 .filter-result-numbers {
   margin: 14px 0 14px 0;
@@ -439,6 +441,9 @@ footer.footer {
     display: flex !important;
     justify-content: space-around;
     float: initial; } }
+@media only screen and (max-width: 600px) {
+  .nav-links a:not(.prev):not(.next), .nav-links span.dots {
+    display: none; } }
 @media only screen and (max-width: 1199px) and (min-width: 786px) {
   .listing-row .listing-row-properties {
     width: 40%;

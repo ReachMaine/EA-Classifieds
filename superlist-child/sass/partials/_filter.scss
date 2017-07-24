@@ -1,5 +1,10 @@
 // Styling the filter box on listing archives
 
+.listing-categories-card, .listing-types-card {
+  border: 2px solid #ababab;
+  border-radius: 6px;
+}
+
 .filter-result-numbers {
   margin: 14px 0 14px 0;
   font-size: 1em;
