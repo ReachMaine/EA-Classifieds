@@ -1,3 +1,4 @@
+  <div class="row  contact-wrap"> <?php /* start of next row2 */ ?>
 <?php if ( apply_filters( 'inventor_metabox_allowed', true, 'gallery', get_the_author_meta('ID') ) ): ?>
     <?php $gallery = get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'gallery', true ); ?>
     <?php $featured_image_id = get_post_thumbnail_id( get_the_ID() ); ?>
@@ -18,7 +19,7 @@
     <?php endif; ?>
 
     <?php if ( ! empty( $gallery ) && is_array( $gallery ) ) : ?>
-        <div class="listing-detail-section" id="listing-detail-section-gallery">
+        <div class="listing-detail-section col-md-8 float-md-right" id="listing-detail-section-gallery">
             <h2 class="page-header"><?php echo $section_title; ?></h2>
 
             <div class="listing-detail-gallery-wrapper">
