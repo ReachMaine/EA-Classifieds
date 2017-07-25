@@ -7,6 +7,9 @@
 .header-complex .header-navigation  #menu-ea-main-menu {
 		margin-top: 150px; // size of header background
 	}
+	.footer-top .widget_nav_menu.ea-footer-menu .menu li a {
+		line-height: 1em !important;
+	}
 }
 @media only screen and (max-width: 991px) { // smaller than md in boot strap.
 	.listing-detail .listing-detail-thumb img { //
@@ -52,6 +55,9 @@
 		a:not(.prev):not(.next), span.dots {
 			display: none;
 		}
+	}
+	.document-title h1 {
+		font-size: 40px;
 	}
 }
 

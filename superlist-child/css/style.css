@@ -136,9 +136,12 @@ ol.breadcrumb {
 .document-title ol.breadcrumb li {
   margin-bottom: 5px; }
 .document-title h1 {
-  margin: 20px 0 8px 0;
+  margin: 15px 0 10px 0;
   font-weight: bold;
-  text-align: center; }
+  text-align: center;
+  font-size: 70px;
+  border-bottom: none;
+  padding: 0px; }
 
 .header-navigation {
   width: 100%; }
@@ -414,7 +417,10 @@ footer.footer {
     float: right; }
 
   .header-complex .header-navigation #menu-ea-main-menu {
-    margin-top: 150px; } }
+    margin-top: 150px; }
+
+  .footer-top .widget_nav_menu.ea-footer-menu .menu li a {
+    line-height: 1em !important; } }
 @media only screen and (max-width: 991px) {
   .listing-detail .listing-detail-thumb img {
     width: 100%;
@@ -443,7 +449,10 @@ footer.footer {
     float: initial; } }
 @media only screen and (max-width: 600px) {
   .nav-links a:not(.prev):not(.next), .nav-links span.dots {
-    display: none; } }
+    display: none; }
+
+  .document-title h1 {
+    font-size: 40px; } }
 @media only screen and (max-width: 1199px) and (min-width: 786px) {
   .listing-row .listing-row-properties {
     width: 40%;
