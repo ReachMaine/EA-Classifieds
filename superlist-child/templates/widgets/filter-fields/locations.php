@@ -21,7 +21,7 @@
 				id="<?php echo ! empty( $field_id_prefix ) ? $field_id_prefix : ''; ?><?php echo esc_attr( $args['widget_id'] ); ?>_locations">
 			<option value="">
 				<?php if ( 'placeholders' == $input_titles ) : ?>
-					<?php echo __( 'Location', 'inventor' ); ?>
+					<?php echo __( 'Any Region', 'inventor' ); /* zig - change location to 'Any Region' */ ?>
 				<?php else : ?>
 					<?php echo __( 'All locations', 'inventor' ); ?>
 				<?php endif; ?>

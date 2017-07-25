@@ -1,10 +1,19 @@
 <?php
 /* languages customizations
+
+__( 'Keyword', 'inventor' ); ?>"
 */
 	if ( !function_exists('reach_change_theme_text') ){
 		function reach_change_theme_text( $translated_text, $text, $domain ) {
 			 /* if ( is_singular() ) { */
-			    switch ($domain) {
+			    switch (inventor) {
+						case 'inventor':
+							switch ( $translated_text ) {
+											case 'Keyword' :
+													$translated_text = __( 'Search',  'inventor'  );
+													break;
+									}
+							break;
 					case 'woocommerce':
 						switch ( $translated_text ) {
 				            case 'Place order' :
