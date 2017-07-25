@@ -38,9 +38,9 @@ img.listing-title-logo {
   .listing-detail-section {
     margin-bottom: 10px;
 
-    .listing-detail-author,
+    //.listing-detail-author,
     .listing-detail-contact,
-    .listing-detail-section,
+    //.listing-detail-section,
     .listing-detail-attributes {
       box-shadow: none;
       margin-bottom: 0px;
@@ -55,12 +55,16 @@ img.listing-title-logo {
     .see-more-link {
       float: right;
     }
+    .listing-detail-contact {
+      paddiing: 10px 20px;
+    }
     .listing-detail-author {
       .mug {
         text-align: center;
         width: 100%;
         img {
           height: initial;
+          width: initial;
           border: 0px;
           border-radius: 15%;
           margin-bottom: 0px;
@@ -85,7 +89,7 @@ img.listing-title-logo {
     }
   } // listing-detail-section
   #listing-detail-section-gallery { // gallery
-    margin-top: 0px;
+    margin-top: 20px;
     .listing-detail-gallery {
       .item-image {
         background-size: initial;

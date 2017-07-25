@@ -38,7 +38,7 @@
 			//float: right;
 		}
 		.float-lg-right {
-			float: right;
+			//float: right;
 		}
 		#menu-ea-main-menu {
 			display: flex!important;
@@ -75,5 +75,16 @@
 			.listing-row-image {
 				width: 40%;
 			}
+	}
+}
+@media only screen and (min-width: 992px) {
+	.float-md-right {
+		float: right;
+	}
+}
+
+@media only screen and (min-width: 1200px) {
+	.float-lg-right {
+		float: right;
 	}
 }

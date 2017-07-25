@@ -174,28 +174,27 @@ img.listing-title-logo {
     border-top: 1px solid #efefef; }
   .listing-detail .listing-detail-section {
     margin-bottom: 10px; }
-    .listing-detail .listing-detail-section .listing-detail-author,
     .listing-detail .listing-detail-section .listing-detail-contact,
-    .listing-detail .listing-detail-section .listing-detail-section,
     .listing-detail .listing-detail-section .listing-detail-attributes {
       box-shadow: none;
       margin-bottom: 0px;
       padding-bottom: 0px;
       padding: 20px 20px; }
-      .listing-detail .listing-detail-section .listing-detail-author .page-header,
       .listing-detail .listing-detail-section .listing-detail-contact .page-header,
-      .listing-detail .listing-detail-section .listing-detail-section .page-header,
       .listing-detail .listing-detail-section .listing-detail-attributes .page-header {
         display: none;
         padding: 0px;
         margin: 0px; }
     .listing-detail .listing-detail-section .see-more-link {
       float: right; }
+    .listing-detail .listing-detail-section .listing-detail-contact {
+      paddiing: 10px 20px; }
     .listing-detail .listing-detail-section .listing-detail-author .mug {
       text-align: center;
       width: 100%; }
       .listing-detail .listing-detail-section .listing-detail-author .mug img {
         height: initial;
+        width: initial;
         border: 0px;
         border-radius: 15%;
         margin-bottom: 0px; }
@@ -208,7 +207,7 @@ img.listing-title-logo {
       text-align: left;
       float: none; }
   .listing-detail #listing-detail-section-gallery {
-    margin-top: 0px; }
+    margin-top: 20px; }
     .listing-detail #listing-detail-section-gallery .listing-detail-gallery .item-image {
       background-size: initial; }
   .listing-detail .listing-detail-thumb {
@@ -440,9 +439,6 @@ footer.footer {
   .listing-detail-thumb-wrap {
     width: 40%; }
 
-  .float-lg-right {
-    float: right; }
-
   #menu-ea-main-menu {
     display: flex !important;
     justify-content: space-around;
@@ -459,3 +455,9 @@ footer.footer {
     float: left; }
   .listing-row .listing-row-image {
     width: 40%; } }
+@media only screen and (min-width: 992px) {
+  .float-md-right {
+    float: right; } }
+@media only screen and (min-width: 1200px) {
+  .float-lg-right {
+    float: right; } }
