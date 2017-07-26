@@ -113,13 +113,31 @@ body {
 .archive #primary {
   margin: 0 0 30px; }
 
+.header-bar {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ffffff+100&0.6+0,0.4+65,0+100 */
+  background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.4) 65%, rgba(255, 255, 255, 0) 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.4) 65%, rgba(255, 255, 255, 0) 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.4) 65%, rgba(255, 255, 255, 0) 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#99ffffff', endColorstr='#00ffffff',GradientType=0 );
+  /* IE6-9 */ }
+  .header-bar .header-bar-left {
+    float: none;
+    text-align: center; }
+    .header-bar .header-bar-left p {
+      margin-bottom: 0px; }
+
 #topbanner {
   text-align: center; }
   #topbanner .ad-container {
-    padding: 10px; }
+    padding: 5px 10px 15px 10px; }
 
-.header-logo img {
-  max-height: 45px; }
+.header-wrapper {
+  background-color: rgba(255, 255, 255, 0.66); }
 
 .header-wrap-background {
   box-shadow: 0 2px 6px grey;
@@ -372,9 +390,23 @@ a.read-more-link {
   #primary .widget_filter .form-group.beds {
     width: 49%;
     display: inline-block; } }
+.eac-widget-nop-padding p {
+  margin-bottom: 0px; }
+
+.widget .eac-widget-padding30 {
+  padding-top: 30px;
+  padding-bottom: 30px; }
+
 .widget_call_to_action .widget-pt.widget-pb {
   padding-top: 20px;
   padding-bottom: 20px; }
+
+.eac-widget-bold-title .widgettitle {
+  font-weight: 500;
+  font-size: 50px;
+  line-height: 54px; }
+.eac-widget-bold-title .description {
+  font-size: 1.8em; }
 
 #primary .content,
 .page #primary .post-content,
