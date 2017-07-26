@@ -56,11 +56,11 @@ img.listing-title-logo {
       float: right;
     }
     .listing-detail-contact {
-      paddiing: 10px 20px;
+      padding: 0px 0px;
     }
     .listing-detail-author {
       .mug {
-        text-align: center;
+        //text-align: center;
         width: 100%;
         img {
           height: initial;
@@ -71,7 +71,7 @@ img.listing-title-logo {
         }
       }
       .listing-author-name {
-        text-align: center;
+        //text-align: center;
       }
     } // author
     .listing-detail-contact {
@@ -88,6 +88,10 @@ img.listing-title-logo {
       }
     }
   } // listing-detail-section
+  #listing-detail-section-contact{
+    padding-left: 20px;
+    padding-top: 20px;
+  }
   #listing-detail-section-gallery { // gallery
     margin-top: 20px;
     .listing-detail-gallery {

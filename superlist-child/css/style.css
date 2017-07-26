@@ -206,9 +206,8 @@ img.listing-title-logo {
     .listing-detail .listing-detail-section .see-more-link {
       float: right; }
     .listing-detail .listing-detail-section .listing-detail-contact {
-      paddiing: 10px 20px; }
+      padding: 0px 0px; }
     .listing-detail .listing-detail-section .listing-detail-author .mug {
-      text-align: center;
       width: 100%; }
       .listing-detail .listing-detail-section .listing-detail-author .mug img {
         height: initial;
@@ -216,14 +215,15 @@ img.listing-title-logo {
         border: 0px;
         border-radius: 15%;
         margin-bottom: 0px; }
-    .listing-detail .listing-detail-section .listing-detail-author .listing-author-name {
-      text-align: center; }
     .listing-detail .listing-detail-section .listing-detail-contact ul li strong.key {
       width: 20px; }
     .listing-detail .listing-detail-section .listing-detail-contact ul li span.value {
       width: initial;
       text-align: left;
       float: none; }
+  .listing-detail #listing-detail-section-contact {
+    padding-left: 20px;
+    padding-top: 20px; }
   .listing-detail #listing-detail-section-gallery {
     margin-top: 20px; }
     .listing-detail #listing-detail-section-gallery .listing-detail-gallery .item-image {
