@@ -39,6 +39,15 @@
       $contactlogo = "";
 
    } /* end if for autho_info */ ?>
+
+   <?php if ( ! empty( $website ) ) {
+       if (strpos($website, '://') === false) {
+           $website_display = $website;
+           $website  = "http://".$website;
+         } else {
+           $website_display = parse_url($website, PHP_URL_HOST);
+         }
+       } ?>
     <?php// if ( ! empty( $email ) || ! empty( $website ) || ! empty( $phone ) || ! empty( $person ) || ! empty( $address ) ) {  ?>
         <div class="listing-detail-section  col-md-4" id="listing-detail-section-contact">
           <?php if ( (get_post_meta(get_the_id(), INVENTOR_LISTING_PREFIX.'show_author_info', true) == 'on') ) {
@@ -66,7 +75,12 @@
 
                           if ($user_stuff["user_company"]) {
                             echo '<div class="listing-company-name">';
+                            if ($website) {
+                              echo '<a href="'.esc_attr( $website ).'" target="_blank">'.$user_stuff["user_company"][0].'</a>';
+                              $website = ""; // clear $website so dont print later if link here.
+                            } else {
                               echo $user_stuff["user_company"][0] ;
+                            }
                             echo '</div><!-- end company -->';
                           }
                          if ($user_stuff["user_companyaddress"]) {
@@ -125,20 +139,14 @@
                                     </li>
                                 <?php endif; ?>
                             <?php endforeach; ?>
-                          <?php if ( ! empty( $website ) ): ?>
-                              <?php if (strpos($website, '://') === false) {
-                                  $website_display = $website;
-                                  $website  = "http://".$website;
-                                } else {
-                                  $website_display = parse_url($website, PHP_URL_HOST);
-                                } ?>
+                          <?php if ( ! empty( $website ) ) { ?>
                               <li class="website">
                                   <strong class="key"><i class="fa fa-external-link" aria-hidden="true"></i></strong>
                                   <span class="value">
                                       <a href="<?php echo esc_attr( $website ); ?>" target="_blank"><?php echo esc_attr( $website_display ); ?></a>
                                   </span>
                               </li>
-                          <?php endif; ?>
+                          <?php } ?>
                             <?php if ( ! empty( $person ) && false ): /*zig false out - dont show person here */ ?>
                                 <li class="person">
                                     <strong class="key"><?php echo __( 'Person', 'inventor' ); ?></strong>
@@ -160,12 +168,12 @@
             </div><!-- /.listing-detail-contact -->
         <?php /* </div><!-- /.listing-detail-section --> */ ?>
 
-    <?php if ( (get_post_meta(get_the_id(), INVENTOR_LISTING_PREFIX.'show_author_info', true) == 'on') && ($user_stuff["description"]) ) {
+    <?php if ( (get_post_meta(get_the_id(), INVENTOR_LISTING_PREFIX.'show_author_info', true) == 'on') && ($user_stuff["description"] ) ) {
       /* show the autho bio if there is one */
         echo '<div class="listing-detail-author-bio"  > ';
             echo '<div class="listing-detail-author-bio">';
                 if ($user_stuff["description"]) {
-                    echo '<div class="listing-author-bio">';
+                    echo '<div class="listing-author-desc">';
                       echo $user_stuff["description"][0] ;
                     echo '</div><!-- end desc -->';
                 }
