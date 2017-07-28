@@ -26,7 +26,7 @@
 </head>
 
 <body <?php body_class(); ?>>
-
+<?php if ( function_exists( 'gtm4wp_the_gtm_tag' ) ) { gtm4wp_the_gtm_tag(); } ?>
 <?php if ( class_exists( 'Inventor_Template_Loader' ) ) :   ?>
     <?php echo Inventor_Template_Loader::load( 'misc/messages' ); ?>
 <?php endif; ?>
