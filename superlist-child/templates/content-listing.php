@@ -1,5 +1,17 @@
+<script>
+var dataLayer = window.dataLayer = window.dataLayer || [];
+dataLayer.push({
+  'adNumber': '<?php $adnumber = get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'adnumber', true ); if ( ! empty( $adnumber ) ) : ?><?php echo esc_attr( $adnumber ); ?><?php endif; ?>',
+  'adCustomer': '<?php $adCustomer = get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'customer', true ); if ( ! empty( $adCustomer ) ) : ?><?php echo esc_attr( $adCustomer ); ?><?php endif; ?>',
+  'AdSalesperson': '<?php $adSalesperson = get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'salesperson', true ); if ( ! empty( $adSalesperson ) ) : ?><?php echo esc_attr( $adSalesperson ); ?><?php endif; ?>'
+});
+</script>
+
+
 <?php /* mods zig - put title here since removed the big header. */
 /* zig here */
+
+
 global $post;
 $posttype = get_post_type( get_the_ID());
 ?>
