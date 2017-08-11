@@ -107,6 +107,26 @@ img.listing-title-logo {
     //padding-bottom: 20px; // last one needs padding
   }
 }
+
+.expand-display-ad {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 8px;
+  left: 22px;
+  border: 2px solid black;
+  border-radius: 4px;
+  background: rgba(10, 131, 182, 0.8);
+  transform: rotate(90deg);
+  i {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    color: white;
+    font-size: 16px;
+  }
+}
+
 .listing-detail-attributes ul li span.value {
   width: 75%;
 }

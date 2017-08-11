@@ -42,6 +42,10 @@ function reach_listing_thumb( $int_listing_id) {
     $large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id($int_listing_id), 'large' );
     echo '<a href="'.esc_url($large_image_url[0]).'">' ;
     echo get_the_post_thumbnail($int_listing_id, 'medium', ['class' => 'alignleft', 'title' => 'Featured image']);
+    $displayad = get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'displayad', true );
+    if ( $displayad == 'on' ){
+      echo '<div class="expand-display-ad"><i class="fa fa-plus" aria-hidden="true"></i></div>';
+    };
     echo '</a>';
     echo '</div>';
     //echo '</div>';
