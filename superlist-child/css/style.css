@@ -232,23 +232,32 @@ img.listing-title-logo {
     background-color: white;
     -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 1px 2px 0;
     box-shadow: rgba(0, 0, 0, 0.1) 0 1px 2px 0; }
+  .listing-detail .listing-detail-thumb.display-ad {
+    display: inline-block;
+    position: relative;
+    float: left;
+    margin: 0px 15px 15px 0px; }
+    .listing-detail .listing-detail-thumb.display-ad img {
+      margin: 0px !important; }
 
 .expand-display-ad {
-  width: 30px;
-  height: 30px;
+  width: 100%;
+  height: 100%;
   position: absolute;
-  top: 8px;
-  left: 22px;
-  border: 2px solid black;
-  border-radius: 4px;
-  background: rgba(10, 131, 182, 0.8);
-  transform: rotate(90deg); }
+  background: rgba(255, 255, 255, 0.5);
+  transition: all .5s; }
   .expand-display-ad i {
     position: absolute;
-    top: 6px;
-    left: 6px;
-    color: white;
-    font-size: 16px; }
+    top: 50%;
+    left: 50%;
+    color: rgba(0, 0, 0, 0.9);
+    font-size: 30px;
+    transform: translate(-50%, -50%); }
+
+.expand-display-ad:hover {
+  background: rgba(255, 255, 255, 0); }
+  .expand-display-ad:hover i {
+    color: rgba(0, 0, 0, 0.1); }
 
 .listing-detail-attributes ul li span.value {
   width: 75%; }
