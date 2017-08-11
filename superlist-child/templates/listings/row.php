@@ -16,6 +16,7 @@
 <div class="listing-row <?php if ( $featured ) : ?>featured<?php endif; ?> <?php if ( $posttype ) {echo $posttype;} ?>">
  <?php $row_body_class = "";
    $scraped_content = (get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'scraped', true) == 'on' ) ? true : false;
+   $displayad = (get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'displayad', true) == 'on' ) ? true : false;
    if ($scraped_content) {
      $row_body_class .= " listing-content-scraped";
    }
@@ -79,8 +80,8 @@
    $adnumber = get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'adnumber', true );
    $customer = get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'customer', true );
    $salesperson = get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'salesperson', true );
-   
-   
+
+
     if ( $price || $location || $beds || $baths || $sqft || $acreage || $website || $phone || $email || $mslid) { ?>
        <div class="listing-row-properties">
            <dl>
@@ -136,7 +137,7 @@
                    <?php $email_link = '<a  data-category="Lead Gen" data-comm="Email Clicks" data-customer="'.$customer.'" data-adnumber="'.$adnumber.'" target="_blank" href="mailto:'.$email.'">'.$email.'</a>';?>
                    <dd><?php echo   $email_link; ?></dd>
                <?php endif; ?>
-               
+
                <?php if ( ! empty( $url ) ) : ?>
                    <?php /* <dt><?php echo esc_attr__( 'url', 'inventor' ); ?></dt> */
                    $icon = '<i class="fa fa-external-link" aria-hidden="true"></i>';
@@ -144,7 +145,7 @@
                    <?php $url_link = '<a  data-category="Lead Gen" data-comm="Website Clicks" data-customer="'.$customer.'" data-adnumber="'.$adnumber.'" target="_blank" href="'.$url.'">View Our Website</a>';?>
                    <dd><?php echo   $url_link; ?></dd>
                <?php endif; ?>
-               
+
                <?php if ( ! empty( $website ) ) : ?>
                    <?php /* <dt><?php echo esc_attr__( 'website', 'inventor' ); ?></dt> */
                    $icon = '<i class="fa fa-external-link" aria-hidden="true"></i>';
@@ -152,8 +153,8 @@
                    <?php $url_link = '<a  data-category="Lead Gen" data-comm="Website Clicks" data-customer="'.$customer.'" data-adnumber="'.$adnumber.'" target="_blank" href="'.$url.'">View Our Website</a>';?>
                    <dd><?php echo   $url_link; ?></dd>
                <?php endif; ?>
-               
-               
+
+
                <?php if ( ! empty( $website ) ) :
 
                     /* echo "website:".$website."  domain: <pre>"; var_dump($domain); echo "</pre>";  */
@@ -176,7 +177,7 @@
 
          $image = apply_filters( 'inventor_listing_featured_image', $image, get_the_ID() ); ?>
          <div class="listing-row-image <?php echo $img_class; ?>" style="background-image: url('<?php echo esc_attr( $image ); ?>');">
-             <?php if ($scraped_content ) {
+             <?php if (!$displayad) {
                echo '<a href="'.get_the_permalink().'" class="listing-row-image-link"></a>';
              } else  {
                $thumbnail_large = wp_get_attachment_image_src( get_post_thumbnail_id(), 'large' );
@@ -192,4 +193,4 @@
 
          </div><!-- /.listing-row-image -->
      <?php } /* end if thumb */?>
-</div><!-- /.listing-row -->  
+</div><!-- /.listing-row -->
