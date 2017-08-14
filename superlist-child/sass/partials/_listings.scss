@@ -234,6 +234,28 @@ a.read-more-link {
   }
 
 }
+/***** admin area ****/
+// admin listing row
+.listing-system {
+  .listing-system-row {
+    .listing-system-row-image {
+      a {
+        background-size: contain;
+      }
+    }
+    .listing-system-row-title {
+      text-align: left;
+    }
+  }
+  .listing-system-row-submission-actions {
+    display: none;
+    width: 0px;
+    padding-right: 0px;
+  }
+}
+/***** end admin area ****/
+
+/**** widgets ****/
 // recent listings widget
 .listings-row {
   .listing-container .listing-small {
@@ -254,3 +276,4 @@ a.read-more-link {
 .listing-categories-card-image a, .listing-types-card-image a {
   background-color: rgba(0, 0, 0, .2);
 }
+/*** end widgets ***/
