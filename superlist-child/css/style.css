@@ -253,6 +253,25 @@ img.listing-title-logo {
 .listing-detail-attributes ul li span.value {
   width: 75%; }
 
+/*** end single ****/
+/*** edit this listing - displayed on single if owner is logged in. *** */
+.footer-second .widget_edit_this_listing {
+  float: left; }
+  .footer-second .widget_edit_this_listing ul li {
+    padding: 0px;
+    border-bottom: none; }
+    .footer-second .widget_edit_this_listing ul li a {
+      margin-right: 30px; }
+
+@media only screen and (max-width: 767px) {
+  .footer-second .widget_edit_this_listing {
+    float: none; }
+    .footer-second .widget_edit_this_listing ul li {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+    .footer-second .widget_edit_this_listing ul a {
+      margin-right: 0px; } }
+/*** end edit this listing ***/
+/*****  listing archive (as row)  ***/
 .post-type-archive-helpwanted h2.listing-row-title img {
   float: right;
   padding: 5px; }
@@ -461,6 +480,8 @@ footer.footer {
     footer.footer .footer-top .footer-top-inner {
       padding-top: 0px;
       padding-bottom: 0px; }
+      footer.footer .footer-top .footer-top-inner .widget {
+        display: inline-block; }
   footer.footer .footer-bottom {
     padding-top: 15px;
     padding-bottom: 15px; }
@@ -487,7 +508,13 @@ footer.footer {
     margin-top: 150px; }
 
   .footer-top .widget_nav_menu.ea-footer-menu .menu li a {
-    line-height: 1em !important; } }
+    line-height: 1em !important; }
+
+  footer.footer .footer-top .footer-top-inner .widget {
+    display: block;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    text-align: center; } }
 @media only screen and (max-width: 991px) {
   .listing-detail .listing-detail-thumb img {
     width: 100%;
@@ -517,12 +544,15 @@ footer.footer {
 
   .document-title h1 {
     font-size: 40px; } }
-@media only screen and (max-width: 1199px) and (min-width: 786px) {
+@media only screen and (max-width: 1199px) and (min-width: 768px) {
   .listing-row .listing-row-properties {
     width: 40%;
     float: left; }
   .listing-row .listing-row-image {
-    width: 40%; } }
+    width: 40%; }
+
+  .footer-second {
+    width: initial; } }
 @media only screen and (min-width: 992px) {
   .float-md-right {
     float: right; } }

@@ -10,6 +10,13 @@
 	.footer-top .widget_nav_menu.ea-footer-menu .menu li a {
 		line-height: 1em !important;
 	}
+	footer.footer .footer-top .footer-top-inner .widget {
+		display: block;
+		padding-top: 0px;
+		padding-bottom: 0px;
+		text-align: center;
+	}
+
 }
 @media only screen and (max-width: 991px) { // smaller than md in boot strap.
 	.listing-detail .listing-detail-thumb img { //
@@ -62,7 +69,7 @@
 }
 
 
-@media only screen and (max-width: 1199px) and (min-width:786px) {
+@media only screen and (max-width: 1199px) and (min-width:768px) {
 	// inbetween mobile
 	// listing archive
 	.listing-row  {
@@ -75,6 +82,9 @@
 			.listing-row-image {
 				width: 40%;
 			}
+	}
+	.footer-second {
+		width: initial;
 	}
 }
 @media only screen and (min-width: 992px) {

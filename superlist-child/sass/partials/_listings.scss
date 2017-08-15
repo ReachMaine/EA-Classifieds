@@ -131,7 +131,42 @@ img.listing-title-logo {
   width: 75%;
 }
 
-// listing archive (as row)
+/*** end single ****/
+
+/*** edit this listing - displayed on single if owner is logged in. *** */
+  .footer-second {
+    .widget_edit_this_listing {
+      float: left;
+      ul {
+        li {
+          padding: 0px;
+          border-bottom: none;
+          a {
+            margin-right: 30px;
+          }
+        }
+      }
+    }
+  }
+
+  @media only screen and (max-width: 767px) {
+    .footer-second {
+      .widget_edit_this_listing {
+        float: none;
+        ul {
+          li {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+          }
+          a {
+            margin-right: 0px;
+          }
+        }
+      }
+    }
+  } // end media
+/*** end edit this listing ***/
+
+/*****  listing archive (as row)  ***/
 .post-type-archive-helpwanted h2.listing-row-title img {
   float: right;
   padding: 5px;
