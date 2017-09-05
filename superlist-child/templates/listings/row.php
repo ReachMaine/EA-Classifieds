@@ -177,11 +177,16 @@
 
          $image = apply_filters( 'inventor_listing_featured_image', $image, get_the_ID() ); ?>
          <div class="listing-row-image <?php echo $img_class; ?>" style="background-image: url('<?php echo esc_attr( $image ); ?>');">
+            <?php if ($posttype == 'helpwanted') {
+                $addata = ' data-category="Engagement" data-comm="Display Ad Views" data-customer="'.$customer.'" data-adnumber="'.$adnumber.'"';
+              } else {
+                $addata = '';
+              }?>
              <?php if (!$displayad) {
                echo '<a href="'.get_the_permalink().'" class="listing-row-image-link"></a>';
              } else  {
                $thumbnail_large = wp_get_attachment_image_src( get_post_thumbnail_id(), 'large' );
-               echo '<a href="'.esc_url($thumbnail_large[0]).'" class="listing-row-image-link"></a>';
+               echo '<a href="'.esc_url($thumbnail_large[0]).'" class="listing-row-image-link " '.$addata.' ></a>';
              }?>
              <?php if ( $featured ) : ?>
                  <div class="listing-row-label-top listing-row-label-top-left"><?php echo esc_attr__( 'Featured', 'inventor' ); ?></div><!-- /.listing-row-label-top-left -->
