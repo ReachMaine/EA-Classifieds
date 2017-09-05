@@ -29,7 +29,7 @@
 		echo $outstring;
 	}
 
-	// custom post arhive seo images or descriptions
+	// custom post arhive seo images or descriptions & titles.
 
 // add og:image for CPT archive
 	add_filter( 'wpseo_opengraph_image', 'prefix_filter_og_image', 10, 1 );
@@ -52,4 +52,15 @@
 			$ogdesc = "Find apartments, houses, offices spaces and cottages for rent in Downeast Maine at Ellsworthamerican.com/Rentals.";
 		}
 		return $ogdesc;
+}
+
+add_filter('wpseo_title', 'reach_product_wpseo_title');
+function reach_product_wpseo_title($title) {
+    if(  is_post_type_archive( 'helpwanted' ) ) {
+        $title = "Help Wanted - Job Listings In Downeast Maine";
+    }
+		if(  is_post_type_archive( 'rentals' ) ) {
+        $title = "Homes & Apartments for rent in Hancock County";
+    }
+    return $title;
 }
