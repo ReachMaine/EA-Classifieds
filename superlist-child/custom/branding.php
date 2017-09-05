@@ -28,3 +28,28 @@
 		$outstring .= '</p>';
 		echo $outstring;
 	}
+
+	// custom post arhive seo images or descriptions
+
+// add og:image for CPT archive
+	add_filter( 'wpseo_opengraph_image', 'prefix_filter_og_image', 10, 1 );
+	function prefix_filter_og_image( $img ) {
+    if( is_post_type_archive( 'helpwanted' ) ) {
+	    $img = get_stylesheet_directory_uri().'/images/post-cover-image-jobs.jpg';
+		}
+		if( is_post_type_archive( 'rentals' ) ) {
+			$img = get_stylesheet_directory_uri().'/images/post-cover-image-rrentals.jpg';
+		}
+    return $img;
+}
+// add og:desc for CPT archive
+	add_filter( 'wpseo_opengraph_desc', 'reach_filter_og_desc', 10, 1 );
+	function reach_filter_og_desc( $ogdesc ) {
+		if( is_post_type_archive( 'helpwanted' ) ) {
+			$ogdesc = "An employer in Downeast Maine is looking for you! Find job openings at www.Ellsworthamerican.com/Jobs. ";
+		}
+		if( is_post_type_archive( 'rentals' ) ) {
+			$ogdesc = "Find apartments, houses, offices spaces and cottages for rent in Downeast Maine at Ellsworthamerican.com/Rentals.";
+		}
+		return $ogdesc;
+}
