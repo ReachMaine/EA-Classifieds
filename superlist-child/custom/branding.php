@@ -40,6 +40,12 @@
 		if( is_post_type_archive( 'rentals' ) ) {
 			$img = get_stylesheet_directory_uri().'/images/post-cover-image-rrentals.jpg';
 		}
+		if( is_post_type_archive( 'classifieds' )  || is_front_page() ) {
+			$img = get_stylesheet_directory_uri().'/images/post-cover-image-classifieds.jpg';
+		}
+		if( is_post_type_archive( 'realestate' ) ) {
+			$img = get_stylesheet_directory_uri().'/images/post-cover-image-real-estate.jpg';
+		}
     return $img;
 }
 // add og:desc for CPT archive
@@ -51,9 +57,15 @@
 		if( is_post_type_archive( 'rentals' ) ) {
 			$ogdesc = "Find apartments, houses, offices spaces and cottages for rent in Downeast Maine at Ellsworthamerican.com/Rentals.";
 		}
+		if( is_post_type_archive( 'classifieds' )  || is_front_page() ) {
+			$ogdesc = "Whatever you're looking for, you'll find it at EllsworthAmerican.com/Classifieds.";
+		}
+		if( is_post_type_archive( 'realestate' ) ) {
+			$ogdesc = "Search homes, property, camps and businesses locations for sale at EllsworthAmerican.com/RealEstate.";
+		}
 		return $ogdesc;
 }
-
+// add the og:title for CPT Archives
 add_filter('wpseo_title', 'reach_product_wpseo_title');
 function reach_product_wpseo_title($title) {
     if(  is_post_type_archive( 'helpwanted' ) ) {
@@ -61,6 +73,12 @@ function reach_product_wpseo_title($title) {
     }
 		if(  is_post_type_archive( 'rentals' ) ) {
         $title = "Homes & Apartments for rent in Hancock County";
+    }
+		if(  is_post_type_archive( 'classifieds' ) || is_front_page() ) {
+        $title = "Find what you're looking for - Hancock County Classifieds";
+    }
+		if(  is_post_type_archive( 'realestate' ) ) {
+        $title = "Find properties for sale in Hancock County ";
     }
     return $title;
 }
