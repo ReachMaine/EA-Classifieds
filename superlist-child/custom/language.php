@@ -6,7 +6,7 @@ __( 'Keyword', 'inventor' ); ?>"
 	if ( !function_exists('reach_change_theme_text') ){
 		function reach_change_theme_text( $translated_text, $text, $domain ) {
 			 /* if ( is_singular() ) { */
-			    switch (inventor) {
+			    switch ($domain) {
 						case 'inventor':
 							switch ( $translated_text ) {
 											case 'Keyword' :
@@ -27,10 +27,15 @@ __( 'Keyword', 'inventor' ); ?>"
 					case 'superlist' :
 						switch ( $translated_text ) {
 								case 'Sorry, but nothing matched your search terms. Please try again with some different keywords.' :
-									$translated_text = __ ('Sorry, no current listings match your filters. Please try again with different filters. ', 'superlist');
+									if (is_tax()) {
+										$translated_text = __ ('There are currently no listings in this category. ', 'superlist');
+									} elseif (is_search()) {
+									} else {
+										$translated_text = __ ('Sorry, no current listings match your filters. Please try again with different filters. ', 'superlist');
+									}
 									break;
 						}
-					default:
+					default: // any domain
 						/* switch ( $translated_text ) {
 				            case 'Category' :
 				                $translated_text = __( '',  $domain  );
