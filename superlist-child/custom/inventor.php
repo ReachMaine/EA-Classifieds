@@ -100,3 +100,18 @@ function reach_list_details($sections, $post_type) {
   //echo "<pre>"; var_dump($sections); echo "</pre>";
   return $sections;
 }
+
+// unassigne metaboxes.
+add_filter( 'inventor_metabox_assigned', 'unassign_metabox', 10, 3 );
+
+function unassign_metabox( $assigned, $metabox, $post_type ) {
+    $not_for_homeseller = array('branding', 'banner', 'flags', 'contact');
+    if (current_user_can('contributor')) {
+      if ( in_array($metabox, $not_for_homeseller)  && $post_type == 'realestate' ) {
+          return false;
+      }
+    }
+
+
+    return $assigned;
+}
