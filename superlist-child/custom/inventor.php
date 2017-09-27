@@ -101,7 +101,7 @@ function reach_list_details($sections, $post_type) {
   return $sections;
 }
 
-// unassigne metaboxes.
+// unassigne metaboxes for homeseller.
 add_filter( 'inventor_metabox_assigned', 'unassign_metabox', 10, 3 );
 
 function unassign_metabox( $assigned, $metabox, $post_type ) {
@@ -115,3 +115,16 @@ function unassign_metabox( $assigned, $metabox, $post_type ) {
 
     return $assigned;
 }
+
+add_filter( 'inventor_submission_steps', function( $steps, $post_type ) {
+    return array(
+        'general' => $steps['general'],
+        'price'=> $steps['price'],
+        'beds-baths'=> $steps['beds-baths'],
+
+        'location'=> $steps['location'],
+        'listing_category'=> $steps['listing_category'],
+        'gallery' => $steps['gallery'],
+        'video' => $steps['video'],
+    );
+}, 10, 2 );
