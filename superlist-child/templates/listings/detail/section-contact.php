@@ -13,9 +13,10 @@
     <?php $custom_fields = array_diff( array_keys( $fields ), $predefined_fields ); ?>
 
     <?php
+    $posttype = get_post_type( get_the_ID());
     $address = ""; // zig x-out get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'address', true );
     $contactlogo = "";
-    if ( (get_post_meta(get_the_id(), INVENTOR_LISTING_PREFIX.'show_author_info', true) == 'on') ) {
+    if ( (get_post_meta(get_the_id(), INVENTOR_LISTING_PREFIX.'hide_author_info', true) != 'on') ) {
 
       $authorID = get_the_author_meta( 'ID' );
       $user_stuff = get_user_meta($authorID);
@@ -50,7 +51,7 @@
        } ?>
     <?php// if ( ! empty( $email ) || ! empty( $website ) || ! empty( $phone ) || ! empty( $person ) || ! empty( $address ) ) {  ?>
         <div class="listing-detail-section  col-md-4" id="listing-detail-section-contact">
-          <?php if ( (get_post_meta(get_the_id(), INVENTOR_LISTING_PREFIX.'show_author_info', true) == 'on') ) {
+          <?php if ( (get_post_meta(get_the_id(), INVENTOR_LISTING_PREFIX.'hide_author_info', true) != 'on') ) {
               //echo '<div class="listing-detail-section" id="listing-detail-section-author"  > ';
                   echo '<div class="listing-detail-author">';
                       //echo "user ID:  ".$authorID."<br>";
@@ -168,7 +169,7 @@
             </div><!-- /.listing-detail-contact -->
         <?php /* </div><!-- /.listing-detail-section --> */ ?>
 
-    <?php if ( (get_post_meta(get_the_id(), INVENTOR_LISTING_PREFIX.'show_author_info', true) == 'on') && ($user_stuff["description"] ) ) {
+    <?php if ( ($posttype == 'realestate') && (get_post_meta(get_the_id(), INVENTOR_LISTING_PREFIX.'hide_author_info', true) != 'on') && ($user_stuff["user_userbio"] ) ) {
       /* show the autho bio if there is one */
         echo '<div class="listing-detail-author-bio"  > ';
             echo '<div class="listing-detail-author-bio">';
@@ -180,6 +181,7 @@
             echo '</div>'; //author-bio
           echo '</div>'; //section
         } // show autho is on
+
     ?>
     <?php echo '</div>'; //section ?>
 <?php endif; ?>
