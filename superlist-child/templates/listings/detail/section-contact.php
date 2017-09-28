@@ -16,7 +16,7 @@
     $posttype = get_post_type( get_the_ID());
     $address = ""; // zig x-out get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'address', true );
     $contactlogo = "";
-    if ( (get_post_meta(get_the_id(), INVENTOR_LISTING_PREFIX.'hide_author_info', true) != 'on') ) {
+    if (($posttype == 'realestate') && (get_post_meta(get_the_id(), INVENTOR_LISTING_PREFIX.'hide_author_info', true) != 'on') ) {
 
       $authorID = get_the_author_meta( 'ID' );
       $user_stuff = get_user_meta($authorID);
@@ -51,7 +51,7 @@
        } ?>
     <?php// if ( ! empty( $email ) || ! empty( $website ) || ! empty( $phone ) || ! empty( $person ) || ! empty( $address ) ) {  ?>
         <div class="listing-detail-section  col-md-4" id="listing-detail-section-contact">
-          <?php if ( (get_post_meta(get_the_id(), INVENTOR_LISTING_PREFIX.'hide_author_info', true) != 'on') ) {
+          <?php if ( ($posttype == 'realestate') && (get_post_meta(get_the_id(), INVENTOR_LISTING_PREFIX.'hide_author_info', true) != 'on') ) {
               //echo '<div class="listing-detail-section" id="listing-detail-section-author"  > ';
                   echo '<div class="listing-detail-author">';
                       //echo "user ID:  ".$authorID."<br>";
