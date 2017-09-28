@@ -480,6 +480,11 @@ a.read-more-link {
   display: none;
   visibility: hidden; }
 
+form.login-form .extra-actions {
+  padding-top: 20px; }
+  form.login-form .extra-actions a.forgotten-password {
+    color: white; }
+
 footer.footer {
   color: #000 !important;
   background-color: #57738E; }

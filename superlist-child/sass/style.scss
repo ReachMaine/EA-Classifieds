@@ -177,7 +177,15 @@ ol.breadcrumb {
   }
 
 }
-
+// user login screen
+form.login-form {
+  .extra-actions {
+    padding-top:20px;
+    a.forgotten-password {
+      color: white;
+    }
+  }
+}
 
 
 // footer styling {
