@@ -172,9 +172,9 @@
       /* show the autho bio if there is one */
         echo '<div class="listing-detail-author-bio"  > ';
             echo '<div class="listing-detail-author-bio">';
-                if ($user_stuff["description"]) {
+                if ($user_stuff["user_userbio"]) {
                     echo '<div class="listing-author-desc">';
-                      echo $user_stuff["description"][0] ;
+                      echo $user_stuff["user_userbio"][0] ;
                     echo '</div><!-- end desc -->';
                 }
             echo '</div>'; //author-bio
