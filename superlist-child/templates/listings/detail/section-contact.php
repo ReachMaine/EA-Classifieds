@@ -1,8 +1,15 @@
 <?php /*
-  1Jun17 zig - dont display address & move website to second column
-*/ ?>
+  1Jun17 zig - dont display address & move website to second column      echo "<!-- authorID is".$authorID." -->";
+*/
+global $post;
+global $fields;
+ ?>
 
-<?php if ( apply_filters( 'inventor_metabox_allowed', true, 'contact', get_the_author_meta('ID') ) && isset( $fields ) ): ?>
+<?php
+  $authorID = $post->post_author;
+  echo "<!-- authorID is: ".$authorID." -->";
+if (  apply_filters( 'inventor_metabox_allowed', true, 'contact', $authorID ) /* &&  isset( $fields ) */ ) { ?>
+    <?php echo "<!-- yep1.-->"; ?>
     <?php $predefined_fields = array(
         INVENTOR_LISTING_PREFIX . 'email',
         INVENTOR_LISTING_PREFIX . 'website',
@@ -10,15 +17,15 @@
         INVENTOR_LISTING_PREFIX . 'person',
         INVENTOR_LISTING_PREFIX . 'address'
     ); ?>
-    <?php $custom_fields = array_diff( array_keys( $fields ), $predefined_fields ); ?>
+    <?php /* $custom_fields = array_diff( array_keys( $fields ), $predefined_fields ); */ ?>
 
     <?php
     $posttype = get_post_type( get_the_ID());
     $address = ""; // zig x-out get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'address', true );
     $contactlogo = "";
-    if (($posttype == 'realestate') && (get_post_meta(get_the_id(), INVENTOR_LISTING_PREFIX.'hide_author_info', true) != 'on') ) {
 
-      $authorID = get_the_author_meta( 'ID' );
+
+    if (($posttype == 'realestate') && (get_post_meta(get_the_id(), INVENTOR_LISTING_PREFIX.'hide_author_info', true) != 'on') ) {
       $user_stuff = get_user_meta($authorID);
       //echo "<pre>"; var_dump($user_stuff); echo "</pre>";
       $website = $user_stuff["user_companywebsite"][0];
@@ -39,7 +46,7 @@
       $person = get_post_meta( get_the_ID(), INVENTOR_LISTING_PREFIX . 'person', true );
       $contactlogo = "";
 
-   } /* end if for autho_info */ ?>
+   } /* end if for autho_info */  ?>
 
    <?php if ( ! empty( $website ) ) {
        if (strpos($website, '://') === false) {
@@ -53,7 +60,7 @@
         <div class="listing-detail-section  col-md-4" id="listing-detail-section-contact">
           <?php if ( ($posttype == 'realestate') && (get_post_meta(get_the_id(), INVENTOR_LISTING_PREFIX.'hide_author_info', true) != 'on') ) {
               //echo '<div class="listing-detail-section" id="listing-detail-section-author"  > ';
-                  echo '<div class="listing-detail-author">';
+                  echo '<div class="listing-detail-author '.$authorID.'x">';
                       //echo "user ID:  ".$authorID."<br>";
                       //echo "<pre>"; var_dump($user_stuff); echo "</pre>";
                       echo '<div class="author">';
@@ -129,7 +136,7 @@
                                 </li>
                             <?php endif; ?>
 
-                            <?php foreach( $custom_fields as $custom_field ): ?>
+                            <?php /* foreach( $custom_fields as $custom_field ): ?>
                                 <?php if ( ! empty( $fields[ $custom_field ]['skip'] ) ) continue; ?>
 
                                 <?php $value = get_post_meta( get_the_ID(), $custom_field, true ); ?>
@@ -139,7 +146,7 @@
                                         <span class="value"><?php echo esc_attr( $value ); ?></span>
                                     </li>
                                 <?php endif; ?>
-                            <?php endforeach; ?>
+                            <?php endforeach; */ ?>
                           <?php if ( ! empty( $website ) ) { ?>
                               <li class="website">
                                   <strong class="key"><i class="fa fa-external-link" aria-hidden="true"></i></strong>
@@ -184,5 +191,5 @@
 
     ?>
     <?php echo '</div>'; //section ?>
-<?php endif; ?>
+  <?php } else { echo "<!-- nada -->"; } ?>
 </div><!-- /.row -->

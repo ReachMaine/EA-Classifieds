@@ -15,6 +15,7 @@
                                 case 'Location / Region':
                                   $att_name = '<i class="inventor-poi inventor-poi-pin"></i>';
                                   break;
+                                case 'Address':
                                 case 'Price':
                                     $att_name = "";
                                     break;
