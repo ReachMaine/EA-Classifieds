@@ -30,7 +30,7 @@
            switch($posttype) { // dont show title for help wanted or classifieds.
            case 'classifieds':
            case 'rentals':
-           case 'realestate':
+           //case 'realestate':
            //case 'helpwanted': // supposedly Jobs will always have a title...
              $show_title = false;
              break;
