@@ -1,4 +1,6 @@
 <?php
+/* CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `getads` AS select `o`.`number` AS `adnumber`,`o`.`category` AS `classification`,concat(`x`.`Account #`,' - ',`x`.`Advertiser Name`) AS `customer`,`x`.`Salsp` AS `salesperson`,`o`.`adtext` AS `copy` from (`onlineclassifieds` `o` join `admanifest` `x`) where (`o`.`number` = `x`.`Ad-Number`)
+ᐧ*/
 $databasehost = "localhost";
 $databasename = "webmaste_grocery";
 $databasetable = "visionDataDump";
@@ -37,7 +39,7 @@ $affectedRows = $pdo->exec("LOAD DATA LOCAL INFILE ".$pdo->quote($csvfile)." INT
      (adnumber, classification,customer,salesperson,copy)";
 
 
-echo "Loaded a total of $affectedRows records from this csv file.\n";
+echo "<p>Loaded a total of $affectedRows records from this csv file.</p>";
 
 
 
