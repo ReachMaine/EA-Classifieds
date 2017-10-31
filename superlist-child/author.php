@@ -72,21 +72,21 @@ get_header(); ?>
 
         <dl class="user-banner-info">
             <?php if ( ! empty( $email ) ) : ?>
-                <dt class="user-banner-email"><?php echo __( 'E-mail', 'inventor' ); ?></dt>
+                <dt class="user-banner-email"><?php /* zig xout echo __( 'E-mail', 'inventor' );  */?></dt>
                 <dd>
                     <a href="mailto:<?php echo esc_attr( $email ); ?>"><?php echo esc_attr( $email ) ; ?></a>
                 </dd>
             <?php endif; ?>
 
             <?php if ( ! empty( $phone ) ) : ?>
-                <dt class="user-banner-phone"><?php echo __( 'Phone', 'inventor' ); ?></dt>
+                <dt class="user-banner-phone"><?php /* zig xout echo __( 'Phone', 'inventor' );*/  ?></dt>
                 <dd>
                     <?php echo esc_attr( $phone ) ; ?>
                 </dd>
             <?php endif; ?>
 
             <?php if ( ! empty( $website ) ) : ?>
-                <dt class="user-banner-website"><?php echo __( 'Website', 'inventor' ); ?></dt>
+                <dt class="user-banner-website"><?php /* zig xout echo __( 'Website', 'inventor' ); */ ?></dt>
                 <dd>
                     <a href="<?php echo esc_attr( $website ); ?>" target="_blank"><?php echo esc_attr( $website ) ; ?></a>
                 </dd>
@@ -95,7 +95,7 @@ get_header(); ?>
     </div><!-- /.user-banner-content -->
 </div><!-- /.user-banner-->
 
-<div class="row author-content-wrapper zig">
+<div class="row author-content-wrapper">
     <div class="<?php if ( is_active_sidebar( 'sidebar-1' ) ) : ?>col-sm-8 col-lg-9<?php else : ?>col-sm-12<?php endif; ?>">
         <?php dynamic_sidebar( 'content-top' ); ?>
 

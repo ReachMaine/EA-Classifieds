@@ -161,9 +161,28 @@ ol.breadcrumb {
 .page-wrapper {
   background: none !important;
 }
+// user archive on front
+.user-banner {
+  .user-card-image,
+  .user-banner-image {
+    border-radius: unset;
+    margin-bottom: 60px; // down from 100.
+  }
+  .user-banner-info{
+
+    dt {
+      width: initial; // took out string only showing icons.
+    }
+    dd {
+      font-size: 1em;
+    }
+  }
+}
 // user profile on front end
 // hide stuff we are not using.
 #cmb2-metabox-user_profile {
+  .cmb2-id-user-address-country,
+  .cmb2-id-user-address-postal-code,
   .cmb2-id-user-social-google,
   .cmb2-id-user-social-vimeo,
   .cmb2-id-user-social-youtube,
