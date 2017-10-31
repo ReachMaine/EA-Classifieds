@@ -123,7 +123,7 @@ function unassign_metabox( $assigned, $metabox, $post_type ) {
 }
 
 // order submission steps.
-// 
+//
 add_filter( 'inventor_submission_steps', function( $steps, $post_type ) {
     return array(
         'general' => $steps['general'],
@@ -135,3 +135,7 @@ add_filter( 'inventor_submission_steps', function( $steps, $post_type ) {
         'beds-baths'=> $steps['beds-baths'],
     );
 }, 10, 2 );
+
+add_filter( 'inventor_user_listings_display', function ($default_display) {
+  return ('row');
+}, 10, 1 );
