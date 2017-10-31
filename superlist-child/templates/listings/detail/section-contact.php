@@ -28,7 +28,7 @@ if (  apply_filters( 'inventor_metabox_allowed', true, 'contact', $authorID ) /*
     if (($posttype == 'realestate') && (get_post_meta(get_the_id(), INVENTOR_LISTING_PREFIX.'hide_author_info', true) != 'on') ) {
       $user_stuff = get_user_meta($authorID);
       //echo "<pre>"; var_dump($user_stuff); echo "</pre>";
-      $website = $user_stuff["user_companywebsite"][0];
+      $website = $user_stuff["user_general_website"][0];
       $email = $user_stuff["user_general_email"][0];
       $address = "";
       if ( $user_stuff["user_general_phone"] ) {
@@ -36,7 +36,7 @@ if (  apply_filters( 'inventor_metabox_allowed', true, 'contact', $authorID ) /*
       } else if ($user_stuff["user_agentphone"]) {
         $phone = $user_stuff["user_agentphone"][0];
       }
-      if ( $user_stuff["user_companyphoto"] ) {
+      if ( $user_stuff["user_photo"] ) {
         //$contactlogo = $user_stuff["user_companyphoto"][0];
       }
     } else {
@@ -61,6 +61,7 @@ if (  apply_filters( 'inventor_metabox_allowed', true, 'contact', $authorID ) /*
           <?php if ( ($posttype == 'realestate') && (get_post_meta(get_the_id(), INVENTOR_LISTING_PREFIX.'hide_author_info', true) != 'on') ) {
               //echo '<div class="listing-detail-section" id="listing-detail-section-author"  > ';
                   echo '<div class="listing-detail-author '.$authorID.'x">';
+                  $author_post_link = get_author_posts_url($authorID);
                       //echo "user ID:  ".$authorID."<br>";
                       //echo "<pre>"; var_dump($user_stuff); echo "</pre>";
                       echo '<div class="author">';
@@ -68,7 +69,9 @@ if (  apply_filters( 'inventor_metabox_allowed', true, 'contact', $authorID ) /*
                         //  echo '<div class="col-md-3">';
                         if ($user_stuff["nickname"] ) {
                           echo '<div class="listing-author-name">';
+                            echo '<a href="'.$author_post_link.'">';
                             echo $user_stuff["nickname"][0] ;
+                            echo '</a>';
                           echo '</div><!-- end name -->';
                         }
                           if ($user_stuff["user_general_image"]) {
@@ -81,33 +84,32 @@ if (  apply_filters( 'inventor_metabox_allowed', true, 'contact', $authorID ) /*
                              echo '</div><!-- end mug -->';
                           }
 
-                          if ($user_stuff["user_company"]) {
+                          if ($user_stuff["user_companyname"]) {
                             echo '<div class="listing-company-name">';
                             if ($website) {
-                              echo '<a href="'.esc_attr( $website ).'" target="_blank">'.$user_stuff["user_company"][0].'</a>';
+                              echo '<a href="'.esc_attr( $website ).'" target="_blank">'.$user_stuff["user_companyname"][0].'</a>';
                               $website = ""; // clear $website so dont print later if link here.
                             } else {
-                              echo $user_stuff["user_company"][0] ;
+                              echo $user_stuff["user_companyname"][0] ;
                             }
                             echo '</div><!-- end company -->';
                           }
-                         if ($user_stuff["user_companyaddress"]) {
-                           if ($user_stuff["user_companyaddress"][0] || $user_stuff["user_companytown"][0] ){
+                           if ($user_stuff["user_address_street_and_number"][0] || $user_stuff["user_address_city"][0] ){
                              echo '<div class="listing-company-address">';
-                             if ($user_stuff["user_companyaddress"][0]) {
-                                 $COaddress = $user_stuff["user_companyaddress"][0]."<br>";
+                             if ($user_stuff["user_address_street_and_number"][0]) {
+                                 $COaddress = $user_stuff["user_address_street_and_number"][0]."<br>";
                              }
 
-                            if ( $user_stuff["user_companytown"] ) {
-                              $COaddress .= $user_stuff["user_companytown"][0];
-                              if ($user_stuff["user_companystate"]) {
-                                $COaddress .= ", ".$user_stuff["user_companystate"][0];
+                            if ( $user_stuff["user_address_city"] ) {
+                              $COaddress .= $user_stuff["user_address_city"][0];
+                              if ($user_stuff["user_address_county"]) {
+                                $COaddress .= ", ".$user_stuff["user_address_county"][0];
                               }
                             }
                               echo $COaddress ;
                               echo '</div><!-- end company -->';
                             }
-                          }
+
 
 
                       //  echo '</div><!-- end author "row" -->';
