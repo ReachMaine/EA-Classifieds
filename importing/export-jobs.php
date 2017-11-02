@@ -1,4 +1,10 @@
 <?php
+
+
+
+function encodeFunc($value) {
+  return '"'.$value.'"';
+}
 /* export rentals to csv */
 $databasehost = "localhost";
 $databasename = "webmaste_grocery";
@@ -34,4 +40,10 @@ echo "no results ";
 
 // loop over the rows, outputting them
 $delimiter = "~";
-while ($row = $result->fetch_assoc()) fputcsv($output, $row, $delimiter);
+$enclosure = ' ';
+$row = array('jobid', 'adnumber', 'classification', 'copy', 'image', 'company', 'job_title', 'city', 'contacturl', 'fullorparttime', 'prepforpublish', 'contactemail', 'contactphone', 'displayad', 'featured_ad', 'ts', 'copy2', 'wpcategoryslug', 'salesperson', 'customer', 'customerNomber');
+fputcsv($output, array_map(encodeFunc,$row), $delimiter, $enclosure); // column names
+while ($row = $result->fetch_assoc()) {
+  //fputcsv($output, array_map(encodeFunc,$row), $delimiter,$enclosure);
+   fputs($output, implode("~", array_map("encodeFunc", $row))."\r\n");
+}

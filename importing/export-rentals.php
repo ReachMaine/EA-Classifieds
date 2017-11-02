@@ -17,7 +17,9 @@ $output = fopen("php://output", 'w');
 
 // output the column headings
 //fputcsv($output, array('Column 1', 'Column 2', 'Column 3'));
-
+function encodeFunc($value) {
+  return '"'.$value.'"';
+}
 // fetch the data
 $conn = new mysqli($databasehost, $databaseusername, $databasepassword, $databasename);
 // Check connection
@@ -33,5 +35,12 @@ echo "no results ";
 }
 
 // loop over the rows, outputting them
+//
 $delimiter = "~";
-while ($row = $result->fetch_assoc()) fputcsv($output, $row, $delimiter);
+$enclosure = ' ';
+$row = array('rentalid', 'rental_title', 'adnumber', 'classification', 'image', 'copy', 'beds', 'baths', 'town', 'prepforweb', 'contactphone', 'contactemail', 'contacturl', 'price', 'address', 'pricefrequency', 'displayad', 'ts', 'copy2', 'wpcategoryslug', 'customer', 'salesperson');
+fputcsv($output, array_map(encodeFunc,$row), $delimiter, $enclosure); // column names
+while ($row = $result->fetch_assoc()) {
+  //fputcsv($output, array_map(encodeFunc,$row), $delimiter,$enclosure);
+  fputs($output, implode("~", array_map("encodeFunc", $row))."\r\n");
+}
