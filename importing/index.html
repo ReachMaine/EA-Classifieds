@@ -1,0 +1,77 @@
+<?php /* select file to upload */ ?>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>EA VD File Upload</title>
+</head>
+  <body>
+    <div class="form-container">
+      <div class="form_description">
+          <h2>Upload VD Classified Export</h2>
+          <p>some description here</p>
+      </div>
+      <form action="uploadVD.php" method="post" enctype="multipart/form-data" >
+          <p>
+            <input type="file" name="fileToUpload" id="fileToUpload">
+          </p>
+          <p>
+            <input class="button" type="submit" value="Upload" name="submit">
+          </p>
+      </form>
+    <div>
+    <hr>
+      <div class="form-container">
+        <div class="form_description">
+            <h2>Run the Import</h2>
+        </div>
+            <p>
+              <input class="button" type="submit" value="Run Import" name="submit">
+            </p>
+        </form>
+      <div>
+   <hr>
+   <h2>Exporting</h2>
+   <div class="form-container">
+     <div class="form_description">
+         <h3>Rentals</h3>
+     </div>
+     <form action="export-rentals.php" method="get"  >
+         <p>
+           <input class="button" type="submit" value="export Rentals" name="submit">
+         </p>
+     </form>
+   </div>
+
+   <div class="form-container">
+     <div class="form_description">
+         <h3>Real Estate</h3>
+     </div>
+     <form action="export-realestate.php" method="get"  >
+         <p>
+           <input class="button" type="submit" value="export Real Estate" name="submit">
+         </p>
+     </form>
+   </div>
+
+   <div class="form-container">
+     <div class="form_description">
+         <h3>Classifieds</h3>
+     </div>
+     <form action="export-classifieds.php" method="get"  >
+         <p>
+           <input class="button" type="submit" value="export Classifieds" name="submit">
+         </p>
+     </form>
+
+     <div class="form-container">
+       <div class="form_description">
+           <h3>Jobs / Help wanted</h3>
+       </div>
+       <form action="export-jobs.php" method="get"  >
+           <p>
+             <input class="button" type="submit" value="export Jobs" name="submit">
+           </p>
+       </form>
+
+  </body>
+</html>

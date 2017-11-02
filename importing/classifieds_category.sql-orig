@@ -1,0 +1,139 @@
+-- phpMyAdmin SQL Dump
+-- version 4.0.10.14
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost:3306
+-- Generation Time: Nov 01, 2017 at 02:07 PM
+-- Server version: 5.5.32-31.0-log
+-- PHP Version: 5.6.20
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Database: `webmaste_grocery`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `classifieds_category`
+--
+
+CREATE TABLE IF NOT EXISTS `classifieds_category` (
+  `categoryid` int(11) NOT NULL AUTO_INCREMENT,
+  `category_name` varchar(50) NOT NULL,
+  `parent_category_name` varchar(50) NOT NULL,
+  `wpcategoryslug` varchar(50) NOT NULL,
+  `visionDataCategoryID` int(11) NOT NULL,
+  PRIMARY KEY (`categoryid`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=98 ;
+
+--
+-- Dumping data for table `classifieds_category`
+--
+
+INSERT INTO `classifieds_category` (`categoryid`, `category_name`, `parent_category_name`, `wpcategoryslug`, `visionDataCategoryID`) VALUES
+(1, 'For Rent', 'Rentals', 'for-rent-category', 500),
+(2, 'Apartments For Rent - Unfurnished', 'Rentals', 'apartments-for-rent', 505),
+(3, 'Apartments - Furnished', 'Rentals', 'apartments-for-rent', 506),
+(4, 'Homes For Rent', 'Rentals', 'homes-for-rent', 510),
+(5, 'Rooms For Rent', 'Rentals', 'rooms-for-rent', 515),
+(6, 'Cottages & Camps For Rent', 'Rentals', 'cottages-camps-for-rent', 520),
+(7, 'Mobile Homes For Rent', 'Rentals', 'mobile-homes-for-rent', 525),
+(8, 'Commercial Property For Rent', 'Rentals', 'commercial-property-for-rent', 530),
+(9, 'Real Estate For Sale', 'Real Estate', 'real-estate-for-sale', 600),
+(10, 'Apartment Buildings For Sale', 'Real Estate', 'multi-unit-property-for-sale', 601),
+(11, 'Camps For Sale', 'Real Estate', 'cottages-camps-for-sale', 602),
+(12, 'Commercial Property For Sale', 'Real Estate', 'commercial-property-for-sale', 603),
+(15, 'For Sale', 'Classifieds', 'for-sale-classifieds', 100),
+(16, 'Bargain Basket', 'For Sale', 'bargain-basket-classifieds', 105),
+(17, 'Appliances For Sale', 'For Sale', 'appliances-for-sale', 110),
+(18, 'Building Materials For Sale', 'For Sale', 'building-materials-for-sale', 115),
+(19, 'Furniture For Sale', 'For Sale', 'furniture-for-sale', 120),
+(20, 'Office Equipment For Sale', 'For Sale', 'office-equipment-for-sale', 125),
+(21, 'Business Opportunities For Sale', 'For Sale', 'business-opportunities-for-sale', 130),
+(22, 'Antiques, Collectibles & Jewelry For Sale', 'For Sale', 'antiques-collectibles-jewelry-for-sale', 135),
+(23, 'Antiques, Collectibles & Jewelry For Sale', 'For Sale', 'antiques-collectibles-jewelry-for-sale', 140),
+(24, 'Antiques, Collectibles & Jewelry For Sale', 'For Sale', 'antiques-collectibles-jewelry-for-sale', 145),
+(25, 'Clothing For Sale', 'For Sale', 'clothing-for-sale', 150),
+(26, 'Animals For Sale', 'For Sale', 'animals-for-sale', 155),
+(27, 'Firewood For Sale', 'For Sale', 'firewood-for-sale', 160),
+(28, 'Musical Instruments For Sale', 'For Sale', 'musical-instruments-for-sale', 165),
+(29, 'Hobbies & Crafts For Sale', 'For Sale', 'hobbies-crafts-for-sale', 170),
+(30, 'Yard Sales & Garage Sales', 'For Sale', 'yard-sales-garage-sales', 175),
+(31, 'Farm & Garden For Sale', 'For Sale', 'farm-garden-for-sale', 180),
+(32, 'Electronics & Computers For Sale', 'For Sale', 'electronics-computers-for-sale', 185),
+(33, 'Holiday Gifts For Sale', 'For Sale', 'holiday-gifts-for-sale', 190),
+(34, 'Services', 'Classifieds', 'services-classifieds', 200),
+(35, 'Child Care Services', 'Services', 'child-care-services', 205),
+(36, 'Elder Care Services', 'Services', 'elder-care-services', 210),
+(37, 'Plumbing & Heating Services', 'Services', 'plumbing-heating-services', 215),
+(38, 'Home Maintenance Services', 'Services', 'home-maintenance-services', 220),
+(39, 'Housecleaning Services', 'Services', 'housecleaning-services', 225),
+(40, 'Commercial Cleaning Services', 'Services', 'commercial-cleaning-services', 230),
+(41, 'Housesitting Services', 'Services', 'housesitting-services', 235),
+(42, 'Snowplowing Services', 'Services', 'snowplowing-services', 240),
+(43, 'Lawn & Garden Services', 'Services', 'lawn-garden-services', 245),
+(44, 'Carpentry Services', 'Services', 'carpentry-services', 250),
+(45, 'Painting Services', 'Services', 'painting-services', 251),
+(46, 'Construction Services', 'Services', 'construction-services', 255),
+(47, 'Masonry & Foundation Services', 'Services', 'masonry-foundation-services', 260),
+(48, 'Financial Services', 'Services', 'financial-services', 0),
+(49, 'Storage Services', 'Services', 'storage-services', 270),
+(50, 'Instruction Services', 'Services', 'instruction-services', 275),
+(51, 'Miscellaneous', 'Classifieds', 'miscellaneous-classifieds', 300),
+(53, 'Personals', 'Miscellaneous', 'personals-misc', 305),
+(54, 'Free', 'Miscellaneous', 'free-misc', 310),
+(55, 'Lost', 'Miscellaneous', 'lost-misc', 315),
+(56, 'Found', 'Miscellaneous', 'found-misc', 320),
+(57, 'Notices - Miscellaneous', 'Miscellaneous', 'notices-misc', 325),
+(58, 'Wanted', 'Classifieds', 'wanted-classifieds', 400),
+(59, 'Wanted To Rent', 'Wanted', 'wanted-to-rent', 415),
+(60, 'Work Wanted', 'Wanted', 'work-wanted', 410),
+(61, 'Wanted To Buy', 'Wanted', 'wanted-to-buy', 420),
+(62, 'Roommates Wanted', 'Wanted', 'roommates-wanted', 425),
+(63, 'Riders & Drivers Wanted', 'Wanted', 'riders-drivers-wanted', 430),
+(64, 'Boating: Boats, Supplies, Maintenance & Storage', 'Boats', 'boating-recreation-transportation', 700),
+(65, 'Power Boats', 'Boats', 'boating-recreation-transportation', 705),
+(66, 'Sail Boats', 'Boats', 'boating-recreation-transportation', 710),
+(67, '715', 'Boat Motors', 'boating-recreation-transportation', 715),
+(68, 'Boating Supplies', 'Boats', 'boating-recreation-transportation', 720),
+(69, 'Boat Transportation', 'Boats', 'boating-recreation-transportation', 725),
+(70, 'Kayaks & Canoes', 'Boats', 'kayaks-canoes-recreation', 730),
+(71, 'Autos', 'Classifieds', 'autos-transportation', 800),
+(72, 'Boat Rentals', 'Boats', 'boating-recreation-transportation', 735),
+(73, 'Antique & Classic Cars', 'Transportation', 'antique-classic-cars-transportation', 805),
+(74, 'Trucks & SUVs', 'Transportation', 'trucks-suv-transportation', 810),
+(75, 'Vans', 'Transportation', 'vans-transportation', 815),
+(76, 'RVs & Campers', 'Transportation', 'rvs-campers-recreation', 820),
+(77, 'Campers', 'Transportation', 'rvs-campers-recreation', 825),
+(78, 'Snowmobiles', 'Transportation', 'snowmobiles-recreation', 835),
+(79, 'ATVs', 'Transportation', 'atv-recreation', 840),
+(80, 'Storage', 'Transportation', 'storage-transportation', 845),
+(81, 'Wanted- Transportation', 'Transportation', 'wanted-transportation', 850),
+(82, 'Automobile Parts', 'Transportation', 'automobile-parts-transportation', 855),
+(83, 'Motorcycles', 'Transportation', 'motorcycles-transportation', 830),
+(84, 'Homes For Sale', 'Real Estate', 'homes-for-sale', 605),
+(85, 'Real Estate For Sale', 'Real Estate', 'homes-for-sale', 600),
+(87, 'Mobile Homes For Sale', 'Real Estate', 'mobile-homes-for-sale', 610),
+(88, 'Land For Sale', 'Real Estate', 'land-for-sale', 615),
+(89, 'Commercial Property For Sale', 'Real Estate', 'commercial-property-for-sale', 620),
+(90, 'Cottages & Camps For Sale', 'Real Estate', 'cottages-camps-for-sale', 625),
+(91, 'Condos & Timeshares For Sale', 'Real Estate', 'condos-tmeshares-for-sale', 630),
+(92, 'Jobs', '', 'jobs-help-wanted', 405),
+(93, 'Vacation Rentals For Sale', 'Real Estate', 'vacation-rentals-for-sale', 635),
+(94, 'Residential Rental Properties For Sale', 'Real Estate', 'multi-unit-property-for-sale', 640),
+(95, 'Commercial Land For Sale', 'Real Estate', 'commercial-property-for-sale', 650),
+(96, 'Recreational & Seasonal Property For Sale', 'Real Estate', 'cottages-camps-for-sale', 675),
+(97, 'Multi-Unit Properties For Sale', 'Real Estate', 'multi-unit-property-for-sale', 680);
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
