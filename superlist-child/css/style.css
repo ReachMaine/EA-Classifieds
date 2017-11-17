@@ -68,6 +68,10 @@ a.reach-logo {
     margin-right: 0px;
     color: #000 !important; }
 
+/* dashboard styling */
+.page-template-page-dashboard .in-review {
+  display: none; }
+
 .center {
   text-align: center; }
 
