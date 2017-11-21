@@ -211,7 +211,12 @@ img.listing-title-logo {
       float: right; }
     .listing-detail .listing-detail-section .listing-detail-contact {
       padding: 0px 0px; }
+    .listing-detail .listing-detail-section .listing-detail-author .listing-author-name {
+      margin-bottom: 0px;
+      font-size: 1.5em;
+      font-weight: normal; }
     .listing-detail .listing-detail-section .listing-detail-author .mug {
+      padding-top: 5px;
       width: 100%; }
       .listing-detail .listing-detail-section .listing-detail-author .mug img {
         height: initial;
@@ -219,12 +224,15 @@ img.listing-title-logo {
         border: 0px;
         border-radius: 15%;
         margin-bottom: 0px; }
-    .listing-detail .listing-detail-section .listing-detail-contact ul li strong.key {
-      width: 20px; }
-    .listing-detail .listing-detail-section .listing-detail-contact ul li span.value {
-      width: initial;
-      text-align: left;
-      float: none; }
+    .listing-detail .listing-detail-section .listing-detail-contact ul li {
+      line-height: 24px; }
+      .listing-detail .listing-detail-section .listing-detail-contact ul li strong.key {
+        width: 20px; }
+      .listing-detail .listing-detail-section .listing-detail-contact ul li span.value {
+        width: initial;
+        text-align: left;
+        float: none;
+        line-height: 24px; }
   .listing-detail #listing-detail-section-contact {
     padding-left: 20px;
     padding-top: 20px; }

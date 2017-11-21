@@ -59,8 +59,16 @@ img.listing-title-logo {
       padding: 0px 0px;
     }
     .listing-detail-author {
+      .listing-author-name {
+        margin-bottom: 0px;
+        font-size: 1.5em;
+        font-weight: normal;
+      }
+      .listing-author-link {
+      }
       .mug {
         //text-align: center;
+        padding-top: 5px;
         width: 100%;
         img {
           height: initial;
@@ -70,12 +78,10 @@ img.listing-title-logo {
           margin-bottom: 0px;
         }
       }
-      .listing-author-name {
-        //text-align: center;
-      }
     } // author
     .listing-detail-contact {
       ul li  {
+          line-height: 24px;
           strong.key {
             width: 20px;
           }
@@ -83,6 +89,7 @@ img.listing-title-logo {
             width: initial;
             text-align: left;
             float: none;
+            line-height: 24px;
           }
 
       }

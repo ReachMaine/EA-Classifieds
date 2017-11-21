@@ -55,7 +55,7 @@ if (  apply_filters( 'inventor_metabox_allowed', true, 'contact', $authorID ) /*
          } else {
            $website_display = parse_url($website, PHP_URL_HOST);
          }
-       } ?>
+    }  ?>
     <?php// if ( ! empty( $email ) || ! empty( $website ) || ! empty( $phone ) || ! empty( $person ) || ! empty( $address ) ) {  ?>
         <div class="listing-detail-section  col-md-4" id="listing-detail-section-contact">
           <?php if ( ($posttype == 'realestate') && (get_post_meta(get_the_id(), INVENTOR_LISTING_PREFIX.'hide_author_info', true) != 'on') ) {
@@ -73,6 +73,11 @@ if (  apply_filters( 'inventor_metabox_allowed', true, 'contact', $authorID ) /*
                             echo $user_stuff["nickname"][0] ;
                             echo '</a>';
                           echo '</div><!-- end name -->';
+                          echo '<div class="listing-author-link">';
+                            echo '<a href="'.$author_post_link.'">';
+                              echo 'See listings >>';
+                            echo '</a>';
+                          echo '</div>';
                         }
                           if ($user_stuff["user_general_image"]) {
                              echo '<div class="mug">';
@@ -86,19 +91,14 @@ if (  apply_filters( 'inventor_metabox_allowed', true, 'contact', $authorID ) /*
 
                           if ($user_stuff["user_companyname"]) {
                             echo '<div class="listing-company-name">';
-                            if ($website) {
-                              echo '<a href="'.esc_attr( $website ).'" target="_blank">'.$user_stuff["user_companyname"][0].'</a>';
-                              $website = ""; // clear $website so dont print later if link here.
-                            } else {
                               echo $user_stuff["user_companyname"][0] ;
-                            }
                             echo '</div><!-- end company -->';
                           }
-                           if ($user_stuff["user_address_street_and_number"][0] || $user_stuff["user_address_city"][0] ){
-                             echo '<div class="listing-company-address">';
-                             if ($user_stuff["user_address_street_and_number"][0]) {
-                                 $COaddress = $user_stuff["user_address_street_and_number"][0]."<br>";
-                             }
+                          if ($user_stuff["user_address_street_and_number"][0] || $user_stuff["user_address_city"][0] ){
+                           echo '<div class="listing-company-address">';
+                            if ($user_stuff["user_address_street_and_number"][0]) {
+                             $COaddress = $user_stuff["user_address_street_and_number"][0]."<br>";
+                            }
 
                             if ( $user_stuff["user_address_city"] ) {
                               $COaddress .= $user_stuff["user_address_city"][0];
@@ -108,8 +108,7 @@ if (  apply_filters( 'inventor_metabox_allowed', true, 'contact', $authorID ) /*
                             }
                               echo $COaddress ;
                               echo '</div><!-- end company -->';
-                            }
-
+                          }
 
 
                       //  echo '</div><!-- end author "row" -->';
@@ -156,7 +155,7 @@ if (  apply_filters( 'inventor_metabox_allowed', true, 'contact', $authorID ) /*
                                       <a href="<?php echo esc_attr( $website ); ?>" target="_blank"><?php echo esc_attr( $website_display ); ?></a>
                                   </span>
                               </li>
-                          <?php } ?>
+                          <?php }  else { echo '<li class="empty_website"></li>'; }?>
                             <?php if ( ! empty( $person ) && false ): /*zig false out - dont show person here */ ?>
                                 <li class="person">
                                     <strong class="key"><?php echo __( 'Person', 'inventor' ); ?></strong>
