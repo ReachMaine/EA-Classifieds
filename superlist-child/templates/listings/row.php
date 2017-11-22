@@ -46,23 +46,21 @@
      <?php } ?>
        <div class="listing-row-content">
            <?php
-         if (($scraped_content) || ($posttype == 'realestate')  ) {
-                 the_excerpt();
-                 ?>
-                 <?php
-                 $targetpage = get_post_meta(get_the_ID(), INVENTOR_LISTING_PREFIX .'realtorpage', true);
-                 if ($targetpage) { ?>
-                   <p> <a class="see-more-link" target="_blank" href="<?php echo $targetpage; ?>">See full listing <?php echo $domain; ?></a></p>
-                 <?php } ?>
-               <?php/* JFN   <p>
-                     <a class="read-more-link" href="<?php echo esc_attr( get_permalink( get_the_ID() ) ); ?>"><?php echo esc_attr__( 'Read More', 'inventor' ); ?><i class="fa fa-chevron-right"></i></a>
-                 </p>*/ ?>
-                 <?php
-               } else {
-                 the_content();
-                 /* no sense having a read more if we've seen the whole content*/
+         if ($posttype == 'realestate' ) {
+           the_excerpt();
+           echo '<div class="zigtest "></div>';
+           $targetpage = get_post_meta(get_the_ID(), INVENTOR_LISTING_PREFIX .'realtorpage', true);
+           if ($targetpage) { ?>
+             <p> <a class="see-more-link" target="_blank" href="<?php echo $targetpage; ?>">See full listing <?php echo $domain; ?></a></p>
+           <?php }
+           /* JFN   <p>
+               <a class="read-more-link" href="<?php echo esc_attr( get_permalink( get_the_ID() ) ); ?>"><?php echo esc_attr__( 'Read More', 'inventor' ); ?><i class="fa fa-chevron-right"></i></a>
+           </p>*/
+          } else {
+           the_content();
+           /* no sense having a read more if we've seen the whole content*/
 
-               } ?>
+        } ?>
 
 
        </div><!-- /.listing-row-content -->
