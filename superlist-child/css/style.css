@@ -155,6 +155,10 @@ body {
 ol.breadcrumb {
   display: none; }
 
+.page-template-default .post-content {
+  background-color: white;
+  padding: 10px; }
+
 .document-title ol.breadcrumb li {
   margin-bottom: 5px; }
 .document-title h1 {
