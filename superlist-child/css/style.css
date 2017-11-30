@@ -189,7 +189,7 @@ img.listing-title-logo {
   box-shadow: rgba(0, 0, 0, 0.1) 0 1px 2px 0;
   padding: 20px;
   margin-top: 0px; }
-  .listing-detail img {
+  .listing-detail .listing-detail-thumb img {
     max-height: 300px;
     width: inherit; }
   .listing-detail .row.contact-wrap {
@@ -220,7 +220,7 @@ img.listing-title-logo {
       width: 100%; }
       .listing-detail .listing-detail-section .listing-detail-author .mug img {
         height: initial;
-        width: initial;
+        width: 100%;
         border: 0px;
         border-radius: 15%;
         margin-bottom: 0px; }
@@ -236,6 +236,10 @@ img.listing-title-logo {
   .listing-detail #listing-detail-section-contact {
     padding-left: 20px;
     padding-top: 20px; }
+    .listing-detail #listing-detail-section-contact .user-contact-social span {
+      font-size: 0px; }
+    .listing-detail #listing-detail-section-contact .user-contact-social i.fa {
+      padding: 10px; }
   .listing-detail #listing-detail-section-gallery {
     margin-top: 20px; }
     .listing-detail #listing-detail-section-gallery .listing-detail-gallery .item-image {

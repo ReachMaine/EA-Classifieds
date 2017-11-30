@@ -174,6 +174,31 @@ if (  apply_filters( 'inventor_metabox_allowed', true, 'contact', $authorID ) /*
                                 </li>
                             <?php endif; ?>
                         </ul>
+                        <?php /* social icons */
+                          $default_social_networks = Inventor_Metaboxes::social_networks();
+                          $social_networks = apply_filters( 'inventor_metabox_social_networks', array(), 'user' );
+                          $social = '';
+
+                          foreach( $social_networks as $key => $title ) {
+                              $field_id = INVENTOR_USER_PREFIX . 'social_' . $key;
+                              if ( apply_filters( 'inventor_metabox_field_enabled', true, INVENTOR_USER_PREFIX . 'profile', $field_id, 'user' ) ) {
+                                  //$social_value = get_user_meta( $user_stuff->ID, $field_id, true );
+                                 $social_value = $user_stuff[$field_id][0];
+
+                                  if ( ! empty( $social_value ) ) {
+                                      $class = array_key_exists( $key, $default_social_networks ) ? 'default' : '';
+                                      $social_network_url = apply_filters( 'inventor_social_network_url', esc_attr( $social_value ), $key );
+                                      $social .= '<a href="' . $social_network_url . '" target="_blank" class="' . $class . '"><i class="fa fa-'. esc_attr( $key ) .'"></i></a>';
+                                  }
+                              } else { echo "<!-- $field_id not enabled."; }
+                          }
+                          if ( ! empty( $social ) ) { ?>
+                              <div class="user-contact-social">
+                                  <?php echo $social; ?>
+                              </div><!-- /.user-banner-social -->
+                          <?php } /* end if */
+                        /* end social icons */
+                        ?>
             </div><!-- /.listing-detail-contact -->
         <?php /* </div><!-- /.listing-detail-section --> */ ?>
 
@@ -187,6 +212,7 @@ if (  apply_filters( 'inventor_metabox_allowed', true, 'contact', $authorID ) /*
                     echo '</div><!-- end desc -->';
                 }
             echo '</div>'; //author-bio
+
           echo '</div>'; //section
         } // show autho is on
 
