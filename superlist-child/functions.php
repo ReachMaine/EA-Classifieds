@@ -55,3 +55,14 @@
         remove_action( 'pre_get_posts', 'custom_post_author_archive' );
     }
     add_action('pre_get_posts', 'custom_post_author_archive');
+
+    // set a longer exceprt for realestate...
+    add_filter('excerpt_length', 'isacustom_excerpt_length', 100);
+    function isacustom_excerpt_length($length) {
+    global $post;
+      if ($post->post_type == 'realestate') {
+        return 50;
+      } else {
+        return $length;
+      }
+    }
