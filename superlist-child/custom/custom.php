@@ -46,3 +46,18 @@ function adnum_column_orderby( $vars ) {
     return $vars;
 }
 add_filter( 'request', 'adnum_column_orderby' );
+
+// zig 1Dec17 trying to order realestate archives
+add_filter( 'posts_orderby' , 'custom_cpt_order' );
+function custom_cpt_order( $orderby ) {
+	global $wpdb;
+
+	// Check if the query is for an archive
+if ( !is_admin() && is_archive() /* && get_query_var("post_type") == "realestate" */ ) {
+		// Query was for archive, then set order
+		return "$wpdb->posts.post_title ASC";
+    //return "RAND()";
+	}
+
+	return $orderby;
+}
