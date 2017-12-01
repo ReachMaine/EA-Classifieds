@@ -101,8 +101,8 @@ function reach_list_details($sections, $post_type) {
   unset($sections['overview']);
   unset($sections['gallery']);
   unset($sections['contact']);
-
-  $sections = array('overview'=> "Details" ) + $sections  + array('gallery' => "Gallery") + array('contact' => "Contact");
+  unset($sections['video']);
+  $sections = array('overview'=> "Details" ) + $sections  + array('gallery' => "Gallery") + array('contact' => "Contact") + array('video' => "Video");
   //echo "<pre>"; var_dump($sections); echo "</pre>";
   return $sections;
 }

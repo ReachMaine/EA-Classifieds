@@ -10,7 +10,13 @@
 // styling for listings
 
 // single listings
+body.single #primary {
+  background-color: $listing-background-color;
+  .detail-title.container {
+    padding-top: 15px;
+  }
 
+}
 img.listing-title-logo {
   margin-right: 10px;
   width: 75px;
@@ -30,6 +36,7 @@ img.listing-title-logo {
   .listing-detail-thumb img {
     max-height: 300px;  // see median
     width: inherit;
+    height: inherit;
   }
   margin-top: 0px;
   .row.contact-wrap {
@@ -45,7 +52,7 @@ img.listing-title-logo {
       box-shadow: none;
       margin-bottom: 0px;
       padding-bottom: 0px;
-      padding: 20px 20px;
+      padding: 5px;
       .page-header {
         display: none;
         padding: 0px;
@@ -158,8 +165,13 @@ img.listing-title-logo {
   }
 }
 
-.listing-detail-attributes ul li span.value {
-  width: 75%;
+.listing-detail-attributes ul li {
+  strong.key {
+    font-size: 11px;
+  }
+  span.value {
+    width: 75%;
+  }
 }
 
 /*** end single ****/
