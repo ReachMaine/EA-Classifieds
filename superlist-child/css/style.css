@@ -564,6 +564,10 @@ footer.footer {
       padding-top: 0px;
       position: inherit; }
 
+/* sidebar */
+.secondary.sidebar {
+  margin-top: 20px; }
+
 /* **** media **** */
 @media only screen and (max-width: 767px) {
   img.listing-title-logo {
