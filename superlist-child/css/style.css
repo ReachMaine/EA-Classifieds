@@ -415,6 +415,14 @@ a.read-more-link {
     margin-bottom: 10px;
     padding: 0 10px; }
 
+#primary .widget_filter.eai-filter-smush .form-group {
+  padding: 0 2px; }
+  #primary .widget_filter.eai-filter-smush .form-group input {
+    padding-left: 8px;
+    padding-right: 8px; }
+  #primary .widget_filter.eai-filter-smush .form-group .btn-group .btn {
+    padding-left: 8px; }
+
 [id^="filter"] {
   background-color: white;
   border: 2px solid #ababab;
