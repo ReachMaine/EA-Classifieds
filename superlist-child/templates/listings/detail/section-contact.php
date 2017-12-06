@@ -188,7 +188,11 @@ if (  apply_filters( 'inventor_metabox_allowed', true, 'contact', $authorID ) /*
                                   if ( ! empty( $social_value ) ) {
                                       $class = array_key_exists( $key, $default_social_networks ) ? 'default' : '';
                                       $social_network_url = apply_filters( 'inventor_social_network_url', esc_attr( $social_value ), $key );
-                                      $social .= '<a href="' . $social_network_url . '" target="_blank" class="' . $class . '"><i class="fa fa-'. esc_attr( $key ) .'"></i></a>';
+                                      $fa_desc =  esc_attr( $key );
+                                      if ($fa_desc == 'youtube') {
+                                        $fa_desc = 'youtube-play';
+                                      }
+                                      $social .= '<a href="' . $social_network_url . '" target="_blank" class="' . $class . '"><i class="fa fa-'.$fa_desc.'"></i></a>';
                                   }
                               } else { echo "<!-- $field_id not enabled."; }
                           }
