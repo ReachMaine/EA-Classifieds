@@ -32,7 +32,7 @@
 	// custom post arhive seo images or descriptions & titles.
 
 // add og:image for CPT archive
-	add_filter( 'wpseo_opengraph_image', 'prefix_filter_og_image', 10, 1 );
+	//add_filter( 'wpseo_opengraph_image', 'prefix_filter_og_image', 10, 1 );
 	function prefix_filter_og_image( $img ) {
     if( is_post_type_archive( 'helpwanted' ) ) {
 	    $img = get_stylesheet_directory_uri().'/images/post-cover-image-jobs.jpg';
@@ -49,10 +49,10 @@
     return $img;
 }
 // add og:desc for CPT archive
-	add_filter( 'wpseo_opengraph_desc', 'reach_filter_og_desc', 10, 1 );
+	//add_filter( 'wpseo_opengraph_desc', 'reach_filter_og_desc', 10, 1 );
 	function reach_filter_og_desc( $ogdesc ) {
 		if( is_post_type_archive( 'helpwanted' ) ) {
-			$ogdesc = "An employer in Downeast Maine is looking for you! Find job openings at www.Ellsworthamerican.com/Jobs. ";
+			//$ogdesc = "An employer in Downeast Maine is looking for you! Find job openings at www.Ellsworthamerican.com/Jobs. ";
 		}
 		if( is_post_type_archive( 'rentals' ) ) {
 			$ogdesc = "Find apartments, houses, offices spaces and cottages for rent in Downeast Maine at Ellsworthamerican.com/Rentals.";
@@ -61,15 +61,15 @@
 			$ogdesc = "Whatever you're looking for, you'll find it at EllsworthAmerican.com/Classifieds.";
 		}
 		if( is_post_type_archive( 'realestate' ) ) {
-			$ogdesc = "Search homes, property, camps and businesses locations for sale at EllsworthAmerican.com/RealEstate.";
+			//$ogdesc = "Search homes, property, camps and businesses locations for sale at EllsworthAmerican.com/RealEstate.";
 		}
 		return $ogdesc;
 }
 // add the og:title for CPT Archives
-add_filter('wpseo_title', 'reach_product_wpseo_title');
+//add_filter('wpseo_title', 'reach_product_wpseo_title');
 function reach_product_wpseo_title($title) {
     if(  is_post_type_archive( 'helpwanted' ) ) {
-        $title = "Help Wanted - Job Listings In Downeast Maine";
+        //$title = "Help Wanted - Job Listings In Downeast Maine";
     }
 		if(  is_post_type_archive( 'rentals' ) ) {
         $title = "Homes & Apartments for rent in Hancock County";
@@ -78,7 +78,7 @@ function reach_product_wpseo_title($title) {
         $title = "Find what you're looking for - Hancock County Classifieds";
     }
 		if(  is_post_type_archive( 'realestate' ) ) {
-        $title = "Find properties for sale in Hancock County ";
+        //$title = "Find properties for sale in Hancock County ";
     }
     return $title;
 }
