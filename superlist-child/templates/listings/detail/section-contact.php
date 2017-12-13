@@ -80,14 +80,14 @@ if (  apply_filters( 'inventor_metabox_allowed', true, 'contact', $authorID ) /*
                           echo '</div>';
                         }
                           if ($user_stuff["user_general_image"]) {
-                             echo '<div class="mug">';
+                             echo '<div class="mug ugen">';
                                 echo '<img src="'.$user_stuff["user_general_image"][0].'" class="listing-author-image" >';
                               echo '</div><!-- end mug -->';
-                          } else if ($user_stuff["user_photo"]) {
-                            echo '<div class="mug">';
+                          } /* zig xout else if ($user_stuff["user_photo"]) {
+                            echo '<div class="mug uphoto">';
                                echo '<img src="'.$user_stuff["user_photo"][0].'" class="listing-author-image" >';
                              echo '</div><!-- end mug -->';
-                          }
+                          } */
 
                           if ($user_stuff["user_companyname"]) {
                             echo '<div class="listing-company-name">';
