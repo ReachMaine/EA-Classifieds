@@ -1,5 +1,7 @@
 <?php
 /* CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `getads` AS select `o`.`number` AS `adnumber`,`o`.`category` AS `classification`,concat(`x`.`Account #`,' - ',`x`.`Advertiser Name`) AS `customer`,`x`.`Salsp` AS `salesperson`,`o`.`adtext` AS `copy` from (`onlineclassifieds` `o` join `admanifest` `x`) where (`o`.`number` = `x`.`Ad-Number`)
+
+testing trying to do a better job of price....
 ᐧ*/
 $databasehost = "localhost";
 $databasename = "webmaste_grocery";
@@ -44,7 +46,7 @@ echo "<p>Loaded a total of $affectedRows <br> records from this csv file.</p>";
 
 // THIS ENDS THE DATA UPLOAD PORTION OF THE FILE.
 
- //exit();
+
 
 
 // Create connection
@@ -68,10 +70,14 @@ $usql = "UPDATE visionDataDump set copy2 = fnStripTags(copy2)";
 $uresult = $conn->query($usql);
 
 if ($result->num_rows > 0) {
+     $count_displayads = 0;
+     $count_price = 0;
+     $count_ads = 0;
+     $count_emptyad;
     // output data of each row
     while($row = $result->fetch_assoc()) {
 
-
+      $count_ads++;
       #set default values
       $thisphone = '';
       $thisurl = '';
@@ -88,6 +94,8 @@ if ($result->num_rows > 0) {
       #Strip Tags
       //$supertext = strip_tags($row["copy"]);
       #$supertext = preg_replace('/\r\n?/', "\. ", $supertext); //remove period then carriage returns by adding space
+      $supertext = $row["copy"]; // we start here.
+      //echo "<pre> supertext before is: ".$supertext."</pre>";
       $supertext = str_replace('<B>','', $supertext); // remove <B>
       $supertext = str_replace('</B>','', $supertext); //Remove </B>
       $supertext = str_replace('<HR SIZE=1 NOSHADE>','', $supertext); //Remove <HR SIZE=1 NOSHADE>
@@ -96,6 +104,8 @@ if ($result->num_rows > 0) {
       $supertext = trim( $supertext); //trim leading & trailing whitespace
 
       $supertext = preg_replace('/(\s\s+|\t|\n)/', ' ', $supertext); //remove tabs and spaces
+
+      //echo "<pre> supertext after is: ".$supertext."</pre><hr>";
       $usql = "UPDATE visionDataDump set copy2 = '".$supertext."' where classifiedid = ".$row["classifiedid"];  $uresult = $conn->query($usql);
       $uresult = $conn->query($usql);
 
@@ -115,6 +125,27 @@ if ($result->num_rows > 0) {
       	}
       else {$updateurl = 'No';}
 
+
+      // zig - check for price here
+      $updateprice = 'No';
+      $price = "";
+      $dollar_spot = strpos($supertext, "$");
+      if ($dollar_spot) {
+        //echo "<p>got a dollar sign for ".$row["classifiedid"]." at ".$dollar_spot." near ".substr($supertext, $dollar_spot,10)."</p>";
+        //echo "<p>".substr($supertext, $dollar_spot)."</p>";
+        $regex_price = '\d{1,3}(?:[.,]\d{3})*(?:[.,]\d{2})?'; // orginal
+        $regex_price = '([0-9]+(,[0-9]{3})*(\.[0-9]*)?|\.[0-9]+)';  // try2
+        if ( preg_match($regex_price, substr($supertext, $dollar_spot), $matches) === 1 ) {
+          $price = rtrim($matches[0],".");// trim off any trailing "."
+          $price = str_replace(",", "", $price); // remove the commas
+          //echo "<p>price is....:{".$price."}</p>";
+          $updateprice = 'Yes';
+          $count_price++;
+        }
+        //echo "<hr>";
+      }
+
+
       #Update Contact Email PHP Regular Expressions
       $re3 = '([\w.-]+@([\w-]+)\.+\w{2,})';
       preg_match_all($re3, $row["copy"], $re_email, PREG_SET_ORDER, 0);
@@ -125,16 +156,17 @@ if ($result->num_rows > 0) {
       #Strip Tags
       $supertext = strip_tags($row["copy"]);
       #$supertext = preg_replace('/\r\n?/', "\. ", $supertext); //remove period then carriage returns by adding space
-      $supertext = str_replace('P\.O\.',PO, $supertext); //remove P.O. Box
+      $supertext = str_replace('P\.O\.',"PO", $supertext); //remove P.O. Box
       $supertext = preg_replace('/(\s\s+|\t|\n)/', ' ', $supertext); //remove tabs and spaces
 
       #Update SQL Statement For The Current Row
-
+      if (trim)
       $usql = "update visionDataDump set copy2 = '".$supertext."'";
       if ($updatephone = 'Yes')  { $usql =  $usql.", contactphone = '".$thisphone."'";}
       if ($updateurl = 'Yes')  { $usql =   $usql.", contacturl = '".$thisurl."'";}
       if ($updateemail = 'Yes')  { $usql =   $usql.", contactemail = '".$thisemail."'";}
-      $usql = $usql . "where adnumber = " . trim($row["adnumber"]);
+      if ($updateprice = 'Yes') { $usql =   $usql.", price = '".$price."'";} // zig - use new price column for price
+      $usql = $usql . " where adnumber = " . trim($row["adnumber"]);
       $uresult = $conn->query($usql);
 
 
@@ -146,17 +178,19 @@ if ($result->num_rows > 0) {
       //$testimage = "/home/webmaster/public_html/manage.downeastmaine.com/displayads/".$vd.".jpg";
       $testimage = "/home/webmaster/public_html/manage.downeastmaine.com/vddisplayads/".$vd.".jpg";
       $testurl = "http://manage.downeastmaine.com/manage.downeastmaine.com/vddisplayads/".$vd.".jpg";
-
+      $got_image = false;
       if (file_exists($testimage)) {
-        echo "<p>found a dislay ad adnumber: ".$vd." with test url: [". $testurl."] for ".$row["classifiedid"]."</p>"; // zig
 
         $usql = "UPDATE visionDataDump set displayad = '".$testurl."' where classifiedid = ".$row["classifiedid"];
-        //echo "<p>   SQL:  ".$usql."</p>";
         $uresult = $conn->query($usql);
         //$uresult = $conn->query($usql);
-
+        $count_displayads++;
+        $got_image = true;
       }
 
+      if ( ($supertext == "") && (!$got_image)) {
+        $count_emptyad++;
+      }
       // Print the entire match result
       //echo "id: " . $row["adnumber"]. "| Length of phone: ".strlen($phone[0][0]). " | values ".$updatephone."|".$updateurl."|".$updateemail."|" . $supertext . "| sql:".$usql." | phone[0][0] is ".$phone[0][0]." </p>";
     }
@@ -164,15 +198,19 @@ if ($result->num_rows > 0) {
     echo "0 results";
 }
 
+// delete empty non-display ads.
+$usql = 'delete from visionDataDump  where copy2 = "" AND displayad = "" ' ; $uresult = $conn->query($usql);
+echo "Processed $count_ads ads with $count_displayads display ads and $count_price with prices and $count_emptyad ignored (empty) ads";
+
 #Fix Empty Strings to NULL Before Moving Data Around
 $usql = "update visionDataDump set contacturl = NULL where LENGTH( LTRIM( RTRIM( contacturl ) ) )  = 0"; $uresult = $conn->query($usql);
 $usql = "update visionDataDump set contactphone = NULL where LENGTH( LTRIM( RTRIM( contacphone ) ) )  = 0"; $uresult = $conn->query($usql);
 $usql = "update visionDataDump set contactemail = NULL where LENGTH( LTRIM( RTRIM( contactemail ) ) )  = 0"; $uresult = $conn->query($usql);
-
+$usql = "update visionDataDump set price = NULL where LENGTH( LTRIM( RTRIM( price ) ) )  = 0"; $uresult = $conn->query($usql);
 
 
 #Move Rentals To rentals Table, then delete from visionDataDump
-$usql ="INSERT INTO rentals (adnumber,classification,copy,image,contactphone,contacturl,contactemail,copy2,town,wpcategoryslug,customer,salesperson)  SELECT adnumber,classification,copy,image,contactphone,contacturl,contactemail,copy2,city,wpcategoryslug,customer,salesperson FROM visionDataDump   WHERE classification between 500 and 599 and not adnumber in (Select adnumber from rentals)";
+$usql ="INSERT INTO rentals (adnumber,classification,copy,image,contactphone,contacturl,contactemail,copy2,town,wpcategoryslug,customer,salesperson, price)  SELECT adnumber,classification,copy,image,contactphone,contacturl,contactemail,copy2,city,wpcategoryslug,customer,salesperson,price FROM visionDataDump   WHERE classification between 500 and 599 and not adnumber in (Select adnumber from rentals)";
 $uresult = $conn->query($usql);
 
 $usql ="Delete  FROM visionDataDump WHERE classification between 500 and 599";
@@ -196,18 +234,19 @@ $usql = "UPDATE rentals SET baths =4 WHERE  (copy LIKE '%4 bath%' OR copy like '
 $usql = "UPDATE rentals SET baths =5 WHERE  (copy LIKE '%5 bath%' OR copy like '%5 bathroom%' or copy LIKE '%5BA%' OR copy LIKE '%5 BA%' OR copy LIKE '%five bath%')    and DATE(`ts`) = CURDATE()"; $uresult = $conn->query($usql);
 
 #Update Rental Pricing
-$usql = "update rentals set price = mid(copy,LOCATE('$',copy)+1,locate('/',SUBSTRING(copy,LOCATE('$',copy)+2)))
+/*$usql = "update rentals set price = mid(copy,LOCATE('$',copy)+1,locate('/',SUBSTRING(copy,LOCATE('$',copy)+2)))
 Where (price = 0 or price is null) and DATE(`ts`) = CURDATE()"; $uresult = $conn->query($usql);
 $usql = "update rentals set price = mid(copy,LOCATE('$',copy)+1,locate(' ',SUBSTRING(copy,LOCATE('$',copy)+2)))
 Where (price = 0 or price is null) and DATE(`ts`) = CURDATE()"; $uresult = $conn->query($usql);
 $usql = "update rentals set price = mid(copy,LOCATE('$',copy)+1,locate('.',SUBSTRING(copy,LOCATE('$',copy)+2)))
 Where (price = 0 or price is null) and DATE(`ts`) = CURDATE()"; $uresult = $conn->query($usql);
 $usql = "update rentals set price = NULL where price=0"; $uresult = $conn->query($usql);
+
 $usql = "update visionDataDump set contacturl = NULL where LENGTH( LTRIM( RTRIM( contacturl ) ) )  = 0"; $uresult = $conn->query($usql);
 $usql = "update visionDataDump set contactphone = NULL where LENGTH( LTRIM( RTRIM( contacphone ) ) )  = 0"; $uresult = $conn->query($usql);
 $usql = "update visionDataDump set contactemail = NULL where LENGTH( LTRIM( RTRIM( contactemail ) ) )  = 0"; $uresult = $conn->query($usql);
 $usql = "update visionDataDump set price = NULL where LENGTH( LTRIM( RTRIM( price ) ) )  = 0"; $uresult = $conn->query($usql);
-
+*/
 #<<<<<<<<<<<<<<<<<<<<<<< END OF RENTALS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 #<<<<<<<<<<<<<<<<<<<<<<< START OF JOBS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -223,7 +262,7 @@ $usql = "Delete from visionDataDump Where classification in(400,405)";  $uresult
 #<<<<<<<<<<<<<<<<<<<<<<< START OF REAL ESTATE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 #Move Real Estate Ads Into Real Estate Table then delete from visionDataDump
-$usql ="INSERT INTO realestate (adnumber, classification,copy,image,contactphone,contacturl,contactemail,copy2,city,wpcategoryslug,customer,salesperson)  SELECT adnumber,classification,copy,image,contactphone,contacturl,contactemail,copy2,city,wpcategoryslug,customer,salesperson FROM visionDataDump where classification between 600 and 699  and not adnumber in (Select adnumber from realestate)";
+$usql ="INSERT INTO realestate (adnumber, classification,copy,image,contactphone,contacturl,contactemail,copy2,city,wpcategoryslug,customer,salesperson, price)  SELECT adnumber,classification,copy,image,contactphone,contacturl,contactemail,copy2,city,wpcategoryslug,customer,salesperson,price FROM visionDataDump where classification between 600 and 699  and not adnumber in (Select adnumber from realestate)";
 $uresult = $conn->query($usql);
 $usql = "update realestte set title = left(copy2,70)";  $uresult = $conn->query($usql);
 $usql = "Delete from visionDataDump Where classification between 600 and 699";  $uresult = $conn->query($usql);
@@ -243,13 +282,13 @@ $usql = "UPDATE realestate SET baths =4 WHERE  (copy LIKE '%4 bath%' OR copy lik
 $usql = "UPDATE realestate SET baths =5 WHERE  (copy LIKE '%5 bath%' OR copy like '%5 bathroom%' or copy LIKE '%5BA%' OR copy LIKE '%5 BA%' OR copy LIKE '%five bath%')    and DATE(`ts`) = CURDATE()"; $uresult = $conn->query($usql);
 
 #Update Real Estate Pricing
-$usql = "update realestate set price = mid(copy,LOCATE('$',copy)+1,locate('/',SUBSTRING(copy,LOCATE('$',copy)+2)))
+/*$usql = "update realestate set price = mid(copy,LOCATE('$',copy)+1,locate('/',SUBSTRING(copy,LOCATE('$',copy)+2)))
 Where (price = 0 or price is null) and DATE(`ts`) = CURDATE()"; $uresult = $conn->query($usql);
 $usql = "update realestate set price = mid(copy,LOCATE('$',copy)+1,locate(' ',SUBSTRING(copy,LOCATE('$',copy)+2)))
 Where (price = 0 or price is null) and DATE(`ts`) = CURDATE()"; $uresult = $conn->query($usql);
 $usql = "update realestate set price = mid(copy,LOCATE('$',copy)+1,locate('.',SUBSTRING(copy,LOCATE('$',copy)+2)))
 Where (price = 0 or price is null) and DATE(`ts`) = CURDATE()"; $uresult = $conn->query($usql);
-$usql = "update realestate set price = NULL where price=0"; $uresult = $conn->query($usql);
+$usql = "update realestate set price = NULL where price=0"; $uresult = $conn->query($usql);  */
 
 #<<<<<<<<<<<<<<<<<<<<<<< END OF REAL ESTATE  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
@@ -259,7 +298,6 @@ $usql = "update realestate set price = NULL where price=0"; $uresult = $conn->qu
 $usql ="INSERT INTO classifieds (adnumber,classification,copy,image,contactphone,contacturl,contactemail,copy2,city,wpcategoryslug,customer,salesperson)  SELECT adnumber,classification,copy,image,contactphone,contacturl,contactemail,copy2,city,wpcategoryslug,customer,salesperson FROM visionDataDump where classification < 899 and not adnumber in (Select adnumber from classifieds)";
 $uresult = $conn->query($usql);
 $usql = "update classifieds set property_title = left(copy2,70)";  $uresult = $conn->query($usql);
-// exit();
 $usql = "Delete from visionDataDump Where classification between 0 and 899";  $uresult = $conn->query($usql);
 
 #<<<<<<<<<<<<<<<<<<<<<<< END OF CLASSIFIEDS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
