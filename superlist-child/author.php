@@ -109,7 +109,7 @@ get_header(); ?>
             <div class="user-listings listings-row "> <?php /* zig remove items-per-row, add listings-row */ ?>
                 <?php $display = apply_filters( 'inventor_user_listings_display', 'small' ); ?>
                 <?php $paged = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1; ?>
-                <?php $user_listings_query->query_vars['posts_per_page'] = 12; ?>
+                <?php $user_listings_query->query_vars['posts_per_page'] = get_option( 'posts_per_page' ); ?>
                 <?php $user_listings_query->query_vars['paged'] = $paged; ?>
                 <?php $user_listings_query->query_vars['nopaging'] = false; ?>
 
