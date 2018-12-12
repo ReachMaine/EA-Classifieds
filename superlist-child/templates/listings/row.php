@@ -136,19 +136,19 @@
                    <dd><?php echo   $email_link; ?></dd>
                <?php endif; ?>
 
-               <?php if ( ! empty( $url ) ) : ?>
-                   <?php /* <dt><?php echo esc_attr__( 'url', 'inventor' ); ?></dt> */
+               <?php /* if ( ! empty( $url ) ) :
+                  // <dt><?php echo esc_attr__( 'url', 'inventor' ); ?></dt>
                    $icon = '<i class="fa fa-external-link" aria-hidden="true"></i>';
                    echo '<dt class="listing-row-properties-icon">'.$icon.'</dt>'; ?>
                    <?php $url_link = '<a  data-category="Lead Gen" data-comm="Website Clicks" data-customer="'.$customer.'" data-adnumber="'.$adnumber.'" target="_blank" href="'.$url.'">View Our Website</a>';?>
                    <dd><?php echo   $url_link; ?></dd>
-               <?php endif; ?>
+               <?php endif;*/ ?>
 
                <?php if ( ! empty( $website ) ) : ?>
                    <?php /* <dt><?php echo esc_attr__( 'website', 'inventor' ); ?></dt> */
                    $icon = '<i class="fa fa-external-link" aria-hidden="true"></i>';
                    echo '<dt class="listing-row-properties-icon">'.$icon.'</dt>'; ?>
-                   <?php $url_link = '<a  data-category="Lead Gen" data-comm="Website Clicks" data-customer="'.$customer.'" data-adnumber="'.$adnumber.'" target="_blank" href="'.$url.'">View Our Website</a>';?>
+                   <?php $url_link = '<a  data-category="Lead Gen" data-comm="Website Clicks" data-customer="'.$customer.'" data-adnumber="'.$adnumber.'" target="_blank" href="'.$website.'">View Our Website</a>';?>
                    <dd><?php echo   $url_link; ?></dd>
                <?php endif; ?>
 
