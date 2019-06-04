@@ -31,7 +31,7 @@
            case 'classifieds':
            case 'rentals':
            //case 'realestate':
-           //case 'helpwanted': // supposedly Jobs will always have a title...
+           case 'helpwanted': // supposedly Jobs will always have a title...not any more
              $show_title = false;
              break;
            default:
