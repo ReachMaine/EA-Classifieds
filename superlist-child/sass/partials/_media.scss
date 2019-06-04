@@ -52,6 +52,9 @@
 			justify-content: space-around;
 			float: initial;
 		}
+		.widget-fixed-tablet {
+			position: fixed;
+		}
 }
 @media only screen and (min-width:600) {
 

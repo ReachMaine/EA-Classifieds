@@ -614,7 +614,10 @@ footer.footer {
   #menu-ea-main-menu {
     display: flex !important;
     justify-content: space-around;
-    float: initial; } }
+    float: initial; }
+
+  .widget-fixed-tablet {
+    position: fixed; } }
 @media only screen and (max-width: 600px) {
   .nav-links a:not(.prev):not(.next), .nav-links span.dots {
     display: none; }
