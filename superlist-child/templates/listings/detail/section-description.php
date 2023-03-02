@@ -27,5 +27,5 @@ global $post; ?>
 		</div>
 	</div><!-- /.listing-detail-section -->
 
-<?php// endif; ?>
+<?php // endif; ?>
 </div><!-- end row 1 -->

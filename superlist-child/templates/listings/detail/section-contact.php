@@ -56,7 +56,7 @@ if (  apply_filters( 'inventor_metabox_allowed', true, 'contact', $authorID ) /*
            $website_display = parse_url($website, PHP_URL_HOST);
          }
     }  ?>
-    <?php// if ( ! empty( $email ) || ! empty( $website ) || ! empty( $phone ) || ! empty( $person ) || ! empty( $address ) ) {  ?>
+    <?php // if ( ! empty( $email ) || ! empty( $website ) || ! empty( $phone ) || ! empty( $person ) || ! empty( $address ) ) {  ?>
         <div class="listing-detail-section  col-md-4" id="listing-detail-section-contact">
           <?php if ( ($posttype == 'realestate') && (get_post_meta(get_the_id(), INVENTOR_LISTING_PREFIX.'hide_author_info', true) != 'on') ) {
               //echo '<div class="listing-detail-section" id="listing-detail-section-author"  > ';
